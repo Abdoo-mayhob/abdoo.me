@@ -1,0 +1,484 @@
+/*
+Theme Name: Abdoo
+Theme URI: https://github.com/Abdoo-mayhob/abdoo.me
+Author: Abdullatif Al-Mayhob
+Author URI: https://abdoo.me
+Description: TODO
+Requires at least: 5.3
+Tested up to: 6.0
+Requires PHP: 5.6
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: abdoo
+Tags: personal, cv, portfolio, dark
+
+General Notes:
+--------------
+- I Didn't use rem in fonts (used px instead) cuz I don't want the design to be subjective to user settings
+- Most Images are background-image instead of <img> because it won't load when display:none (better performance)
+- I don't use any icons font, svg instead
+TODO:
+--------------
+- Stageing Env on Server and Git
+- Home page
+
+--------------
+
+sm:  576px
+md:  768px
+lg:  768px
+xl:  1200px
+xxl: 1400px 
+
+*/
+
+/* === Colors === */
+:root {
+    --clr-pri:  #FEFEFE;
+    --clr-sec:  #FEFEFE;
+    --clr-acc:  #FFC107;
+    --clr-txt:  var(--clr-pri);
+    --clr-bg:   #191923;
+    --clr-bg-md:#20202A;      /* A Bit Light BG Color*/
+    --clr-bg-lt:#252531;     /* Light BG Color*/
+    --clr-dt:   #7D8693;    /* Details Color org:a49993 */
+    --clr-fil:  #FF0000;   /* Random Filler */
+
+    --clr-search-txt: var(--clr-dt); /* Search Form Placeholders*/
+}
+
+
+/* === Fonts === */
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('/abdoo/wp-content/themes/abdoo.me/fonts/Ubuntu-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('/abdoo/wp-content/themes/abdoo.me/fonts/Ubuntu-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+:root {
+    --fs-pri: 30px;
+    --fs-sec: 25px;
+    --fs-ter: 19px;
+    --fs-qua: 15px;
+    --fs-txt: 15px;
+    --fs-acc: var(--fs-txt);
+    --fs-li:  20px;
+    --fs-dt:  13px;
+}
+@media (min-width: 768px){
+    :root {
+        --fs-pri: 33px;
+        --fs-sec: 21px;
+        --fs-ter: 19px;
+        --fs-txt: 15px;
+        --fs-acc: var(--fs-txt);
+        --fs-li:  20px;
+        --fs-dt:  11px;
+    }
+}
+/* === Globals === */
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--clr-bg);
+
+    /* Global Defaults */
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: normal;
+    font-size: var(--fs-txt);
+    line-height: 1.2;
+    color: var(--clr-txt);
+}
+h1, .h1, h2, h3, h4, h5, h6{
+    font-weight: normal;
+    padding: 0;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+h1, .h1 {
+    color: var(--clr-pri);
+    font-size: var(--fs-pri);
+    font-weight: 500;
+}
+h2, .h2 {
+    color: var(--clr-sec);
+    font-size: var(--fs-sec);
+}
+h3 {
+    color: var(--clr-sec);
+    font-size: var(--fs-ter);
+}
+h4 {
+    color: var(--clr-sec);
+    font-size: var(--fs-qua);
+}
+a {
+    color: var(--clr-acc);
+    font-size: var(--fs-acc);
+    text-decoration: none;
+}
+p{
+    line-height: 1.8em;
+    color: var(--clr-txt);
+}
+b, strong {
+    font-weight: bolder; 
+}
+li > a {
+    color: var(--clr-txt);
+    font-size: var(--fs-li);
+}
+button {
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--clr-acc);
+    color: var(--clr-txt);
+    font-size: var(--fs-txt);
+    cursor: pointer;
+}
+pre {
+    padding: 30px;
+    background-color: var(--clr-bg-lt);
+    border: 1px solid var(--clr-acc);
+    border-radius: 10px;
+}
+figure{
+    max-width: 100%;
+}
+img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+svg{
+    fill: white;
+    width: 20px;
+    height: 20px;
+}
+*[style*="background-image"] {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* === 404 === */
+.error404 main {
+    width: 100vw;
+    height: 100vh;
+}
+.error404 main > .content {
+    width: max-content;
+    text-align: center;
+    position: absolute;
+    left: 50vw;
+    transform: translatex(-50%);
+    margin-top: 10vh;
+}
+.error404 main > .latest-articles {
+    text-align: center;
+    position: absolute;
+    left: 50vw;
+    transform: translatex(-50%);
+    margin-top: 30vh;
+}
+
+
+/* === Home === */
+.main-container{
+    max-width: 1444px;
+}
+aside {
+}
+aside h3 {
+    margin-bottom: 1.2rem;
+}
+img.profile-pic{
+    border-radius: 50%;
+    width: 120px;
+}
+aside .head{
+    background-color: var(--clr-bg-lt);
+    padding: 20px;
+    text-align: center;
+}
+.job{
+    font-size: var(--fs-txt);
+    color: var(--clr-dt);
+}
+aside .body{
+    background-color: var(--clr-bg-md);
+    padding: 30px;
+}
+aside .info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+aside .languages{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+aside .languages > * > *{
+    margin-bottom: 10px;
+}
+aside .download-cv-wrap{
+    text-align: center;
+    padding: 20px;
+}
+aside .download-cv{
+    border-radius: 45px;
+    border: 2px solid var(--clr-acc);
+    background-color: var(--clr-bg);
+    padding: 12px 24px;
+}
+aside .download-cv h4{
+    display: inline;
+}
+aside .download-cv svg{
+    width: 18px;
+    height: 17px;
+}
+aside .social-links {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 25px;
+}
+aside .social-links a{
+    background-color: var(--clr-bg);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+
+}
+aside .social-links svg {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-52%, -50%);
+}
+main {
+    padding: 60px !important;
+    padding-top: 105px !important;
+}
+.code-bg{
+    background-size: cover;
+    position: relative;
+}
+.code-bg-wrap{
+    position: relative;
+}
+.code-bg::before{
+    background-color: var( --clr-bg-lt );
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0.5;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+.hay-there{
+    padding: 60px 0px 60px 60px;
+}
+.row > *{
+    position: relative;
+    z-index: 1;
+}
+.i-develop-wrap{
+    margin-top: 20px;
+}
+.pre-typing-effect{
+    color: var(--clr-acc);
+}
+.abdoo-full{
+    margin-top: -95px;
+    padding: 60px 60px 60px 0px;
+}
+
+
+/* Could've used bootstrap,
+    but cleaner this way */
+.center-vertically{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* === Progress Bars === */
+@property --progress-value {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+}
+  
+@keyframes circular_progress {
+    to { --progress-value: 75; }
+}
+
+.circular-progress-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: 
+    radial-gradient(closest-side, var(--clr-bg-md) 79%, transparent 80% 100%),
+    conic-gradient(var(--clr-acc) calc(var(--progress-value) * 1%),var(--clr-bg) 0);
+    animation: circular_progress 2s 1 forwards;
+    transform: scale(-1, 1);
+}
+
+.circular-progress-bar::before {
+    counter-reset: percentage var(--progress-value);
+    content: counter(percentage) '%';
+    animation: circular_progress 2s 1 forwards;
+    font-size: 11px;
+    color: var(--clr-dt);
+    transform: scale(-1, 1);
+}
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    margin-top: 10px;
+    background-color: var(--clr-bg);
+    /* border: 1px solid #565656; */
+    border-radius: 1px;
+    /* box-shadow: 0 0 10px rgb(245, 159, 0); */
+}
+.percentage {
+    display: block;
+    height: 100%;
+    background-color: var(--clr-acc);
+    border-radius: 1px;
+    animation: progress 1500ms ease-in 1;
+}
+@keyframes progress {
+    from {
+        width: 0;
+    }
+}
+
+/* Assigning width of each languages*/
+.WordPress {
+    width: 85%;
+}
+/* === SideBar === */
+aside {
+    /*text-align: center;*/
+}
+.seperator{
+    border-bottom: 1px solid var(--clr-dt);
+    margin-block: 1rem;
+}
+/* === Loop === */
+.loop *[style*="background-image"]{
+    max-width: 250px;
+    background-size: cover;
+    background-position: initial;
+    margin-inline: auto;
+
+}
+.loop-vert{
+    text-align: center;
+    display: block;
+} 
+.loop-vert-excerpt{
+    max-width: 330px;
+} 
+.loop-vert-excerpt h3{
+    color: var(--clr-pri);
+} 
+.loop-vert-excerpt *[style*="background-image"]{
+    max-width: 330px;
+} 
+
+.excerpt {
+    font-size: var(--fs-dt);
+}
+.advanced-line-clamp {
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2;
+   -webkit-box-orient: vertical;
+}
+.read-more-button{
+    color: var(--clr-acc);
+}
+
+/* === Single Post === */
+#breadcrumbs,
+#breadcrumbs a{
+    color: var(--clr-dt);
+}
+#breadcrumbs{
+    margin: 16px 0;
+}
+
+/* === Archive === */
+
+
+/* === Header === */
+/* === Footer === */
+footer{
+    background-color: var(--clr-bg-lt);
+    color: var(--clr-pri);
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    margin-block: 30px;
+}
+/* === PlaceHolders === */
+
+::placeholder{
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    font-size: var(--fs-txt) !important;
+    color: var(--clr-search-txt) !important;
+}
+::-ms-input-placeholder{
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    font-size: var(--fs-txt) !important;
+    color: var(--clr-search-txt) !important;
+}
+::-webkit-input-placeholder{
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    font-size: var(--fs-txt) !important;
+    color: var(--clr-search-txt) !important;
+}
+::-moz-placeholder{
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    font-size: var(--fs-txt) !important;
+    color: var(--clr-search-txt) !important;
+}
+::-ms-placeholder{
+    font-family: inherit !important;
+    font-weight: inherit !important;
+    font-size: var(--fs-txt) !important;
+    color: var(--clr-search-txt) !important;
+}
