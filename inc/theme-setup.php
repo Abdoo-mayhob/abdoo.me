@@ -6,11 +6,105 @@
  * in addition to wp core optimization
  */
 
+
+ 
+// --------------------------------------------------------------------------------------
+// Constants
+
+define('TESTIMONIALS_AUTHOR_JOB_META_KEY', 'testimonials-author-job');
+
+
+// Customizer API Setup
+
+add_action( 'customize_register', 'meissa_theme_customizer' );
+function meissa_theme_customizer( $wp_customize ) {
+	$wp_customize->add_panel( 'meissa_theme_setup_panel', [
+        'title'      => __( 'Meissa Theme Options', 'mytheme' ),
+        'priority'   => 30,
+    ] );
+
+	// Footer Logo Section
+    $wp_customize->add_section( 'meissa_footer_logo_section' , [
+        'title'      => __( 'Footer Logo', 'meissa' ),
+        'priority'   => 30,
+		'panel'      => 'meissa_theme_setup_panel',
+    ] );
+
+    $wp_customize->add_setting( 'meissa_footer_logo' );
+    $wp_customize->add_setting( 'meissa_footer_decor_image' );
+
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'meissa_footer_logo', [
+        'label'    => __( 'Footer Logo', 'meissa' ),
+        'section'  => 'meissa_footer_logo_section',
+        'settings' => 'meissa_footer_logo',
+    ] ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'meissa_footer_decor_image', [
+        'label'    => __( 'Footer Decore Image', 'meissa' ),
+        'section'  => 'meissa_footer_logo_section',
+        'settings' => 'meissa_footer_decor_image',
+    ] ) );
+
+
+	// Social Links Section
+	$wp_customize->add_section( 'meissa_social_links_section' , [
+        'title'      => __( 'Social Media Links', 'meissa' ),
+        'priority'   => 20,
+        'panel'      => 'meissa_theme_setup_panel',
+    ] );
+
+    $wp_customize->add_setting( 'meissa_facebook_link' );
+    $wp_customize->add_setting( 'meissa_instagram_link' );
+
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'meissa_facebook_link', [
+        'label'       => __( 'Facebook Link', 'meissa' ),
+        'section'     => 'meissa_social_links_section',
+        'settings'    => 'meissa_facebook_link',
+        'type'        => 'url',
+    ] ) );
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'meissa_instagram_link', [
+        'label'       => __( 'Instagram Link', 'meissa' ),
+        'section'     => 'meissa_social_links_section',
+        'settings'    => 'meissa_instagram_link',
+        'type'       => 'url',
+    ] ) );
+
+
+    // Scripts Section
+	$wp_customize->add_section( 'meissa_scripts_section' , [
+        'title'      => __( 'Inline Header & Footer Scripts', 'meissa' ),
+        'priority'   => 40,
+        'panel'      => 'meissa_theme_setup_panel',
+    ] );
+
+    $wp_customize->add_setting( 'meissa_header_scripts' );
+    $wp_customize->add_setting( 'meissa_footer_scripts' );
+
+    $wp_customize->add_control( new WP_Customize_Code_Editor_Control( $wp_customize, 'meissa_header_scripts', [
+        'label' => 'Header Scripts',
+        'section' => 'meissa_scripts_section',
+        'settings' => 'meissa_header_scripts',
+        'code_type' => 'text/html',
+    ] ) );
+
+    $wp_customize->add_control( new WP_Customize_Code_Editor_Control( $wp_customize, 'meissa_footer_scripts', [
+        'label' => 'Footer Scripts',
+        'section' => 'meissa_scripts_section',
+        'settings' => 'meissa_footer_scripts',
+        'code_type' => 'text/html',
+    ] ) );
+
+}
+
 // --------------------------------------------------------------------------------------
 // Theme Support Setup
 
 add_action( 'after_setup_theme', 'meissa_theme_setup' );
 function meissa_theme_setup() {
+
+
+    // Don't Need .mo translations anymore.
+    load_theme_textdomain('abdoo', get_template_directory() . '/languages');
 
     // ------------------------------------------------------
     // Make sure that new uploaded media are only 2 sizes: the org and thumbnail
@@ -72,6 +166,116 @@ function meissa_theme_setup() {
     // Menus Setup
     register_nav_menu('header-menu', 'Header Menu' );
     register_nav_menu('footer-menu', 'Footer Menu' );
+
+    // ------------------------------------------------------
+    // Portfolio Post Type
+	register_post_type( "portfolio", [
+		"label" =>  "Portfolio",
+		"description" => "Portfolio",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"rest_namespace" => "wp/v2",
+		"has_archive" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"delete_with_user" => false,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => true,
+		"can_export" => true,
+		"rewrite" => [ "slug" => "portfolio", "with_front" => true ],
+		"query_var" => true,
+		"menu_position" => 4,
+		"menu_icon" => "dashicons-schedule",
+		"supports" => [ "title", "editor", "thumbnail", "excerpt", "custom-fields" ],
+		"show_in_graphql" => true,
+	]);
+
+
+    // ------------------------------------------------------
+    // Testimonials Post Type
+	register_post_type( "testimonials", [
+		"label" =>  "Testimonials",
+		"description" => "testimonials",
+		"public" => true,
+		"publicly_queryable" => true,
+		"show_ui" => true,
+		"show_in_rest" => true,
+		"rest_base" => "",
+		"rest_controller_class" => "WP_REST_Posts_Controller",
+		"rest_namespace" => "wp/v2",
+		"has_archive" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"delete_with_user" => false,
+		"exclude_from_search" => false,
+		"capability_type" => "post",
+		"map_meta_cap" => true,
+		"hierarchical" => true,
+		"can_export" => true,
+		"rewrite" => [ "slug" => "testimonials", "with_front" => true ],
+		"query_var" => true,
+		"menu_position" => 4,
+		"menu_icon" => "dashicons-format-quote",
+		"supports" => [ "title", "editor", "thumbnail", "custom-fields" ],
+		"show_in_graphql" => true,
+	]);
+
+    // ------------------------------------------------------
+    // Portfolio Post Type 'Tech' taxonomy
+    register_taxonomy( "tech", "portfolio", [
+		"label" =>  "Tech",
+		"public" => true,
+		"publicly_queryable" => true,
+		"hierarchical" => true,
+		"show_ui" => true,
+		"show_in_menu" => true,
+		"show_in_nav_menus" => true,
+		"query_var" => true,
+		"rewrite" => [ 'slug' => 'tech', 'with_front' => true, ],
+		"show_admin_column" => true,
+		"show_in_rest" => true,
+		"show_tagcloud" => false,
+		"rest_base" => "tech",
+		"rest_controller_class" => "WP_REST_Terms_Controller",
+		"rest_namespace" => "wp/v2",
+		"show_in_quick_edit" => true,
+		"sort" => false,
+		"show_in_graphql" => false,
+	]);
+}
+
+// ------------------------------------------------------------------------------------------------
+// Testimonials Job Meta Box
+add_action("add_meta_boxes", "abdoo_testimonials_add_post_meta_box");
+function abdoo_testimonials_add_post_meta_box(){
+    add_meta_box("testimonials-author-job", "Author Job Title", "abdoo_testimonials_render_post_meta_box", "testimonials", "normal", "high", null);
+}
+function abdoo_testimonials_render_post_meta_box( $post ){
+    $job = get_post_meta( $post->ID, TESTIMONIALS_AUTHOR_JOB_META_KEY, true );
+    ?>
+        <label>ex: Web Developer, SEO Expert... etc<br>
+            <input style="width: 50%;" name="testimonials-author-job" type="text" value="<?= $job; ?>"/>
+        </label>
+    <?php
+}
+add_action("save_post", "abdoo_testimonials_save_post_meta", 10, 3);
+function abdoo_testimonials_save_post_meta( $postID, $post, $update ){
+
+    if( defined("DOING_AUTOSAVE") && DOING_AUTOSAVE ){
+        return $postID;
+    }
+
+    $job = '';
+    if( isset( $_POST['testimonials-author-job'] ) ){
+        $job = $_POST['testimonials-author-job'];
+    }
+    update_post_meta( $postID, TESTIMONIALS_AUTHOR_JOB_META_KEY, $job );
 }
 
 
@@ -252,90 +456,6 @@ add_action('init', function () {
 
 
 // --------------------------------------------------------------------------------------
-// Customizer API Setup
-
-add_action( 'customize_register', 'meissa_theme_customizer' );
-function meissa_theme_customizer( $wp_customize ) {
-	$wp_customize->add_panel( 'meissa_theme_setup_panel', [
-        'title'      => __( 'Meissa Theme Options', 'mytheme' ),
-        'priority'   => 30,
-    ] );
-
-	// Footer Logo Section
-    $wp_customize->add_section( 'meissa_footer_logo_section' , [
-        'title'      => __( 'Footer Logo', 'meissa' ),
-        'priority'   => 30,
-		'panel'      => 'meissa_theme_setup_panel',
-    ] );
-
-    $wp_customize->add_setting( 'meissa_footer_logo' );
-    $wp_customize->add_setting( 'meissa_footer_decor_image' );
-
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'meissa_footer_logo', [
-        'label'    => __( 'Footer Logo', 'meissa' ),
-        'section'  => 'meissa_footer_logo_section',
-        'settings' => 'meissa_footer_logo',
-    ] ) );
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'meissa_footer_decor_image', [
-        'label'    => __( 'Footer Decore Image', 'meissa' ),
-        'section'  => 'meissa_footer_logo_section',
-        'settings' => 'meissa_footer_decor_image',
-    ] ) );
-
-
-	// Social Links Section
-	$wp_customize->add_section( 'meissa_social_links_section' , [
-        'title'      => __( 'Social Media Links', 'meissa' ),
-        'priority'   => 20,
-        'panel'      => 'meissa_theme_setup_panel',
-    ] );
-
-    $wp_customize->add_setting( 'meissa_facebook_link' );
-    $wp_customize->add_setting( 'meissa_instagram_link' );
-
-    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'meissa_facebook_link', [
-        'label'       => __( 'Facebook Link', 'meissa' ),
-        'section'     => 'meissa_social_links_section',
-        'settings'    => 'meissa_facebook_link',
-        'type'        => 'url',
-    ] ) );
-
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'meissa_instagram_link', [
-        'label'       => __( 'Instagram Link', 'meissa' ),
-        'section'     => 'meissa_social_links_section',
-        'settings'    => 'meissa_instagram_link',
-        'type'       => 'url',
-    ] ) );
-
-
-    // Scripts Section
-	$wp_customize->add_section( 'meissa_scripts_section' , [
-        'title'      => __( 'Inline Header & Footer Scripts', 'meissa' ),
-        'priority'   => 40,
-        'panel'      => 'meissa_theme_setup_panel',
-    ] );
-
-    $wp_customize->add_setting( 'meissa_header_scripts' );
-    $wp_customize->add_setting( 'meissa_footer_scripts' );
-
-    $wp_customize->add_control( new WP_Customize_Code_Editor_Control( $wp_customize, 'meissa_header_scripts', [
-        'label' => 'Header Scripts',
-        'section' => 'meissa_scripts_section',
-        'settings' => 'meissa_header_scripts',
-        'code_type' => 'text/html',
-    ] ) );
-
-    $wp_customize->add_control( new WP_Customize_Code_Editor_Control( $wp_customize, 'meissa_footer_scripts', [
-        'label' => 'Footer Scripts',
-        'section' => 'meissa_scripts_section',
-        'settings' => 'meissa_footer_scripts',
-        'code_type' => 'text/html',
-    ] ) );
-
-}
-
-
-// --------------------------------------------------------------------------------------
 // Scripts Section Excution
 
 add_action( 'wp_head', 'meissa_echo_header_scripts');
@@ -347,100 +467,3 @@ add_action( 'wp_footer', 'meissa_echo_footer_scripts');
 function meissa_echo_footer_scripts() {
     echo get_theme_mod('meissa_footer_scripts');
 }
-
-
-
-/*
-class MajarraDashboard
-{
-    const HEADER_CODE_OPTION = 'majarra_header_code';
-    const FOOTER_CODE_OPTION = 'majarra_footer_code';
-    const SOCIALS_OPTION = 'majarra_socials_links';
-
-    public static $links = [
-        'facebook' => '',
-        'twitter' => '',
-        'linkedin' => '',
-        'instagram' => '',
-        'telegram' => '',
-        'whatsapp' => ''
-    ];
-
-    function __construct()
-    {
-
-        add_option(self::HEADER_CODE_OPTION);
-        add_option(self::FOOTER_CODE_OPTION);
-        add_option(self::SOCIALS_OPTION, self::$links);
-
-        add_action('admin_menu', array($this, 'add_admin_menu'));
-        add_action('admin_enqueue_scripts', array($this, 'admin_script'));
-        add_action('wp_head', array($this, 'get_header_code'));
-        add_action('wp_footer', array($this, 'get_footer_code'));
-    }
-
-    public function admin_script($hook)
-    {
-        // CodeMirror is already a default script in wp, the theme is not tho
-        $cm_settings['codeEditor'] = wp_enqueue_code_editor([
-            'type' => 'text/javascript',
-            'codemirror' => ['theme'=> 'material'],
-        ]);
-        wp_localize_script('jquery', 'cm_settings', $cm_settings);
-        wp_enqueue_script('wp-theme-plugin-editor');
-        wp_enqueue_style('wp-codemirror');
-        wp_enqueue_style('codemirror_theme_css', get_template_directory_uri() . "/majarra-cms-theme/code-mirror/material.css");
-    }
-
-
-    public function add_admin_menu()
-    {
-        add_menu_page('majarra-cms-theme', 'Majarra Dashboard', 'edit_users', 'majarra-cms-theme', array(&$this, 'majarra_dashboard_page'));
-        add_submenu_page('majarra-cms-theme', 'Majarra Scripts', 'Majarra Scripts', 'edit_users', 'majarra-cms-theme', array(&$this, 'majarra_dashboard_page'));
-        add_submenu_page('majarra-cms-theme', 'Majarra Socials', 'Majarra Socials', 'edit_users', 'majarra-socials-page', array(&$this, 'majarra_dashboard_socials_page'));
-        add_submenu_page('majarra-cms-theme', 'Theme Update', 'Theme Update', 'edit_users', 'theme-update-page', array(&$this, 'theme_update_page'));
-    }
-
-    public function get_header_code()
-    {
-        $header_code = '<!-- Majarra Scripts [Header] --><script>' . get_option(self::HEADER_CODE_OPTION) . '</script>';
-        echo $header_code;
-    }
-
-
-    public function get_footer_code()
-    {
-        $footer_code = '<!-- Majarra Scripts [Footer] --><script>' . get_option(self::FOOTER_CODE_OPTION) . '</script>';
-        echo $footer_code;
-    }
-
-    public function majarra_dashboard_page()
-    {
-        if (isset($_POST['submit']) && $_POST['submit'] == 'Save Changes') {
-            update_option(self::HEADER_CODE_OPTION, stripslashes_from_strings_only($_POST['header_code']));
-            update_option(self::FOOTER_CODE_OPTION, stripslashes_from_strings_only($_POST['footer_code']));
-        }
-        require  __DIR__ . "/inc/scripts-page.php";
-    }
-
-
-    public function majarra_dashboard_socials_page()
-    {
-        if (isset($_POST['submit']) && $_POST['submit'] == 'Save Changes') {
-            foreach (self::$links as $key => $value) {
-                self::$links[$key] = $_POST[$key];
-            }
-            update_option(self::SOCIALS_OPTION, self::$links);
-        }
-
-        $links = get_option(self::SOCIALS_OPTION);
-        require  __DIR__ . "/inc/socials-page.php";
-    }
-
-    public function theme_update_page()
-    {
-    }
-}
-
-
-*/

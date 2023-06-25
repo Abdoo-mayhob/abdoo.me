@@ -6,13 +6,17 @@ $GLOBALS['start_ms']  = microtime(true);
 define('SITE_URL' , site_url());
 define('THEME_URI' , get_stylesheet_directory_uri());
 
+// Functions Shortended
+function abdoo_lang_switcher(){
+    if (function_exists('pll_the_languages')){
+        return pll_the_languages(['hide_current' => 1]);
+    }
+}
+
 
 require_once get_template_directory() . "/inc/theme-setup.php";
 require_once get_template_directory() . "/inc/enqueue.php";
 
-// Required Plugins
-// Note to Devs: This has almost no impact on performance
-require_once get_template_directory() . "/inc/class-tgm-plugin-activation.php";
 
 // --------------------------------------------------------------------------------------
 // Getters
@@ -32,6 +36,19 @@ function abdoo_get_breadcrumb(){
     }
 }
 
+function abdoo_get_portfolio(){
+    return new WP_Query([
+        'post_type'      => 'portfolio',
+        'posts_per_page' => '6'
+    ]);
+}
+function abdoo_get_testimonials(){
+    return new WP_Query([
+        'post_type'      => 'testimonials',
+        'posts_per_page' => '6',
+        'no_found_rows' => true, // Ignores pagination, Increases Performance
+    ]);
+}
 function abdoo_get_related_posts(){
     return new WP_Query([
         'category__in' => wp_get_post_categories(get_the_ID(),['fields'=>'ids']),
@@ -110,3 +127,5 @@ function abdoo_load_more_posts() {
 	die;
 }
 
+
+require_once get_template_directory() . "/inc/skills.php";

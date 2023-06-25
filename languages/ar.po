@@ -1,0 +1,257 @@
+# Partial Translation of abdoo Theme
+# ---------------------------------------------------------------------
+# IMPORTANT ! : While I was writing this file I got lazy and decided to use TranslatePress Plugin Instead.
+# After Examining the Plugin's performance impact, it's not bad and their UI/UX is super great.
+# So you'll find the texts translations in the DB.
+# ---------------------------------------------------------------------
+# Abdullatif Al-Mayhob, abdoo.mayhob@gmail.com, abdoo.me, 2023.
+# This file is distributed under the same license as the Theme itself.
+# Copyright (C) 2023
+msgid ""
+msgstr ""
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-24 13:17+0000\n"
+"PO-Revision-Date: 2023-06-25 13:08+0000\n"
+"Last-Translator: Abdoo\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100 >= 3 "
+"&& n%100<=10 ? 3 : n%100 >= 11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.4; wp-6.2.2\n"
+"Language-Team: Arabic"
+
+#. Name of the template
+msgid "404-Template"
+msgstr ""
+
+#. Name of the theme
+msgid "Abdoo"
+msgstr ""
+
+#. Author of the theme
+#: front-page.php:6
+msgid "Abdullatif Al-Mayhob"
+msgstr "عبد اللطيف الميهوب"
+
+#: front-page.php:25
+msgid "Arabic"
+msgstr "العربية"
+
+#: header.php:20
+msgid "Available in:"
+msgstr "متوفر في:"
+
+#: front-page.php:79
+msgid "Completed Projects​"
+msgstr "المشاريع المكتملة"
+
+#: front-page.php:166
+msgid "Contact Me"
+msgstr "تواصل معي"
+
+#: js/main.js:17
+msgid "Custom Plugins .."
+msgstr ""
+
+#: js/main.js:17
+msgid "Custom Themes .."
+msgstr ""
+
+#: front-page.php:61
+msgid "Custom Themes and Custom Plugins .."
+msgstr "قوالب و اضافات خاصة حسب الطلب ..."
+
+#: front-page.php:42
+msgid "Download CV"
+msgstr "تحميل الـCV"
+
+#: front-page.php:185
+msgid "E-Mail:"
+msgstr "البريد الإلكتروني"
+
+#: front-page.php:21
+msgid "English"
+msgstr "الإنكليزية"
+
+#: inc/skills.php:13
+msgid "Flexibility, Creativity"
+msgstr "المرونة و الإبداع"
+
+#: front-page.php:29
+msgid "French"
+msgstr "الفرنسية"
+
+#: front-page.php:85
+msgid "Happy Customer"
+msgstr "زبون راض"
+
+#: front-page.php:57
+msgid "Hay There, I'm Abdoo"
+msgstr "مرحباً, انا عبد اللطيف"
+
+#: front-page.php:91
+msgid "Honors and Awards"
+msgstr "الجوائز و الشهادات"
+
+#: inc/skills.php:11
+msgid "Html, Css & Php"
+msgstr "Html, Css & Php"
+
+#. Author URI of the theme
+msgid "https://abdoo.me"
+msgstr "https://abdoo.me"
+
+#. URI of the theme
+msgid "https://github.com/Abdoo-mayhob/abdoo.me"
+msgstr "https://github.com/Abdoo-mayhob/abdoo.me"
+
+#: front-page.php:59
+msgid "I Develop"
+msgstr "انا اطور"
+
+#: front-page.php:174
+#, fuzzy
+#| msgid ""
+#| "I like talking, meeting new people, making new friends. Let's work on a "
+#| "new project. Let's build a startup together. Let's leave the the earth "
+#| "and conquer the space. Let's eliminate all the boundaries to our dreams.\n"
+#| "                        It would be a pleasure to know you. Contact Me !"
+msgid ""
+"I like talking, meeting new people, making new friends. Let's work on a new "
+"project. Let's build a startup together. Let's leave the the earth and "
+"conquer the space. Let's eliminate all the boundaries to our dreams.\n"
+"                        It would be a pleasure to know you. Contact Me !"
+msgstr ""
+"\n"
+"                        أحب التحدث والتعرف على أشخاص جدد وتكوين صداقات جديدة."
+" لنعمل على مشروع جديد. دعنا نبني شركة ناشئة معًا. فلنترك الأرض ونحتل الفضاء. "
+"و لنتخلص من كل الحدود لأحلامنا.\n"
+"سيكون من دواعي سروري أن أتعرف عليك. تواصل معي!                    "
+
+#: front-page.php:17
+msgid "Languages:"
+msgstr "اللغات:"
+
+#: inc/skills.php:12
+msgid "Leadership"
+msgstr "القيادة"
+
+#: front-page.php:57
+msgid "Let's Make Wonders Together!"
+msgstr "فلنقم بالمستحيل معاً !"
+
+#: front-page.php:172
+msgid "Let's Talk About Everything !"
+msgstr "فلنتحدث عن كل شيء!"
+
+#: front-page.php:148
+msgid "Live Websites I Worked On:"
+msgstr "مواقع عملت فيها:"
+
+#: front-page.php:162
+msgid "Load More"
+msgstr "تحميل المزيد"
+
+#. Name of the template
+msgid "Most-Read-Template"
+msgstr ""
+
+#: front-page.php:106
+msgid ""
+"Optimizing your site to last byte and Setting up the latest Tech and Speed "
+"Hacks while maintaining Stability and Simplicity. Boosting page load time "
+"and Site Search engines Ranking."
+msgstr ""
+"تحسين اداء موقعك حتى آخر بايت, إعداد أحدث التقنيات والحيل في زيادة سرعة "
+"الموقع وتحسين السيو الخاص به مع الحفاظ على الاستقرار والبساطة. تعزيز وقت "
+"تحميل الصفحة ورفع تصنيف محركات البحث لموقعك."
+
+#: front-page.php:14 front-page.php:179
+msgid "Phone:"
+msgstr "هاتف:"
+
+#: inc/skills.php:14
+msgid "Porblem Solving"
+msgstr "حل المشاكل خارج الصندوق"
+
+#: front-page.php:147
+msgid "Portfolio"
+msgstr "معرض الأعمال"
+
+#: front-page.php:111
+msgid ""
+"Professional Responsive sites built with the newest and highest standards "
+"ensuring the best SEO results and excellent performance."
+msgstr ""
+"بناء مواقع احترافية متوافقة مع جميع احجام الشاشات بأحدث وأعلى المعايير لضمان "
+"أفضل نتائج السيو والأداء ممتاز."
+
+#: front-page.php:101
+msgid ""
+"Request your own design and functionality to server your business needs. "
+"Ensuring high reliability, best performance and latest code standards and "
+"best practices."
+msgstr ""
+"اطلب تصميمك و الميزات الخاصة بك لخدمة احتياجات عملك. ضمان الاعتمادية العالية "
+"وأفضل أداء وأحدث معايير جودة الكود.\n"
+"\n"
+
+#: front-page.php:11
+msgid "Residence:"
+msgstr "الإقامة:"
+
+#. Name of the template
+msgid "Search-Template"
+msgstr ""
+
+#: front-page.php:96
+msgid "Services:"
+msgstr "الخدمات:"
+
+#: front-page.php:11
+msgid "Syria, Damascuse"
+msgstr "سوريا, دمشق"
+
+#: front-page.php:105
+msgid "Technical SEO And Performance Optimization"
+msgstr "تحسين محركات البحث و الاداء"
+
+#: front-page.php:191
+msgid "Telegram:"
+msgstr "تيليغرام:"
+
+#. Description of the theme
+msgid "TODO"
+msgstr ""
+
+#: front-page.php:34
+msgid "Top Skills:"
+msgstr "المهارات المميزة:"
+
+#: inc/skills.php:10
+msgid "Wordpress"
+msgstr "ووردبريس"
+
+#: front-page.php:110
+msgid "WordPress Development"
+msgstr "تطوير مواقع ووردبريس"
+
+#: front-page.php:7
+msgid "WordPress Php Dev"
+msgstr "مطور مواقع ويب"
+
+#: front-page.php:116
+msgid "Words About Abdoo:"
+msgstr "قالوا عن عبداللطيف:"
+
+#: front-page.php:100
+msgid "WP Themes & Plugins"
+msgstr "قوالب و إضافات ووردبريس"
+
+#: front-page.php:73
+msgid "Years of Experience"
+msgstr "سنوات الخبرة"

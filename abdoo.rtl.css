@@ -1,0 +1,35 @@
+body {
+    direction: rtl;
+    unicode-bidi: embed;
+}
+
+/* === Language Switcher === */
+.lang-switch {
+    left: 0;
+    right: unset;
+    border-inline-end: none;
+    border-radius: 0 10px 10px 0;
+    transform: unset;
+    transform: translatex(-80%);
+}
+.lang-switch .toggle-lang-switcher {
+    left: unset;
+    right: 0;
+    padding: 3px 3px 0px 3px;
+}
+
+
+aside .social-links svg {
+    left: unset;
+    right: 50%;
+    transform: translate(50%,-50%);
+}
+meter::after {
+    content: attr(value) " %";
+    position: absolute;
+    top: -100%;
+    right: unset;
+    left: 0;
+    color: var(--clr-txt);
+    font-size: var(--fs-dt);
+}

@@ -10,14 +10,17 @@ function abdoo_theme_scripts() {
 
 	// Inlining Critical Css
 	// wp_enqueue_style( 'abdoo-style-reset', get_stylesheet_directory_uri() . '/css/css-reset.css', [], '1.1');
-	// wp_enqueue_style( 'bootstrap-grid-rtl', get_stylesheet_directory_uri() . '/css/bootstrap-grid.rtl.min.css', [], '5.3.0');
 	// wp_enqueue_style( 'abdoo-style', get_stylesheet_uri(), [], null);
-	// wp_enqueue_style('dashicons');
+	// wp_enqueue_style( 'keen-slider', get_stylesheet_directory_uri() . '/css/keen-slider.min.css', [], null);
+
 	$css_files_to_inline = [
-		'abdoo-style-reset' => get_template_directory() . '/css/css-reset.css',
-		'bootstrap-grid-rtl' => get_template_directory() . '/css/bootstrap-grid.rtl.min.css',
+		'abdoo-style-reset'  => get_template_directory() . '/css/css-reset.css',
 		'abdoo-style' 		 => get_template_directory() . '/style.css',
+		'keen-slider' 		 => get_template_directory() . '/css/keen-slider.min.css',
 	];
+	
+	if (get_locale() == 'ar') 
+		$css_files_to_inline['abdoo-style-rtl'] = get_template_directory() . '/abdoo.rtl.css';
 
 	foreach($css_files_to_inline as $handle => $path){
 		abdoo_inline_css_file($path, $handle);
@@ -26,9 +29,12 @@ function abdoo_theme_scripts() {
 	// wp_enqueue_style( 'abdoo-font-tajawal', "https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500&display=swap", [], null);
 
 
-	// This will also include jquery (without jquery migrate) 
+	// No jQuery Used in this Project
     wp_enqueue_script('typed-js', get_stylesheet_directory_uri() . '/js/typed.js', [], '1.0');
-    wp_enqueue_script('abdoo-js', get_stylesheet_directory_uri() . '/js/main.js', [], '1.0');
+    wp_enqueue_script('keen-slider-js', get_stylesheet_directory_uri() . '/js/keen-slider.js', []);
+    wp_enqueue_script('easypiechart-js', get_stylesheet_directory_uri() . '/js/easypiechart.min.js', []);
+    wp_enqueue_script('abdoo-js', get_stylesheet_directory_uri() . '/js/main.js', [], '1.5');
+
 
 	//
 	if(defined('WP_DEBUG') && true === WP_DEBUG){ 

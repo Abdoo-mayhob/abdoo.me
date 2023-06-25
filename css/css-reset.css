@@ -20,8 +20,7 @@ time, mark, audio, video, input,button {
 	vertical-align: baseline;
 
 	/* To avoid CLS:*/
-	font-family: 'Ubuntu', sans-serif; 
-	--fs-li: 21px;
+	font-family: 'Poppins', sans-serif; 
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 

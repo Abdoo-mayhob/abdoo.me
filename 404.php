@@ -14,7 +14,7 @@ get_header()
             <h2>أو تصفح آخر مقالاتنا</h2>
         </div>
         <div class="row">
-        <? $latest_posts = meissa_get_latest_posts(); ?>
+        <? $latest_posts = abdoo_get_latest_posts(); ?>
         <? while (  $latest_posts->have_posts() ):  $latest_posts->the_post();?>
             <article class="col-lg-2 col-md-4">
                 <? get_template_part('template-parts/loop','vert') ?>
