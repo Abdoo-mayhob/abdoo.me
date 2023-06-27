@@ -1,6 +1,11 @@
 <? get_header() ?>
 <div class="main-container">
     <aside>
+        <!-- div class="aside-toggler-wrap">
+            <button role="button" type="button" class="aside-toggler">
+                <div>>></div>
+            </button>
+        </div -->
         <div class="head">
             <img class="profile-pic" src="<?=THEME_URI?>/abdoo-assets/Abdoo-Pic.jpg" alt="Abdullatif Al-Mayhob">
             <h1 class="name h2"><?=__('Abdullatif Al-Mayhob','abdoo')?></h1>
@@ -160,7 +165,7 @@
                         <?php the_post_thumbnail('medium_large'); ?>
                         <div class="portfolio-item-info">
                             <h3><?php the_title() ?></h3>
-                            <span class="tags"><?= get_the_term_list(get_the_ID(),'tech','',', ','abdoo')?></span>
+                            <span class="tags"><?= get_the_term_list(get_the_ID(),'tech','',', ')?></span>
                         </div>
                     </div>
                 <?php endwhile ?>

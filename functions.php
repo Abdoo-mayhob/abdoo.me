@@ -126,6 +126,3 @@ function abdoo_load_more_posts() {
 	endwhile ;
 	die;
 }
-
-
-require_once get_template_directory() . "/inc/skills.php";

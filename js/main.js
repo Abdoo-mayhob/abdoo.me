@@ -72,11 +72,47 @@ function increase_num_counter(element){
 }
 
 // testimonials Slider
-var slider = new KeenSlider("#testimonials-slider", {
+var testimonials_slider = new KeenSlider("#testimonials-slider", {
     slides: {
         perView: 2,
         spacing: 10,
     },
 })
 
+/* =============== Reponsive =============== */
+// Create a condition that targets viewports at less than 768px wide
+const mediaQuery = window.matchMedia('(max-width: 768px)')
 
+function handleTabletChange(e) {
+
+  // The Default
+  testimonials_slider.options.slides.perView = 2;
+  testimonials_slider.update();
+  // Check if the media query is true
+  if (e.matches) {
+    // Then log the following message to the console
+    main_js_for_mobile();
+  }
+
+}
+
+// Register event listener
+mediaQuery.addListener(handleTabletChange)
+
+// Initial check
+handleTabletChange(mediaQuery);
+
+function main_js_for_mobile(){
+    console.log('Mobile View Activated !');
+    testimonials_slider.options.slides.perView = 1;
+    testimonials_slider.update();
+}
+
+aside = document.querySelector('aside');
+toggle_aside_button = document.querySelector('.aside-toggler');
+toggle_aside_button.addEventListener('click', toggle_aside);
+
+function toggle_aside(){
+    console.log('click');
+    aside.dataset.on= (aside.dataset.on === 'true') ? 'false' : 'true';
+}
