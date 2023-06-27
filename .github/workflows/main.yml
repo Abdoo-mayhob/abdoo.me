@@ -1,0 +1,31 @@
+name: FTP Deploy on Push
+
+on:
+  push:
+    branches:
+      - main
+      - Stage
+
+jobs:
+  web_deploy:
+    name: Deploy to FTP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Latest Code
+        uses: actions/checkout@v2
+
+      - name: Set FTP Variables
+        run: |
+          if [[ $GITHUB_REF == 'refs/heads/main' ]]; then
+            echo "FTP_SERVERDIR=/abdoo.me/wp-content/themes/abdoo/" >> $GITHUB_ENV
+          else
+            echo "FTP_SERVERDIR=/abdoo.me/wp-content/themes/abdoo/" >> $GITHUB_ENV
+          fi
+
+      - name: Sync Files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVERNAME }}
+          username: ${{ secrets.FTP_SERVERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ env.FTP_SERVERDIR }}
