@@ -7,7 +7,7 @@ Description: TODO
 Requires at least: 5.3
 Tested up to: 6.0
 Requires PHP: 5.6
-Version: 1.0
+Version: 1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: personal, cv, portfolio, dark
@@ -22,11 +22,6 @@ General Notes:
 TODO:
 --------------
 - Don't hard code skills
-- Stageing Env on Server and Git
-- All counters -> JS
-- Remove unused CSS
-- Use flex instead of Bootstrap
-- Home page
 
 --------------
 
@@ -57,7 +52,7 @@ xxl: 1400px
 /* === Fonts === */
 @font-face {
     font-family: 'Poppins';
-    src: url('/abdoo/wp-content/themes/abdoo/fonts/Poppins-SemiBold.woff2') format('woff2');
+    src: url('/wp-content/themes/abdoo/fonts/Poppins-SemiBold.woff2') format('woff2');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -65,7 +60,7 @@ xxl: 1400px
 
 @font-face {
     font-family: 'Poppins';
-    src: url('/abdoo/wp-content/themes/abdoo/fonts/Poppins-Regular.woff2') format('woff2');
+    src: url('/wp-content/themes/abdoo/fonts/Poppins-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

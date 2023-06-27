@@ -33,7 +33,7 @@ function abdoo_theme_scripts() {
     wp_enqueue_script('typed-js', get_stylesheet_directory_uri() . '/js/typed.js', [], '1.0');
     wp_enqueue_script('keen-slider-js', get_stylesheet_directory_uri() . '/js/keen-slider.js', []);
     wp_enqueue_script('easypiechart-js', get_stylesheet_directory_uri() . '/js/easypiechart.min.js', []);
-    wp_enqueue_script('abdoo-js', get_stylesheet_directory_uri() . '/js/main.js', [], '1.6');
+    wp_enqueue_script('abdoo-js', get_stylesheet_directory_uri() . '/js/main.js', [], '1.0');
 
 
 	//
