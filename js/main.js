@@ -91,7 +91,7 @@ function handleTabletChange(e) {
   // Check if the media query is true
   if (e.matches) {
     // Then log the following message to the console
-    main_js_for_mobile();
+    main_js_for_md();
   }
 
 }
@@ -102,17 +102,16 @@ mediaQuery.addListener(handleTabletChange)
 // Initial check
 handleTabletChange(mediaQuery);
 
-function main_js_for_mobile(){
-    console.log('Mobile View Activated !');
+function main_js_for_md(){
+    console.log('Md (max-width: 768px) View Activated !');
     testimonials_slider.options.slides.perView = 1;
     testimonials_slider.update();
 }
 
 aside = document.querySelector('aside');
-toggle_aside_button = document.querySelector('.aside-toggler');
-toggle_aside_button.addEventListener('click', toggle_aside);
+// toggle_aside_button = document.querySelector('.aside-toggler');
+// toggle_aside_button.addEventListener('click', toggle_aside);
 
 function toggle_aside(){
-    console.log('click');
     aside.dataset.on= (aside.dataset.on === 'true') ? 'false' : 'true';
 }

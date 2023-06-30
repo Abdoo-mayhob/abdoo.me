@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-24 13:17+0000\n"
-"PO-Revision-Date: 2023-06-25 13:08+0000\n"
+"PO-Revision-Date: 2023-06-30 20:20+0000\n"
 "Last-Translator: Abdoo\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100 >= 3 "
 "&& n%100<=10 ? 3 : n%100 >= 11 && n%100<=99 ? 4 : 5;\n"
@@ -33,71 +33,71 @@ msgid "Abdoo"
 msgstr ""
 
 #. Author of the theme
-#: front-page.php:6
+#: front-page.php:11
 msgid "Abdullatif Al-Mayhob"
 msgstr "عبد اللطيف الميهوب"
 
-#: front-page.php:25
+#: front-page.php:30
 msgid "Arabic"
 msgstr "العربية"
 
-#: header.php:20
+#: header.php:28
 msgid "Available in:"
 msgstr "متوفر في:"
 
-#: front-page.php:79
+#: front-page.php:91
 msgid "Completed Projects​"
 msgstr "المشاريع المكتملة"
 
-#: front-page.php:166
+#: front-page.php:178
 msgid "Contact Me"
 msgstr "تواصل معي"
 
-#: js/main.js:17
+#: js/main.js:34
 msgid "Custom Plugins .."
 msgstr ""
 
-#: js/main.js:17
+#: js/main.js:34
 msgid "Custom Themes .."
 msgstr ""
 
-#: front-page.php:61
+#: front-page.php:73
 msgid "Custom Themes and Custom Plugins .."
 msgstr "قوالب و اضافات خاصة حسب الطلب ..."
 
-#: front-page.php:42
+#: front-page.php:54
 msgid "Download CV"
 msgstr "تحميل الـCV"
 
-#: front-page.php:185
+#: front-page.php:197
 msgid "E-Mail:"
 msgstr "البريد الإلكتروني"
 
-#: front-page.php:21
+#: front-page.php:26
 msgid "English"
 msgstr "الإنكليزية"
 
-#: inc/skills.php:13
+#: front-page.php:45
 msgid "Flexibility, Creativity"
 msgstr "المرونة و الإبداع"
 
-#: front-page.php:29
+#: front-page.php:34
 msgid "French"
 msgstr "الفرنسية"
 
-#: front-page.php:85
+#: front-page.php:97
 msgid "Happy Customer"
 msgstr "زبون راض"
 
-#: front-page.php:57
+#: front-page.php:69
 msgid "Hay There, I'm Abdoo"
 msgstr "مرحباً, انا عبد اللطيف"
 
-#: front-page.php:91
+#: front-page.php:103
 msgid "Honors and Awards"
 msgstr "الجوائز و الشهادات"
 
-#: inc/skills.php:11
+#: front-page.php:43
 msgid "Html, Css & Php"
 msgstr "Html, Css & Php"
 
@@ -109,11 +109,11 @@ msgstr "https://abdoo.me"
 msgid "https://github.com/Abdoo-mayhob/abdoo.me"
 msgstr "https://github.com/Abdoo-mayhob/abdoo.me"
 
-#: front-page.php:59
+#: front-page.php:71
 msgid "I Develop"
 msgstr "انا اطور"
 
-#: front-page.php:174
+#: front-page.php:186
 #, fuzzy
 #| msgid ""
 #| "I like talking, meeting new people, making new friends. Let's work on a "
@@ -132,27 +132,29 @@ msgstr ""
 "و لنتخلص من كل الحدود لأحلامنا.\n"
 "سيكون من دواعي سروري أن أتعرف عليك. تواصل معي!                    "
 
-#: front-page.php:17
-msgid "Languages:"
-msgstr "اللغات:"
+#: front-page.php:22
+#| msgid "Languages:"
+msgid "Languages"
+msgstr "اللغات"
 
-#: inc/skills.php:12
+#: front-page.php:44
 msgid "Leadership"
 msgstr "القيادة"
 
-#: front-page.php:57
+#: front-page.php:69
 msgid "Let's Make Wonders Together!"
 msgstr "فلنقم بالمستحيل معاً !"
 
-#: front-page.php:172
+#: front-page.php:184
 msgid "Let's Talk About Everything !"
 msgstr "فلنتحدث عن كل شيء!"
 
-#: front-page.php:148
-msgid "Live Websites I Worked On:"
-msgstr "مواقع عملت فيها:"
+#: front-page.php:160
+#| msgid "Live Websites I Worked On:"
+msgid "Live Websites I Worked On"
+msgstr "مواقع عملت فيها"
 
-#: front-page.php:162
+#: front-page.php:174
 msgid "Load More"
 msgstr "تحميل المزيد"
 
@@ -160,7 +162,7 @@ msgstr "تحميل المزيد"
 msgid "Most-Read-Template"
 msgstr ""
 
-#: front-page.php:106
+#: front-page.php:118
 msgid ""
 "Optimizing your site to last byte and Setting up the latest Tech and Speed "
 "Hacks while maintaining Stability and Simplicity. Boosting page load time "
@@ -170,19 +172,19 @@ msgstr ""
 "الموقع وتحسين السيو الخاص به مع الحفاظ على الاستقرار والبساطة. تعزيز وقت "
 "تحميل الصفحة ورفع تصنيف محركات البحث لموقعك."
 
-#: front-page.php:14 front-page.php:179
+#: front-page.php:19 front-page.php:191
 msgid "Phone:"
-msgstr "هاتف:"
+msgstr "هاتف"
 
-#: inc/skills.php:14
+#: front-page.php:46
 msgid "Porblem Solving"
 msgstr "حل المشاكل خارج الصندوق"
 
-#: front-page.php:147
+#: front-page.php:159
 msgid "Portfolio"
 msgstr "معرض الأعمال"
 
-#: front-page.php:111
+#: front-page.php:123
 msgid ""
 "Professional Responsive sites built with the newest and highest standards "
 "ensuring the best SEO results and excellent performance."
@@ -190,7 +192,7 @@ msgstr ""
 "بناء مواقع احترافية متوافقة مع جميع احجام الشاشات بأحدث وأعلى المعايير لضمان "
 "أفضل نتائج السيو والأداء ممتاز."
 
-#: front-page.php:101
+#: front-page.php:113
 msgid ""
 "Request your own design and functionality to server your business needs. "
 "Ensuring high reliability, best performance and latest code standards and "
@@ -200,7 +202,7 @@ msgstr ""
 "وأفضل أداء وأحدث معايير جودة الكود.\n"
 "\n"
 
-#: front-page.php:11
+#: front-page.php:16
 msgid "Residence:"
 msgstr "الإقامة:"
 
@@ -208,19 +210,20 @@ msgstr "الإقامة:"
 msgid "Search-Template"
 msgstr ""
 
-#: front-page.php:96
-msgid "Services:"
-msgstr "الخدمات:"
+#: front-page.php:108
+#| msgid "Services:"
+msgid "Services"
+msgstr "الخدمات"
 
-#: front-page.php:11
+#: front-page.php:16
 msgid "Syria, Damascuse"
 msgstr "سوريا, دمشق"
 
-#: front-page.php:105
+#: front-page.php:117
 msgid "Technical SEO And Performance Optimization"
 msgstr "تحسين محركات البحث و الاداء"
 
-#: front-page.php:191
+#: front-page.php:203
 msgid "Telegram:"
 msgstr "تيليغرام:"
 
@@ -228,30 +231,32 @@ msgstr "تيليغرام:"
 msgid "TODO"
 msgstr ""
 
-#: front-page.php:34
-msgid "Top Skills:"
-msgstr "المهارات المميزة:"
+#: front-page.php:38
+#| msgid "Top Skills:"
+msgid "Top Skills"
+msgstr "المهارات المميزة"
 
-#: inc/skills.php:10
+#: front-page.php:42
 msgid "Wordpress"
 msgstr "ووردبريس"
 
-#: front-page.php:110
+#: front-page.php:122
 msgid "WordPress Development"
 msgstr "تطوير مواقع ووردبريس"
 
-#: front-page.php:7
+#: front-page.php:12
 msgid "WordPress Php Dev"
 msgstr "مطور مواقع ويب"
 
-#: front-page.php:116
-msgid "Words About Abdoo:"
-msgstr "قالوا عن عبداللطيف:"
+#: front-page.php:128
+#| msgid "Words About Abdoo:"
+msgid "Words About Abdoo"
+msgstr "قالوا عن عبداللطيف"
 
-#: front-page.php:100
+#: front-page.php:112
 msgid "WP Themes & Plugins"
 msgstr "قوالب و إضافات ووردبريس"
 
-#: front-page.php:73
+#: front-page.php:85
 msgid "Years of Experience"
 msgstr "سنوات الخبرة"

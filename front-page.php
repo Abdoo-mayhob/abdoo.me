@@ -19,7 +19,7 @@
                 <span><?=__('Phone:','abdoo')?></span><span dir="ltr">+963 945 536 907</span>
             </div>
             <div class="seperator"></div>
-            <h3><?=__('Languages:','abdoo')?></h3>
+            <h3><?=__('Languages','abdoo')?></h3>
             <div class="languages">
                 <span>
                     <div class="circular-progress-bar" data-duration="2" data-percent="90"><span>90%</span></div>
@@ -35,7 +35,7 @@
                 </span>                
             </div>
             <div class="seperator"></div>
-            <h3><?=__('Top Skills:','abdoo')?></h3>
+            <h3><?=__('Top Skills','abdoo')?></h3>
             <div class="skills">
                 <?php 
                  $skills = [
@@ -105,7 +105,7 @@
             </div>
         </div>
         <div class="services">
-            <h2><?=__('Services:','abdoo')?></h2>
+            <h2><?=__('Services','abdoo')?></h2>
             <div class="services-wrap">
                 <div class="service">
                     <?= abdoo_get_svg('code-dev','abdoo')?>
@@ -125,7 +125,7 @@
             </div>
         </div>
         <div class="testimonials">
-            <h2><?=__('Words About Abdoo:','abdoo')?></h2>
+            <h2><?=__('Words About Abdoo','abdoo')?></h2>
             <div id="testimonials-slider" class="keen-slider testimonials-wrap">
                 <?php $testimonials_items = abdoo_get_testimonials();?>
                 <?php while ( $testimonials_items->have_posts() ): $testimonials_items->the_post();  ?>
@@ -157,7 +157,7 @@
         </div>
         <div class="portfolio">
             <h2><?=__('Portfolio','abdoo')?></h2>
-            <span class="section-subtitle"><?=__('Live Websites I Worked On:','abdoo')?></span>
+            <span class="section-subtitle"><?=__('Live Websites I Worked On','abdoo')?></span>
             <div class="portfolio-wrap">
                 <?php $portfolio_items = abdoo_get_portfolio();?>
                 <?php while ( $portfolio_items->have_posts() ): $portfolio_items->the_post();  ?>

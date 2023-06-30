@@ -49,12 +49,11 @@ xxl: 1400px
 }
 
 
-/* === Fonts === */
+/* === Fonts ===*/
 @font-face {
     font-family: 'Poppins';
     src: url('/wp-content/themes/abdoo/fonts/Poppins-SemiBold.woff2') format('woff2');
-    font-weight: bold;
-    font-style: normal;
+    font-style: bold;
     font-display: swap;
 }
 
@@ -91,7 +90,6 @@ body {
     background-color: var(--clr-bg);
 
     /* Global Defaults */
-    font-family: 'Poppins', sans-serif;
     font-weight: normal;
     font-size: var(--fs-txt);
     line-height: 1.2;
@@ -101,6 +99,9 @@ body {
 	-moz-osx-font-smoothing: grayscale !important;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004) !important;
     
+}
+html[lang="en-US"] body{
+    font-family: 'Poppins', sans-serif;
 }
 h1, .h1, h2, h3, h4, h5, h6{
     font-weight: normal;
@@ -243,7 +244,7 @@ main > *{
 }
 
 .i-develop-wrap{
-    margin-top: 20px;
+    margin-block: 20px;
 }
 .pre-typing-effect{
     color: var(--clr-acc);
@@ -395,6 +396,7 @@ main > *{
 /* === Language Switcher === */
 .lang-switch {
     position: fixed;
+    z-index: 2;
     top: 75%;
     right: 0;
     background: var(--clr-bg);
@@ -553,9 +555,13 @@ footer{
     background-color: var(--clr-bg-lt);
     color: var(--clr-txt);
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    text-align: center;
     justify-content: space-between;
     padding: 30px;
     margin-block: 30px;
+
 }
 /* === PlaceHolders === */
 
@@ -599,6 +605,17 @@ footer{
         padding: 30px;
     }
     .main-container > * {
+        width: 100%;
+    }
+    .code-bg {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .hay-there {
+        width: 100%;
+        text-align: center;
+    }    
+    .abdoo-full {
         width: 100%;
     }
     /* aside {
@@ -677,5 +694,7 @@ footer{
     .contact-wrap > .contant-img {
         display: none;
     }
-
+    footer{
+        justify-content: center;
+    }
 }
