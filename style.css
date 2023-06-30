@@ -350,6 +350,11 @@ main > *{
 .portfolio-wrap .tags > a{
     font-size: var(--fs-qua);
 }
+button.load-more {
+    background: none;
+    color: var(--clr-acc);
+    width: 100%;
+}
 .contact-wrap{
     background-color: var(--clr-bg-lt);
     padding: 30px;

@@ -36,10 +36,11 @@ function abdoo_get_breadcrumb(){
     }
 }
 
-function abdoo_get_portfolio(){
+function abdoo_get_portfolio($page = 0){
     return new WP_Query([
         'post_type'      => 'portfolio',
-        'posts_per_page' => '6'
+        'posts_per_page' => '6',
+        'paged'          => $page,
     ]);
 }
 function abdoo_get_testimonials(){
@@ -105,24 +106,17 @@ function remove_wp_default_arhive_title_prefix( $title, $original_title, $prefix
 // --------------------------------------------------------------------------------------
 // Ajax
 
-add_action( 'wp_ajax_abdoo_load_more_posts_archive', 'abdoo_load_more_posts' );
-add_action( 'wp_ajax_nopriv_abdoo_load_more_posts_archive', 'abdoo_load_more_posts' );
-function abdoo_load_more_posts() {
-
-	$template_to_use = $_POST['template_to_use'];
-	$paged = $_POST['page'];
-	$org_wp_query_vars = json_decode( stripslashes( $_POST['org_wp_query_vars'] ), true );
-	$org_wp_query_vars['paged'] = $paged;
-	$more_posts = new WP_Query($org_wp_query_vars);
-
-	if($more_posts->have_posts() === false)
+add_action( 'wp_ajax_abdoo_view_portfolio', 'abdoo_view_portfolio' );
+add_action( 'wp_ajax_nopriv_abdoo_view_portfolio', 'abdoo_view_portfolio' );
+function abdoo_view_portfolio() {
+    $page = ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ? $_POST['page'] : 0;
+    $portfolio = abdoo_get_portfolio($page);
+	if($portfolio->have_posts() === false)
 		die('0');
 
-	while ( $more_posts->have_posts() ): $more_posts->the_post();?>
-		<div class="col-md-6">
-			<?php get_template_part('template-parts/loop', $template_to_use) ?>
-		</div>
+	while ( $portfolio->have_posts() ): $portfolio->the_post();?>
+			<?php get_template_part('template-parts/loop') ?>
 	<?php
-	endwhile ;
-	die;
+	endwhile;
+	if ( defined( 'DOING_AJAX' ) && DOING_AJAX )die;
 }

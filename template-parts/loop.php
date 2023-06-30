@@ -1,10 +1,7 @@
-
-<a href="<?=the_permalink()?>" class="loop row">
-    <div class="col-4" 
-        <? meissa_bg_img(meissa_post_thumb_url(),'130px')?>>
+<div class="portfolio-item">
+    <?php the_post_thumbnail('medium_large'); ?>
+    <div class="portfolio-item-info">
+        <h3><?php the_title() ?></h3>
+        <span class="tags"><?= get_the_term_list(get_the_ID(),'tech','',', ')?></span>
     </div>
-    <div class="col info">
-        <h3><?the_title()?></h3>
-        <span><?=get_the_date()?></span>
-    </div>
-</a>
+</div>

@@ -18,6 +18,7 @@ time, mark, audio, video, input,button {
 	border: 0;
 	font-size: 100%;
 	vertical-align: baseline;
+	font-family: inherit;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 

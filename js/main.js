@@ -115,3 +115,47 @@ aside = document.querySelector('aside');
 function toggle_aside(){
     aside.dataset.on= (aside.dataset.on === 'true') ? 'false' : 'true';
 }
+
+
+/* =============== Load More Ajax =============== */
+var loadmore_buttons = document.querySelectorAll('button.load-more'); 
+loadmore_buttons.forEach(element => {
+    element.addEventListener('click', load_more_posts);
+    element.dataset.page = 1 ;
+});
+
+function load_more_posts(event){
+    var button = event.target;
+    button.dataset.page = parseInt(button.dataset.page) + 1 ;
+    var data = {
+        action: 'abdoo_view_portfolio', // Todo: Make Dynamic for any post type
+        page: button.dataset.page,
+        post_type: button.dataset.posttype,
+    };
+    button.style.pointerEvents = 'none';
+    button.style.opacity = '0.5';
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', abdoo_globals.ajaxurl, true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            var response = xhr.responseText;
+            if(response == '0'){
+                button.style.display = 'none';
+                return;
+            }
+            document.querySelector(button.dataset.parentcontainer).insertAdjacentHTML('beforeend', response);
+            button.style.pointerEvents = 'initial';
+            button.style.opacity = '1';
+
+            // Trigger a custom event
+            var event = new CustomEvent('loaded_more_posts');
+            document.dispatchEvent(event);
+        }
+    };
+    var params = Object.keys(data).map(function(key) {
+        return key + '=' + data[key];
+    }).join('&');
+    xhr.send(params);
+}

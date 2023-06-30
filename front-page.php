@@ -50,20 +50,20 @@
                 <?php endforeach ?>
             </div>
             <div class="seperator"></div>
-            <div class="download-cv-wrap">
+            <section class="download-cv-wrap">
                 <a href="/resume" class="download-cv"><h4><?=__('Download CV','abdoo')?> <?= abdoo_get_svg('download','abdoo')?></h4> </a>
-            </div>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/abdoo-almayhob/"><?= abdoo_get_svg('linkedin','abdoo')?></a>
-                <a href="https://github.com/abdoo-mayhob"><?= abdoo_get_svg('github','abdoo')?></a>
-                <a href="https://codeforces.com/profile/AbDoO_"><?= abdoo_get_svg('codeforces','abdoo')?></a>
-                <a href="https://www.instagram.com/abdoo_almayhob/"><?= abdoo_get_svg('instagram','abdoo')?></a>
-                <a href="https://facebook.com/abdoo.almayhob"><?= abdoo_get_svg('facebook','abdoo')?></a>
-            </div>
+            </section>
+            <section class="social-links">
+                <a aria-label="Abdoo on Linked In" href="https://www.linkedin.com/in/abdoo-almayhob/"><?= abdoo_get_svg('linkedin','abdoo')?></a>
+                <a aria-label="Abdoo on Gihub" href="https://github.com/abdoo-mayhob"><?= abdoo_get_svg('github','abdoo')?></a>
+                <a aria-label="Abdoo on Code Forces" href="https://codeforces.com/profile/AbDoO_"><?= abdoo_get_svg('codeforces','abdoo')?></a>
+                <a aria-label="Abdoo on Instagram" href="https://www.instagram.com/abdoo_almayhob/"><?= abdoo_get_svg('instagram','abdoo')?></a>
+                <a aria-label="Abdoo on Facebook" href="https://facebook.com/abdoo.almayhob"><?= abdoo_get_svg('facebook','abdoo')?></a>
+            </section>
         </div>
     </aside>
     <main>
-        <div class="code-bg-wrap">
+        <section class="code-bg-wrap">
             <div class="code-bg" <?php abdoo_bg_img(THEME_URI.'/img/code_bg.jpg','365px','abdoo')?>>
                 <div class="hay-there">
                     <h2 class="h1"><?=__('Hay There, I\'m Abdoo','abdoo')?> <br><?=__('Let\'s Make Wonders Together!','abdoo')?></h2>
@@ -77,8 +77,8 @@
                 </div>
                 <div class="abdoo-full" <?php abdoo_bg_img(THEME_URI.'/abdoo-assets/Abdoo-full.png','460px','abdoo')?>></div>
             </div>
-        </div>
-        <div class="number-counters-wrap">
+        </section>
+        <section class="number-counters-wrap">
             <div class="number-counters">
                 <span data-duration="3" data-max="4" class="number"><noscript>4</noscript></span>
                 <span class="counters-title">
@@ -103,8 +103,8 @@
                     <?=__('Honors and Awards','abdoo')?>
                 </span>
             </div>
-        </div>
-        <div class="services">
+        </section>
+        <section class="services">
             <h2><?=__('Services','abdoo')?></h2>
             <div class="services-wrap">
                 <div class="service">
@@ -123,8 +123,8 @@
                     <p><?=__('Professional Responsive sites built with the newest and highest standards ensuring the best SEO results and excellent performance.','abdoo')?></p>
                 </div>
             </div>
-        </div>
-        <div class="testimonials">
+        </section>
+        <section class="testimonials">
             <h2><?=__('Words About Abdoo','abdoo')?></h2>
             <div id="testimonials-slider" class="keen-slider testimonials-wrap">
                 <?php $testimonials_items = abdoo_get_testimonials();?>
@@ -154,27 +154,17 @@
                     }
                 </style>
             </noscript>
-        </div>
-        <div class="portfolio">
+        </section>
+        <section class="portfolio">
             <h2><?=__('Portfolio','abdoo')?></h2>
             <span class="section-subtitle"><?=__('Live Websites I Worked On','abdoo')?></span>
             <div class="portfolio-wrap">
-                <?php $portfolio_items = abdoo_get_portfolio();?>
-                <?php while ( $portfolio_items->have_posts() ): $portfolio_items->the_post();  ?>
-                    <div class="portfolio-item">
-                        <?php the_post_thumbnail('medium_large'); ?>
-                        <div class="portfolio-item-info">
-                            <h3><?php the_title() ?></h3>
-                            <span class="tags"><?= get_the_term_list(get_the_ID(),'tech','',', ')?></span>
-                        </div>
-                    </div>
-                <?php endwhile ?>
+                <?php abdoo_view_portfolio() ?>
                 <? wp_reset_postdata() ?>
             </div>
-            <a style="display: block; text-align:center;" href=""><?=__('Load More','abdoo')?></a>
-            
-        </div>
-        <div class="contact">
+            <button class="load-more" role="button" type="button" data-posttype="portfolio" data-parentcontainer=".portfolio-wrap"><?=__('Load More','abdoo')?></button> 
+        </section>
+        <section class="contact">
             <h2><?=__('Contact Me','abdoo')?></h2>
             <div class="contact-wrap">
                 <div class="contant-img">
@@ -209,7 +199,7 @@
                 </div>
                 
             </div>
-        </div>
+        </section>
         <? get_footer() ?>
     </main>
 </div>
