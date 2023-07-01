@@ -17,8 +17,8 @@ define('PORTFOLIO_PROJECT_LINK', 'project_link');
 // --------------------------------------------------------------------------------------
 // Theme Support Setup
 
-add_action( 'after_setup_theme', 'meissa_theme_setup' );
-function meissa_theme_setup() {
+add_action( 'after_setup_theme', 'abdoo_theme_setup' );
+function abdoo_theme_setup() {
 
 
     // Don't Need .mo translations anymore.
@@ -231,8 +231,8 @@ function abdoo_portfolio_save_post_meta( $postID, $post, $update ){
 // ------------------------------------------------------------------------------------------------
 // Edit .htaccess to serve webp when possible and activate php short tags
 
-add_action('admin_init', 'meissa_edit_htaccess');
-function meissa_edit_htaccess(){
+add_action('admin_init', 'abdoo_edit_htaccess_short_tags');
+function abdoo_edit_htaccess_short_tags(){
     $lines = [];
     $lines[] = 'php_value short_open_tag 1';
     $lines[] = '
@@ -250,7 +250,19 @@ function meissa_edit_htaccess(){
 </IfModule>
 AddType image/webp .webp
     ';
-    insert_with_markers(get_home_path().".htaccess", "Meissa", $lines);
+    insert_with_markers(get_home_path().".htaccess", "abdoo", $lines);
+}
+// ------------------------------------------------------------------------------------------------
+// Edit .htaccess to serve webp when possible and activate php short tags
+
+add_action('admin_init', 'abdoo_edit_htaccess_resume_302');
+function abdoo_edit_htaccess_resume_302(){
+    $lines = [];
+    $lines[] = '
+    RewriteEngine On
+    RewriteRule ^resume$ /abdoo@abdoo.me_Resume.pdf [R=302,L]
+    ';
+    insert_with_markers(get_home_path().".htaccess", "abdoo_resume", $lines);
 }
 
 
@@ -314,8 +326,8 @@ remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
 remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
 
 
-add_action( 'wp_enqueue_scripts', 'meissa_remove_wp_bloat' );
-function meissa_remove_wp_bloat(){
+add_action( 'wp_enqueue_scripts', 'abdoo_remove_wp_bloat' );
+function abdoo_remove_wp_bloat(){
     wp_dequeue_style( 'classic-theme-styles' );
     wp_dequeue_style( 'wp-block-library' );
     wp_dequeue_style( 'wp-block-library-theme' );
@@ -326,8 +338,8 @@ function meissa_remove_wp_bloat(){
 // ------------------------------------------------------
 // Remove wp-emoji
 
-add_action( 'init', 'meissa_remove_wp_emoji' );
-function meissa_remove_wp_emoji() {
+add_action( 'init', 'abdoo_remove_wp_emoji' );
+function abdoo_remove_wp_emoji() {
  remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
  remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
  remove_action( 'wp_print_styles', 'print_emoji_styles' );
@@ -335,9 +347,9 @@ function meissa_remove_wp_emoji() {
  remove_action( 'admin_print_styles', 'print_emoji_styles' );
  remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
  remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
- add_filter( 'tiny_mce_plugins', 'meissa_disable_emojis_tinymce' );
+ add_filter( 'tiny_mce_plugins', 'abdoo_disable_emojis_tinymce' );
 }
-function meissa_disable_emojis_tinymce( $plugins ) {
+function abdoo_disable_emojis_tinymce( $plugins ) {
     if ( is_array( $plugins ) ) {
         return array_diff( $plugins, array( 'wpemoji' ) );
     } else {
