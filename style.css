@@ -706,3 +706,17 @@ footer{
         justify-content: center;
     }
 }
+
+
+/* =============== Archive =============== */ 
+body.archive{
+    background-color: var(--clr-bg-lt);
+}
+
+body.archive main {
+    width: 68%;
+    padding: 60px !important;
+    margin: 60px auto;
+    background-color: var(--clr-bg);
+    border-radius: 25px;
+}

@@ -1,4 +1,4 @@
-<? get_header() ?>
+<?php get_header() ?>
 <div class="main-container">
     <aside>
         <!-- div class="aside-toggler-wrap">
@@ -138,7 +138,7 @@
                         </em>
                     </div>
                 <?php endwhile ?>
-                <? wp_reset_postdata() ?>
+                <?php wp_reset_postdata() ?>
                 <div class="keen-slider__slide last-slide">
                     <a href="https://www.linkedin.com/in/abdoo-almayhob/details/recommendations/">View much more on my Linked-In >></a>
                 </div>
@@ -160,7 +160,7 @@
             <span class="section-subtitle"><?=__('Live Websites I Worked On','abdoo')?></span>
             <div class="portfolio-wrap">
                 <?php abdoo_view_portfolio() ?>
-                <? wp_reset_postdata() ?>
+                <?php wp_reset_postdata() ?>
             </div>
             <button class="load-more" role="button" type="button" data-posttype="portfolio" data-parentcontainer=".portfolio-wrap"><?=__('Load More','abdoo')?></button> 
         </section>
@@ -197,10 +197,10 @@
                         </a>
                     </div>
                 </div>
-                
             </div>
         </section>
-        <? get_footer() ?>
+        <?php get_template_part('template-parts/footer') ?>
     </main>
 </div>
+<?php get_footer() ?>
 

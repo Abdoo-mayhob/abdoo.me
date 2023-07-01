@@ -1,5 +1,5 @@
 <?php $pjct_link = get_post_meta( $post->ID, PORTFOLIO_PROJECT_LINK, true ) ?>
-<div class="portfolio-item">
+<article class="portfolio-item">
     <a href="<?=$pjct_link?>">
         <?php the_post_thumbnail('medium_large'); ?>
     </a>
@@ -9,4 +9,4 @@
         </a>
         <span class="tags"><?= get_the_term_list(get_the_ID(),'tech','',', ')?></span>
     </div>
-</div>
+</article>
