@@ -179,23 +179,22 @@ svg{
 
 /* === 404 === */
 .error404 main {
-    width: 100vw;
-    height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
+    padding: 0 !important;
+    width: initial;
+    overflow: hidden;
 }
 .error404 main > .content {
     width: max-content;
     text-align: center;
     position: absolute;
     left: 50vw;
-    transform: translatex(-50%);
-    margin-top: 10vh;
+    top: 50vh;
+    transform: translate(-50%, -50%);
 }
-.error404 main > .latest-articles {
-    text-align: center;
-    position: absolute;
-    left: 50vw;
-    transform: translatex(-50%);
-    margin-top: 30vh;
+.error404 main h1 {
+    font-size: var(--fs-sec);
 }
 
 

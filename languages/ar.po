@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-24 13:17+0000\n"
-"PO-Revision-Date: 2023-06-30 20:20+0000\n"
+"PO-Revision-Date: 2023-07-01 18:49+0000\n"
 "Last-Translator: Abdoo\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100 >= 3 "
 "&& n%100<=10 ? 3 : n%100 >= 11 && n%100<=99 ? 4 : 5;\n"
@@ -49,7 +49,7 @@ msgstr "متوفر في:"
 msgid "Completed Projects​"
 msgstr "المشاريع المكتملة"
 
-#: front-page.php:178
+#: front-page.php:168
 msgid "Contact Me"
 msgstr "تواصل معي"
 
@@ -69,7 +69,7 @@ msgstr "قوالب و اضافات خاصة حسب الطلب ..."
 msgid "Download CV"
 msgstr "تحميل الـCV"
 
-#: front-page.php:197
+#: front-page.php:187
 msgid "E-Mail:"
 msgstr "البريد الإلكتروني"
 
@@ -84,6 +84,10 @@ msgstr "المرونة و الإبداع"
 #: front-page.php:34
 msgid "French"
 msgstr "الفرنسية"
+
+#: 404.php:8
+msgid "Go back to Abdoo"
+msgstr "العودة إلى كوكب الأرض"
 
 #: front-page.php:97
 msgid "Happy Customer"
@@ -113,7 +117,7 @@ msgstr "https://github.com/Abdoo-mayhob/abdoo.me"
 msgid "I Develop"
 msgstr "انا اطور"
 
-#: front-page.php:186
+#: front-page.php:176
 #, fuzzy
 #| msgid ""
 #| "I like talking, meeting new people, making new friends. Let's work on a "
@@ -145,7 +149,7 @@ msgstr "القيادة"
 msgid "Let's Make Wonders Together!"
 msgstr "فلنقم بالمستحيل معاً !"
 
-#: front-page.php:184
+#: front-page.php:174
 msgid "Let's Talk About Everything !"
 msgstr "فلنتحدث عن كل شيء!"
 
@@ -154,13 +158,13 @@ msgstr "فلنتحدث عن كل شيء!"
 msgid "Live Websites I Worked On"
 msgstr "مواقع عملت فيها"
 
-#: front-page.php:174
+#: front-page.php:165
 msgid "Load More"
 msgstr "تحميل المزيد"
 
-#. Name of the template
-msgid "Most-Read-Template"
-msgstr ""
+#: 404.php:7
+msgid "Lost in space. No where to go <br>Don't scream, Nobody can hear you"
+msgstr "ضائع في الفضاء, لا مكان للذهاب إليه <br> لا تصرخ, لن يسمعك أحد"
 
 #: front-page.php:118
 msgid ""
@@ -172,7 +176,7 @@ msgstr ""
 "الموقع وتحسين السيو الخاص به مع الحفاظ على الاستقرار والبساطة. تعزيز وقت "
 "تحميل الصفحة ورفع تصنيف محركات البحث لموقعك."
 
-#: front-page.php:19 front-page.php:191
+#: front-page.php:19 front-page.php:181
 msgid "Phone:"
 msgstr "هاتف"
 
@@ -223,7 +227,7 @@ msgstr "سوريا, دمشق"
 msgid "Technical SEO And Performance Optimization"
 msgstr "تحسين محركات البحث و الاداء"
 
-#: front-page.php:203
+#: front-page.php:193
 msgid "Telegram:"
 msgstr "تيليغرام:"
 
