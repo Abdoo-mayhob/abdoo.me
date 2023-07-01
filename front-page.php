@@ -50,10 +50,10 @@
                 <?php endforeach ?>
             </div>
             <div class="seperator"></div>
-            <section class="download-cv-wrap">
+            <section id="download-cv" class="download-cv-wrap">
                 <a href="/resume" class="download-cv"><h4><?=__('Download CV','abdoo')?> <?= abdoo_get_svg('download','abdoo')?></h4> </a>
             </section>
-            <section class="social-links">
+            <section id="social-links" class="social-links">
                 <a aria-label="Abdoo on Linked In" href="https://www.linkedin.com/in/abdoo-almayhob/"><?= abdoo_get_svg('linkedin','abdoo')?></a>
                 <a aria-label="Abdoo on Gihub" href="https://github.com/abdoo-mayhob"><?= abdoo_get_svg('github','abdoo')?></a>
                 <a aria-label="Abdoo on Code Forces" href="https://codeforces.com/profile/AbDoO_"><?= abdoo_get_svg('codeforces','abdoo')?></a>
@@ -62,7 +62,7 @@
             </section>
         </div>
     </aside>
-    <main>
+    <main id="hero">
         <section class="code-bg-wrap">
             <div class="code-bg" <?php abdoo_bg_img(THEME_URI.'/img/code_bg.jpg','365px','abdoo')?>>
                 <div class="hay-there">
@@ -78,7 +78,7 @@
                 <div class="abdoo-full" <?php abdoo_bg_img(THEME_URI.'/abdoo-assets/Abdoo-full.png','460px','abdoo')?>></div>
             </div>
         </section>
-        <section class="number-counters-wrap">
+        <section id="number-counters" class="number-counters-wrap">
             <div class="number-counters">
                 <span data-duration="3" data-max="4" class="number"><noscript>4</noscript></span>
                 <span class="counters-title">
@@ -104,7 +104,7 @@
                 </span>
             </div>
         </section>
-        <section class="services">
+        <section id="services" class="services">
             <h2><?=__('Services','abdoo')?></h2>
             <div class="services-wrap">
                 <div class="service">
@@ -124,7 +124,7 @@
                 </div>
             </div>
         </section>
-        <section class="testimonials">
+        <section id="testimonials" class="testimonials">
             <h2><?=__('Words About Abdoo','abdoo')?></h2>
             <div id="testimonials-slider" class="keen-slider testimonials-wrap">
                 <?php $testimonials_items = abdoo_get_testimonials();?>
@@ -155,7 +155,7 @@
                 </style>
             </noscript>
         </section>
-        <section class="portfolio">
+        <section id="portfolio" class="portfolio">
             <h2><?=__('Portfolio','abdoo')?></h2>
             <span class="section-subtitle"><?=__('Live Websites I Worked On','abdoo')?></span>
             <div class="portfolio-wrap">
@@ -164,7 +164,7 @@
             </div>
             <button class="load-more" role="button" type="button" data-posttype="portfolio" data-parentcontainer=".portfolio-wrap"><?=__('Load More','abdoo')?></button> 
         </section>
-        <section class="contact">
+        <section id="contact" class="contact">
             <h2><?=__('Contact Me','abdoo')?></h2>
             <div class="contact-wrap">
                 <div class="contant-img">

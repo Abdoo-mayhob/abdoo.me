@@ -19,8 +19,10 @@ General Notes:
 - I Didn't use rem in fonts (used px instead) cuz I don't want the design to be subjective to user settings
 - Most Images are background-image instead of <img> because it won't load when display:none (better performance)
 - I don't use any icons font, svg instead
+- The IDs on section serve no purpose other than navigation (ex: abdoo.me#contact)
 TODO:
 --------------
+- 
 - Don't hard code skills
 
 --------------
@@ -331,12 +333,13 @@ main > *{
     border-radius: 5px;
 }
 
-.portfolio-wrap > * > img {
-    max-width: 35%;
+.portfolio-item img {
+    width: 150px;
+    height: 120px;
     object-fit: cover;
     border-radius: 5px;
 }
-.portfolio-wrap > * > .portfolio-item-info {
+.portfolio-item .portfolio-item-info {
     padding: 25px;
     text-align: start;
 

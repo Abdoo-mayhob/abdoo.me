@@ -12,89 +12,7 @@
 // Constants
 
 define('TESTIMONIALS_AUTHOR_JOB_META_KEY', 'testimonials-author-job');
-
-
-// Customizer API Setup
-
-add_action( 'customize_register', 'meissa_theme_customizer' );
-function meissa_theme_customizer( $wp_customize ) {
-	$wp_customize->add_panel( 'meissa_theme_setup_panel', [
-        'title'      => __( 'Meissa Theme Options', 'mytheme' ),
-        'priority'   => 30,
-    ] );
-
-	// Footer Logo Section
-    $wp_customize->add_section( 'meissa_footer_logo_section' , [
-        'title'      => __( 'Footer Logo', 'meissa' ),
-        'priority'   => 30,
-		'panel'      => 'meissa_theme_setup_panel',
-    ] );
-
-    $wp_customize->add_setting( 'meissa_footer_logo' );
-    $wp_customize->add_setting( 'meissa_footer_decor_image' );
-
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'meissa_footer_logo', [
-        'label'    => __( 'Footer Logo', 'meissa' ),
-        'section'  => 'meissa_footer_logo_section',
-        'settings' => 'meissa_footer_logo',
-    ] ) );
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'meissa_footer_decor_image', [
-        'label'    => __( 'Footer Decore Image', 'meissa' ),
-        'section'  => 'meissa_footer_logo_section',
-        'settings' => 'meissa_footer_decor_image',
-    ] ) );
-
-
-	// Social Links Section
-	$wp_customize->add_section( 'meissa_social_links_section' , [
-        'title'      => __( 'Social Media Links', 'meissa' ),
-        'priority'   => 20,
-        'panel'      => 'meissa_theme_setup_panel',
-    ] );
-
-    $wp_customize->add_setting( 'meissa_facebook_link' );
-    $wp_customize->add_setting( 'meissa_instagram_link' );
-
-    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'meissa_facebook_link', [
-        'label'       => __( 'Facebook Link', 'meissa' ),
-        'section'     => 'meissa_social_links_section',
-        'settings'    => 'meissa_facebook_link',
-        'type'        => 'url',
-    ] ) );
-
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'meissa_instagram_link', [
-        'label'       => __( 'Instagram Link', 'meissa' ),
-        'section'     => 'meissa_social_links_section',
-        'settings'    => 'meissa_instagram_link',
-        'type'       => 'url',
-    ] ) );
-
-
-    // Scripts Section
-	$wp_customize->add_section( 'meissa_scripts_section' , [
-        'title'      => __( 'Inline Header & Footer Scripts', 'meissa' ),
-        'priority'   => 40,
-        'panel'      => 'meissa_theme_setup_panel',
-    ] );
-
-    $wp_customize->add_setting( 'meissa_header_scripts' );
-    $wp_customize->add_setting( 'meissa_footer_scripts' );
-
-    $wp_customize->add_control( new WP_Customize_Code_Editor_Control( $wp_customize, 'meissa_header_scripts', [
-        'label' => 'Header Scripts',
-        'section' => 'meissa_scripts_section',
-        'settings' => 'meissa_header_scripts',
-        'code_type' => 'text/html',
-    ] ) );
-
-    $wp_customize->add_control( new WP_Customize_Code_Editor_Control( $wp_customize, 'meissa_footer_scripts', [
-        'label' => 'Footer Scripts',
-        'section' => 'meissa_scripts_section',
-        'settings' => 'meissa_footer_scripts',
-        'code_type' => 'text/html',
-    ] ) );
-
-}
+define('PORTFOLIO_PROJECT_LINK', 'project_link');
 
 // --------------------------------------------------------------------------------------
 // Theme Support Setup
@@ -252,6 +170,7 @@ function meissa_theme_setup() {
 
 // ------------------------------------------------------------------------------------------------
 // Testimonials Job Meta Box
+
 add_action("add_meta_boxes", "abdoo_testimonials_add_post_meta_box");
 function abdoo_testimonials_add_post_meta_box(){
     add_meta_box("testimonials-author-job", "Author Job Title", "abdoo_testimonials_render_post_meta_box", "testimonials", "normal", "high", null);
@@ -280,7 +199,38 @@ function abdoo_testimonials_save_post_meta( $postID, $post, $update ){
 
 
 // ------------------------------------------------------------------------------------------------
+// Portfolio Project Link Meta Box
+
+add_action("add_meta_boxes", "abdoo_portfolio_add_post_meta_box");
+function abdoo_portfolio_add_post_meta_box(){
+    add_meta_box("portfolio-author-job", "Project Link", "abdoo_portfolio_render_post_meta_box", "portfolio", "normal", "high", null);
+}
+function abdoo_portfolio_render_post_meta_box( $post ){
+    $job = get_post_meta( $post->ID, PORTFOLIO_PROJECT_LINK, true );
+    ?>
+        <label>ex: https://abdoo.me<br>
+            <input style="width: 50%;" name="project-link" type="text" value="<?= $job; ?>"/>
+        </label>
+    <?php
+}
+add_action("save_post", "abdoo_portfolio_save_post_meta", 10, 3);
+function abdoo_portfolio_save_post_meta( $postID, $post, $update ){
+
+    if( defined("DOING_AUTOSAVE") && DOING_AUTOSAVE ){
+        return $postID;
+    }
+
+    $job = '';
+    if( isset( $_POST['project-link'] ) ){
+        $job = $_POST['project-link'];
+    }
+    update_post_meta( $postID, PORTFOLIO_PROJECT_LINK, $job );
+}
+
+
+// ------------------------------------------------------------------------------------------------
 // Edit .htaccess to serve webp when possible and activate php short tags
+
 add_action('admin_init', 'meissa_edit_htaccess');
 function meissa_edit_htaccess(){
     $lines = [];
@@ -306,6 +256,7 @@ AddType image/webp .webp
 
 // ------------------------------------------------------------------------------------------------
 // Allow SVG Upload. code src: WPCode plugin lib
+
 add_filter(
 	'upload_mimes',
 	function ( $upload_mimes ) {
@@ -454,16 +405,3 @@ add_action('init', function () {
     }
 });
 
-
-// --------------------------------------------------------------------------------------
-// Scripts Section Excution
-
-add_action( 'wp_head', 'meissa_echo_header_scripts');
-function meissa_echo_header_scripts() {
-    echo get_theme_mod('meissa_header_scripts');
-}
-
-add_action( 'wp_footer', 'meissa_echo_footer_scripts');
-function meissa_echo_footer_scripts() {
-    echo get_theme_mod('meissa_footer_scripts');
-}
