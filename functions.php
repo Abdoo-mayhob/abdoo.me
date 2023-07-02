@@ -120,3 +120,57 @@ function abdoo_view_portfolio() {
 	endwhile;
 	if ( defined( 'DOING_AJAX' ) && DOING_AJAX )die;
 }
+
+
+// --------------------------------------------------------------------------------------
+// One Time Scripts
+
+add_action( 'wp_head', 'abdoo_one_time_scripts' );
+function abdoo_one_time_scripts() {
+    global $_GET;
+    if(! isset($_GET['one_time_script']))return;
+
+    /*if($_GET['one_time_script'] === 'change_media_file_paths_in_db'){
+
+        global $wpdb;
+        $backup_old_urls = [];
+        $attachments = $wpdb->get_results("SELECT ID, guid FROM $wpdb->posts WHERE post_type = 'attachment'");
+        foreach ($attachments as $attachment) {
+            $new_url = preg_replace('/\/\d{4}\/\d{2}\//', '/', $attachment->guid);
+
+            $backup_old_urls[$attachment->ID] = [
+                'old' => $attachment->guid,
+                'new' => $new_url
+            ];
+
+            $wpdb->update($wpdb->posts, array('guid' => $new_url), array('ID' => $attachment->ID));
+        }
+        file_put_contents("backup_old_media_urls.json", json_encode($backup_old_urls));
+    } 
+    elseif($_GET['one_time_script'] === 'change_media_file_paths'){
+        global $wpdb;
+        $attachments = $wpdb->get_results("SELECT ID, guid FROM $wpdb->posts WHERE post_type = 'attachment'");
+        foreach ($attachments as $attachment) {
+            $file_path = get_attached_file($attachment->ID);
+            if (preg_match('/\/\d{4}\/\d{2}\//', $file_path)) {
+                $new_path = preg_replace('/\/\d{4}\/\d{2}\//', '/', $file_path);
+                rename($file_path, $new_path);
+                update_attached_file($attachment->ID, $new_path);
+            }
+        }
+        global $wpdb;
+        $backup_old_urls = [];
+        $attachments = $wpdb->get_results("SELECT ID, guid FROM $wpdb->posts WHERE post_type = 'attachment'");
+        foreach ($attachments as $attachment) {
+            $new_url = preg_replace('/\/\d{4}\/\d{2}\//', '/', $attachment->guid);
+
+            $backup_old_urls[$attachment->ID] = [
+                'old' => $attachment->guid,
+                'new' => $new_url
+            ];
+
+            $wpdb->update($wpdb->posts, array('guid' => $new_url), array('ID' => $attachment->ID));
+        }
+        file_put_contents("backup_old_media_urls.json", json_encode($backup_old_urls));
+    } */
+}

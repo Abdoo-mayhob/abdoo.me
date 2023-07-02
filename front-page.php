@@ -7,7 +7,7 @@
             </button>
         </div -->
         <div class="head">
-            <img class="profile-pic" src="<?=THEME_URI?>/abdoo-assets/Abdoo-Pic.jpg" alt="Abdullatif Al-Mayhob">
+            <img width="120" height="120" class="profile-pic" src="<?=THEME_URI?>/abdoo-assets/Abdoo-Pic.jpg" alt="Abdullatif Al-Mayhob">
             <h1 class="name h2"><?=__('Abdullatif Al-Mayhob','abdoo')?></h1>
             <h2 class="job"><?=__('WordPress Php Dev','abdoo')?></h2>
         </div>
@@ -130,7 +130,7 @@
                 <?php $testimonials_items = abdoo_get_testimonials();?>
                 <?php while ( $testimonials_items->have_posts() ): $testimonials_items->the_post();  ?>
                     <div class="keen-slider__slide">
-                        <?php the_post_thumbnail('medium_large'); ?>
+                        <?php the_post_thumbnail('thumbnail') ?>
                         <em>
                             <p><?php the_content() ?></p>
                             <h3><?php the_title() ?></h3>
@@ -168,7 +168,7 @@
             <h2><?=__('Contact Me','abdoo')?></h2>
             <div class="contact-wrap">
                 <div class="contant-img">
-                    <img src="<?=THEME_URI?>/abdoo-assets/ProPic2022.jpg" alt="Abdullatif Al-Mayhob">
+                    <img width="340" height="330" src="<?=THEME_URI?>/abdoo-assets/ProPic2022.jpg" alt="Abdullatif Al-Mayhob">
                 </div>
                 <div class="lets-talk">
                     <h3><?= __('Let\'s Talk About Everything !', 'abdoo')?></h3>

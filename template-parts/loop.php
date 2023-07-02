@@ -1,7 +1,7 @@
 <?php $pjct_link = get_post_meta( $post->ID, PORTFOLIO_PROJECT_LINK, true ) ?>
 <article class="portfolio-item">
     <a href="<?=$pjct_link?>">
-        <?php the_post_thumbnail('medium_large'); ?>
+        <?php the_post_thumbnail('thumbnail') // Actually 576pxW (see theme-setup.php) ?>
     </a>
     <div class="portfolio-item-info">
         <a href="<?=$pjct_link?>">
