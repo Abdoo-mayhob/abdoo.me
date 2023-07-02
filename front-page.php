@@ -7,7 +7,7 @@
             </button>
         </div -->
         <div class="head">
-            <img width="120" height="120" class="profile-pic" src="<?=THEME_URI?>/abdoo-assets/Abdoo-Pic.jpg" alt="Abdullatif Al-Mayhob">
+            <img width="120" height="120" class="profile-pic" src="<?=THEME_URI?>/abdoo-assets/Abdoo-Pic.webp" alt="Abdullatif Al-Mayhob">
             <h1 class="name h2"><?=__('Abdullatif Al-Mayhob','abdoo')?></h1>
             <h2 class="job"><?=__('WordPress Php Dev','abdoo')?></h2>
         </div>
@@ -64,7 +64,7 @@
     </aside>
     <main id="hero">
         <section class="code-bg-wrap">
-            <div class="code-bg" <?php abdoo_bg_img(THEME_URI.'/img/code_bg.jpg','365px','abdoo')?>>
+            <div class="code-bg" <?php abdoo_bg_img(THEME_URI.'/img/code_bg.webp','365px','abdoo')?>>
                 <div class="hay-there">
                     <h2 class="h1"><?=__('Hay There, I\'m Abdoo','abdoo')?> <br><?=__('Let\'s Make Wonders Together!','abdoo')?></h2>
                     <div class="i-develop-wrap">
@@ -75,7 +75,7 @@
                         <span id="typing-effect"></span>
                     </div>
                 </div>
-                <div class="abdoo-full" <?php abdoo_bg_img(THEME_URI.'/abdoo-assets/Abdoo-full.png','460px','abdoo')?>></div>
+                <div class="abdoo-full" <?php abdoo_bg_img(THEME_URI.'/abdoo-assets/Abdoo-full.webp','460px','abdoo')?>></div>
             </div>
         </section>
         <section id="number-counters" class="number-counters-wrap">
@@ -168,7 +168,7 @@
             <h2><?=__('Contact Me','abdoo')?></h2>
             <div class="contact-wrap">
                 <div class="contant-img">
-                    <img width="340" height="330" src="<?=THEME_URI?>/abdoo-assets/ProPic2022.jpg" alt="Abdullatif Al-Mayhob">
+                    <img width="340" height="330" src="<?=THEME_URI?>/abdoo-assets/Abdoo-Thinking.webp" alt="Abdullatif Al-Mayhob">
                 </div>
                 <div class="lets-talk">
                     <h3><?= __('Let\'s Talk About Everything !', 'abdoo')?></h3>
