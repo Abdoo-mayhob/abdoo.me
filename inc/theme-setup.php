@@ -231,7 +231,7 @@ function abdoo_portfolio_save_post_meta( $postID, $post, $update ){
 // ------------------------------------------------------------------------------------------------
 // Edit .htaccess to serve webp when possible and activate php short tags
 
-// add_action('admin_init', 'abdoo_edit_htaccess_short_tags');
+add_action('admin_init', 'abdoo_edit_htaccess_short_tags');
 function abdoo_edit_htaccess_short_tags(){
     $lines = [];
     $lines[] = 'php_value short_open_tag 1';
@@ -250,7 +250,7 @@ function abdoo_edit_htaccess_short_tags(){
 </IfModule>
 AddType image/webp .webp
     ';
-    insert_with_markers(get_home_path().".htaccess", "abdoo", $lines);
+    insert_with_markers(get_home_path().".htaccess", "abdoo-webp", $lines);
 }
 // ------------------------------------------------------------------------------------------------
 // Edit .htaccess to serve webp when possible and activate php short tags
