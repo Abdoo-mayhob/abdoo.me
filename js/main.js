@@ -72,13 +72,58 @@ function increase_num_counter(element){
 }
 
 // testimonials Slider
-var testimonials_slider = new KeenSlider("#testimonials-slider", {
+
+let currentSlide = 0;
+let loaded = false;
+let testimonials_slider = new KeenSlider("#testimonials-slider", {
     slides: {
         perView: 2,
         spacing: 10,
     },
-})
+    slideChanged(slider) {
+        currentSlide = slider.track.details.rel;
+        console.log('CHANGE2: ' + currentSlide );
+        updateDots();
+    }
+},[
+slider => {
+  slider.on('created', (slider) => {
+    loaded = true;
+    createDots(slider);
+    updateDots();
+  })
+},
+]);
 
+function createDots(testimonials_slider) {
+    const dotsContainer = document.createElement("div");
+    dotsContainer.classList.add("dots");
+    console.dir(testimonials_slider);
+    for (let i = 0; i < testimonials_slider.track.details.slides.length; i++) {
+        const dot = document.createElement("a");
+        dot.classList.add("dot");
+        dot.href = "#";
+        dotsContainer.appendChild(dot);
+        dot.addEventListener("click", (e) => {
+            e.preventDefault();
+            console.log('click: ' + currentSlide);
+            testimonials_slider.moveToIdx(i);
+            document.dispatchEvent(new Event('slideChanged'));
+        });
+        document.querySelector("#testimonials").appendChild(dotsContainer);
+    }
+}
+
+function updateDots() {
+    const dots = document.querySelectorAll(".dot");
+    dots.forEach((dot, idx) => {
+    if (currentSlide === idx) {
+        dot.classList.add("active");
+    } else {
+        dot.classList.remove("active");
+    }
+    });
+}
 /* =============== Reponsive =============== */
 // Create a condition that targets viewports at less than 768px wide
 const mediaQuery = window.matchMedia('(max-width: 768px)')

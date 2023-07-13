@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-06-24 13:17+0000\n"
-"PO-Revision-Date: 2023-07-01 18:49+0000\n"
+"PO-Revision-Date: 2023-07-13 21:56+0000\n"
 "Last-Translator: Abdoo\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100 >= 3 "
 "&& n%100<=10 ? 3 : n%100 >= 11 && n%100<=99 ? 4 : 5;\n"
@@ -49,7 +49,7 @@ msgstr "متوفر في:"
 msgid "Completed Projects​"
 msgstr "المشاريع المكتملة"
 
-#: front-page.php:168
+#: front-page.php:174
 msgid "Contact Me"
 msgstr "تواصل معي"
 
@@ -69,7 +69,7 @@ msgstr "قوالب و اضافات خاصة حسب الطلب ..."
 msgid "Download CV"
 msgstr "تحميل الـCV"
 
-#: front-page.php:187
+#: front-page.php:193
 msgid "E-Mail:"
 msgstr "البريد الإلكتروني"
 
@@ -117,7 +117,7 @@ msgstr "https://github.com/Abdoo-mayhob/abdoo.me"
 msgid "I Develop"
 msgstr "انا اطور"
 
-#: front-page.php:176
+#: front-page.php:182
 #, fuzzy
 #| msgid ""
 #| "I like talking, meeting new people, making new friends. Let's work on a "
@@ -149,16 +149,16 @@ msgstr "القيادة"
 msgid "Let's Make Wonders Together!"
 msgstr "فلنقم بالمستحيل معاً !"
 
-#: front-page.php:174
+#: front-page.php:180
 msgid "Let's Talk About Everything !"
 msgstr "فلنتحدث عن كل شيء!"
 
-#: front-page.php:160
+#: front-page.php:166
 #| msgid "Live Websites I Worked On:"
 msgid "Live Websites I Worked On"
 msgstr "مواقع عملت فيها"
 
-#: front-page.php:165
+#: front-page.php:171
 msgid "Load More"
 msgstr "تحميل المزيد"
 
@@ -176,7 +176,7 @@ msgstr ""
 "الموقع وتحسين السيو الخاص به مع الحفاظ على الاستقرار والبساطة. تعزيز وقت "
 "تحميل الصفحة ورفع تصنيف محركات البحث لموقعك."
 
-#: front-page.php:19 front-page.php:181
+#: front-page.php:19 front-page.php:187
 msgid "Phone:"
 msgstr "هاتف"
 
@@ -184,7 +184,7 @@ msgstr "هاتف"
 msgid "Porblem Solving"
 msgstr "حل المشاكل خارج الصندوق"
 
-#: front-page.php:159
+#: front-page.php:165
 msgid "Portfolio"
 msgstr "معرض الأعمال"
 
@@ -227,7 +227,7 @@ msgstr "سوريا, دمشق"
 msgid "Technical SEO And Performance Optimization"
 msgstr "تحسين محركات البحث و الاداء"
 
-#: front-page.php:193
+#: front-page.php:199
 msgid "Telegram:"
 msgstr "تيليغرام:"
 
@@ -239,6 +239,10 @@ msgstr ""
 #| msgid "Top Skills:"
 msgid "Top Skills"
 msgstr "المهارات المميزة"
+
+#: front-page.php:143 front-page.php:146 front-page.php:149
+msgid "View much more on my Linked-In >>"
+msgstr "شاهد المزيد من التوصيات على اللينكد الخاص بي"
 
 #: front-page.php:42
 msgid "Wordpress"

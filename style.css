@@ -309,6 +309,25 @@ main > *{
     display: flex;
     align-items: center;
 }
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px;
+}
+.dot {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    background-color: var(--clr-dt);
+    border-radius: 50%;
+}
+.dot.active {
+    background-color: var(--clr-acc);
+}
+.dot:last-of-type {
+    display: none;
+}
 
 .portfolio-wrap{
     margin-block: 12px;
@@ -690,9 +709,14 @@ footer{
     .services-wrap > *{
         width: 100%;
     }
+    .dot:last-of-type {
+        display: initial;
+    }
     .portfolio-wrap > * {
         width: 100%;
+        overflow-x: hidden;
     }
+    
     .contact-wrap .lets-talk {
         width: 100%;
     }
