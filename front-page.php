@@ -142,12 +142,6 @@
                 <div class="keen-slider__slide last-slide">
                     <a href="https://www.linkedin.com/in/abdoo-almayhob/details/recommendations/"><?=__('View much more on my Linked-In >>','abdoo')?></a>
                 </div>
-                <div class="keen-slider__slide last-slide">
-                    <a href="https://www.linkedin.com/in/abdoo-almayhob/details/recommendations/"><?=__('View much more on my Linked-In >>','abdoo')?></a>
-                </div>
-                <div class="keen-slider__slide last-slide">
-                    <a href="https://www.linkedin.com/in/abdoo-almayhob/details/recommendations/"><?=__('View much more on my Linked-In >>','abdoo')?></a>
-                </div>
             </div> 
             <noscript>
                 <style>
