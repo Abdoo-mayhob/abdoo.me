@@ -103,6 +103,7 @@ function createDots(testimonials_slider) {
         const dot = document.createElement("a");
         dot.classList.add("dot");
         dot.href = "#";
+        dot.setAttribute("aria-label", "Slide " + (i + 1));
         dotsContainer.appendChild(dot);
         dot.addEventListener("click", (e) => {
             e.preventDefault();
