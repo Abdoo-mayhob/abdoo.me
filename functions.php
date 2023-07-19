@@ -104,6 +104,39 @@ function remove_wp_default_arhive_title_prefix( $title, $original_title, $prefix
 
 
 // --------------------------------------------------------------------------------------
+// Rest API
+
+// When Using the Recommendation Extractor script. Match posts on author link meta field and don't insert non new posts
+add_filter('rest_pre_insert_testimonials', 'check_link_before_rest_insert_post', 10, 2);
+function check_link_before_rest_insert_post($prepared_post, $request) {
+    if ( ! ($prepared_post->post_type == 'testimonials' && isset($request['meta']) && isset($request['meta'][TESTIMONIALS_AUTHOR_LINK_META_KEY])))
+        return $prepared_post;
+
+    $link = $request['meta'][TESTIMONIALS_AUTHOR_LINK_META_KEY];
+    $post_type = $prepared_post->post_type;
+    $args = [
+        'post_type' => $post_type,
+        'meta_query' => [
+            [
+                'key' => TESTIMONIALS_AUTHOR_LINK_META_KEY,
+                'value' => $link,
+                'compare' => '='
+            ] 
+        ]
+    ]; 
+    
+    $query = new WP_Query($args);
+    if ($query->have_posts()) {
+        return new WP_Error('rest_post_exists', __('A post with the same link already exists.'), ['status' => 400]);
+    }
+    
+
+    return $prepared_post;
+    //return new WP_Error('rest_post_exists', __('SUCC'), array('status' => 123));
+}
+
+
+// --------------------------------------------------------------------------------------
 // Ajax
 
 add_action( 'wp_ajax_abdoo_view_portfolio', 'abdoo_view_portfolio' );

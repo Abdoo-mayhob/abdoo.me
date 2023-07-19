@@ -46,29 +46,31 @@
 
 <script>
     const HTML_RAW_ELE = document.getElementById('html_raw');
-    let recos_final_data = [];
-    let html_raw_value = '';
+    var recos_final_data = [];
+    var recos_li;
+    var html;
     document.getElementById('check').addEventListener('click', check_raw_html);
 
     function check_raw_html() {
-        html_raw_value = HTML_RAW_ELE.value;
+        var html_raw_value = HTML_RAW_ELE.value;
         // Text -> Dom 
         const template = document.createElement('template');
         template.innerHTML = html_raw_value;
-        const html = template.content;
+        html = template.content;
 
         // Get all recos in array of Li
-        var recos_li = html.querySelector('ul').childNodes;
+        recos_li = html.querySelector('ul').childNodes;
 
         recos_li.forEach(function(li, i) {
             if (li.nodeName === '#text') return; // Ignore white spaces
 
             var spans = li.querySelectorAll('span.visually-hidden'); // All usable texts are marked with visually-hidden class
+            var author_link = li.querySelector('a').href;
             var reco_data = {
                 name: spans[0].textContent,
                 job: spans[2].textContent,
                 text: spans[5].textContent,
-                link: spans[5].textContent,
+                link: author_link
             }
             console.log(reco_data);
             recos_final_data.push(reco_data);
@@ -87,47 +89,23 @@
                 content: rec.text,
                 status: 'publish',
                 meta: {
-                    '<?= TESTIMONIALS_AUTHOR_JOB_META_KEY?>': rec.job
+                    '<?= TESTIMONIALS_AUTHOR_JOB_META_KEY?>': rec.job,
                     '<?= TESTIMONIALS_AUTHOR_LINK_META_KEY?>': rec.link
                 }
             };
-            console.dir(post);
-            // Get first word of post content
-            const firstWord = post.content.split(' ')[0];
 
-            // Check if post with same first word in content already exists
-            fetch(`/wp-json/wp/v2/testimonials`, {
-                    method: 'GET',
+            fetch('/wp-json/wp/v2/testimonials', {
+                    method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                         'X-WP-Nonce': '<?= wp_create_nonce('wp_rest')?>'
-                    }
+                    },
+                    body: JSON.stringify(post)
                 })
                 .then(res => res.json())
-                .then(data => {
-                    // Filter posts to only include those with same first word in content
-                    const matchingPosts = data.filter(post => post.content.split(' ')[0] === firstWord);
-
-                    // If no matching posts exist, create new post
-                    if (matchingPosts.length === 0) {
-                        fetch('/wp-json/wp/v2/testimonials', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'X-WP-Nonce': '<?= wp_create_nonce('wp_rest')?>'
-                                },
-                                body: JSON.stringify(post)
-                            })
-                            .then(res => res.json())
-                            .then(data => console.log(data))
-                            .catch(error => console.error(error));
-                    } else {
-                        console.log(`Post with first word "${firstWord}" in content already exists`);
-                    }
-                })
+                .then(data => console.log(data))
                 .catch(error => console.error(error));
         });
-
     };
     
     

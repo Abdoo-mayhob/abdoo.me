@@ -187,13 +187,19 @@ function abdoo_recommendation_scrapper(){
 
 add_action("add_meta_boxes", "abdoo_testimonials_add_post_meta_box");
 function abdoo_testimonials_add_post_meta_box(){
-    add_meta_box("testimonials-author-job", "Author Job Title", "abdoo_testimonials_render_post_meta_box", "testimonials", "normal", "high", null);
+    add_meta_box("testimonials-author-job-and-link", "Author Link & Job Title ", "abdoo_testimonials_render_post_meta_box", "testimonials", "normal", "high", null);
 }
 function abdoo_testimonials_render_post_meta_box( $post ){
     $job = get_post_meta( $post->ID, TESTIMONIALS_AUTHOR_JOB_META_KEY, true );
+    $link = get_post_meta( $post->ID, TESTIMONIALS_AUTHOR_LINK_META_KEY, true );
     ?>
         <label>ex: Web Developer, SEO Expert... etc<br>
             <input style="width: 50%;" name="testimonials-author-job" type="text" value="<?= $job; ?>"/>
+        </label>
+        <br>
+        <br>
+        <label>ex: https://www.linkedin.com/in/banaalkhaled<br>
+            <input style="width: 50%;" name="testimonials-author-link" type="text" value="<?= $link; ?>"/>
         </label>
     <?php
 }
@@ -209,6 +215,12 @@ function abdoo_testimonials_save_post_meta( $postID, $post, $update ){
         $job = $_POST['testimonials-author-job'];
     }
     update_post_meta( $postID, TESTIMONIALS_AUTHOR_JOB_META_KEY, $job );
+
+    $link = '';
+    if( isset( $_POST['testimonials-author-link'] ) ){
+        $link = $_POST['testimonials-author-link'];
+    }
+    update_post_meta( $postID, TESTIMONIALS_AUTHOR_LINK_META_KEY, $link );
 }
 
 
