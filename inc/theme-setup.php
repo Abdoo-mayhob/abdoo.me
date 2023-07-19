@@ -12,6 +12,7 @@
 // Constants
 
 define('TESTIMONIALS_AUTHOR_JOB_META_KEY', 'testimonials-author-job');
+define('TESTIMONIALS_AUTHOR_LINK_META_KEY', 'testimonials-author-link');
 define('PORTFOLIO_PROJECT_LINK', 'project_link');
 
 // --------------------------------------------------------------------------------------
@@ -167,6 +168,19 @@ function abdoo_theme_setup() {
 		"show_in_graphql" => false,
 	]);
 }
+
+
+// ------------------------------------------------------------------------------------------------
+// Recommendation Scrapper
+
+add_action('admin_menu', 'add_admin_menu');
+function add_admin_menu(){
+    add_submenu_page('edit.php?post_type=testimonials','Recommendation Scrapper', 'Recommendation Scrapper', 'publish_posts', 'recommendation-scrapper', 'abdoo_recommendation_scrapper');
+}
+function abdoo_recommendation_scrapper(){
+    require_once get_template_directory() . "/inc/recommendations-extractor.php"; 
+}
+
 
 // ------------------------------------------------------------------------------------------------
 // Testimonials Job Meta Box
