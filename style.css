@@ -444,10 +444,12 @@ button.load-more {
     transition: all 0.7s;
     
 }
-.lang-switch:hover{
+.lang-switch:hover,
+.lang-switch.hover{
     transform: translatex(0%);
 }
-.lang-switch:hover .toggle-lang-switcher{
+.lang-switch:hover .toggle-lang-switcher,
+.lang-switch.hover .toggle-lang-switcher{
     transform: rotate(180deg);
 }
 

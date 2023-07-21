@@ -205,3 +205,13 @@ function load_more_posts(event){
     }).join('&');
     xhr.send(params);
 }
+
+
+// Pop the language switcher for 5s on page load
+window.addEventListener('load', function() {
+    const langSwitch = document.querySelector('.lang-switch');
+    langSwitch.classList.add('hover');
+    setTimeout(function() {
+        langSwitch.classList.remove('hover');
+    }, 5000);
+});
