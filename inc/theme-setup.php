@@ -167,8 +167,55 @@ function abdoo_theme_setup() {
 		"sort" => false,
 		"show_in_graphql" => false,
 	]);
+
+    // ------------------------------------------------------
+    // Register Post Meta for REST api to work with them
+    register_post_meta('testimonials', TESTIMONIALS_AUTHOR_JOB_META_KEY, [
+        'type' => 'string',
+        'single' => true,
+        'show_in_rest' => true,
+    ]);
+    register_post_meta('testimonials', TESTIMONIALS_AUTHOR_LINK_META_KEY, [
+        'type' => 'string',
+        'single' => true,
+        'show_in_rest' => true,
+    ]);
+
 }
 
+
+// ------------------------------------------------------------------------------------------------
+// Admin Columns
+
+add_filter('manage_testimonials_posts_columns', 'add_testimonials_columns');
+function add_testimonials_columns($columns) {
+    $columns['author_job'] = 'Author Job';
+    $columns['author_link'] = 'Author Link';
+    $columns['featured_image'] = 'Featured Image';
+    return $columns;
+}
+
+add_action('manage_testimonials_posts_custom_column', 'add_testimonials_column_content', 10, 2);
+function add_testimonials_column_content($column_name, $post_id) {
+    if ('author_job' == $column_name) {
+        $author_job = get_post_meta($post_id, TESTIMONIALS_AUTHOR_JOB_META_KEY, true);
+        echo $author_job;
+    }
+    if ('author_link' == $column_name) {
+        $link = get_post_meta($post_id, TESTIMONIALS_AUTHOR_LINK_META_KEY, true);
+        $path = parse_url($link, PHP_URL_PATH);
+        $author_link = "<a href='$link'>$path</a>";
+        echo $author_link;
+    }
+    if ('featured_image' == $column_name) {
+        if (has_post_thumbnail($post_id)) {
+            $image = wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'thumbnail');
+            echo '<img src="' . esc_url($image[0]) . '" style="width:30px; height:30px; border-radius:50%;" />';
+        } else {
+            echo 'No featured image';
+        }
+    }
+}
 
 // ------------------------------------------------------------------------------------------------
 // Recommendation Scrapper

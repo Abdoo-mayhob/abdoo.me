@@ -66,10 +66,13 @@
 
             var spans = li.querySelectorAll('span.visually-hidden'); // All usable texts are marked with visually-hidden class
             var author_link = li.querySelector('a').href;
+            var image = li.querySelector('img');
+            image = (image !== null) ? image.src : '';
             var reco_data = {
                 name: spans[0].textContent,
                 job: spans[2].textContent,
                 text: spans[5].textContent,
+                image: image,
                 link: author_link
             }
             console.log(reco_data);
@@ -84,10 +87,13 @@
         if (! confirm("Are you sure?")) return;
 
         recos_final_data.forEach(function(rec, i) {
+
             const post = {
                 title: rec.name,
                 content: rec.text,
                 status: 'publish',
+                lang: 'en',
+                image: rec.image,
                 meta: {
                     '<?= TESTIMONIALS_AUTHOR_JOB_META_KEY?>': rec.job,
                     '<?= TESTIMONIALS_AUTHOR_LINK_META_KEY?>': rec.link

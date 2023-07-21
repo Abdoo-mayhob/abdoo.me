@@ -95,11 +95,17 @@ function abdoo_post_thumb_url(){
 
 
 // --------------------------------------------------------------------------------------
-// 
+// Miscellaneous
 
 add_filter( 'get_the_archive_title', 'remove_wp_default_arhive_title_prefix', 10, 3 );
 function remove_wp_default_arhive_title_prefix( $title, $original_title, $prefix){
 	return $original_title;
+}
+
+
+add_filter( 'pll_copy_post_metas', 'copy_testimonials_post_metas' );
+function copy_testimonials_post_metas( $metas ) {
+    return array_merge( $metas, [TESTIMONIALS_AUTHOR_LINK_META_KEY,TESTIMONIALS_AUTHOR_JOB_META_KEY] );
 }
 
 
@@ -130,9 +136,60 @@ function check_link_before_rest_insert_post($prepared_post, $request) {
         return new WP_Error('rest_post_exists', __('A post with the same link already exists.'), ['status' => 400]);
     }
     
-
     return $prepared_post;
     //return new WP_Error('rest_post_exists', __('SUCC'), array('status' => 123));
+}
+
+// Save image from url sent by rest 
+add_action('rest_insert_testimonials', 'handle_testimonials_image_upload', 10, 2);
+function handle_testimonials_image_upload($post, $request) {
+    if ( ! (isset($request['image']) && $request['image'] != '') )return;
+
+    $post_id = $request['id'];
+    $image_url = $request['image'];
+    $name = $request['title'];
+    upload_image_from_url_and_set_to_post($image_url, $post_id, $name);
+}
+
+function upload_image_from_url_and_set_to_post($image_url, $post_id, $name) {
+    require_once(ABSPATH . 'wp-admin/includes/image.php');
+    require_once(ABSPATH . 'wp-admin/includes/file.php');
+    require_once(ABSPATH . 'wp-admin/includes/media.php');
+
+    // Make a good file name
+    $new_name = sanitize_title($name);
+    $new_file_name = $new_name . '.png';
+
+    // Download file
+    $tmp = download_url($image_url);
+
+    // Rename it properly
+    $path = dirname($tmp);
+    $new_tmp = $path . DIRECTORY_SEPARATOR . $new_file_name;
+    rename($tmp, $new_tmp);
+    $tmp = $new_tmp;
+
+    
+    $file_array = [
+        'name' => $new_name,
+        'tmp_name' => $tmp
+    ];
+
+    if (is_wp_error($tmp)) {
+        @unlink($file_array['tmp_name']);
+        return 0;
+    }
+
+    $id = media_handle_sideload($file_array, $post_id);
+    if (is_wp_error($id)) {
+        @unlink($file_array['tmp_name']);
+        return 0;
+    }
+
+    // Update alt text of image
+    update_post_meta($id, '_wp_attachment_image_alt', $name . 'Image');
+
+    set_post_thumbnail($post_id, $id);
 }
 
 
