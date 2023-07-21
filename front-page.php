@@ -51,14 +51,14 @@
             </div>
             <div class="seperator"></div>
             <section id="download-cv" class="download-cv-wrap">
-                <a href="/resume" class="download-cv"><h4><?=__('Download CV','abdoo')?> <?= abdoo_get_svg('download','abdoo')?></h4> </a>
+                <a href="/resume" class="download-cv"><h4><?=__('Download CV','abdoo')?> <?= abdoo_get_svg('download')?></h4> </a>
             </section>
             <section id="social-links" class="social-links">
-                <a aria-label="Abdoo on Linked In" href="https://www.linkedin.com/in/abdoo-almayhob/"><?= abdoo_get_svg('linkedin','abdoo')?></a>
-                <a aria-label="Abdoo on Gihub" href="https://github.com/abdoo-mayhob"><?= abdoo_get_svg('github','abdoo')?></a>
-                <a aria-label="Abdoo on Code Forces" href="https://codeforces.com/profile/AbDoO_"><?= abdoo_get_svg('codeforces','abdoo')?></a>
-                <a aria-label="Abdoo on Instagram" href="https://www.instagram.com/abdoo_almayhob/"><?= abdoo_get_svg('instagram','abdoo')?></a>
-                <a aria-label="Abdoo on Facebook" href="https://facebook.com/abdoo.almayhob"><?= abdoo_get_svg('facebook','abdoo')?></a>
+                <a aria-label="Abdoo on Linked In" href="https://www.linkedin.com/in/abdoo-almayhob/"><?= abdoo_get_svg('linkedin')?></a>
+                <a aria-label="Abdoo on Gihub" href="https://github.com/abdoo-mayhob"><?= abdoo_get_svg('github')?></a>
+                <a aria-label="Abdoo on Code Forces" href="https://codeforces.com/profile/AbDoO_"><?= abdoo_get_svg('codeforces')?></a>
+                <a aria-label="Abdoo on Instagram" href="https://www.instagram.com/abdoo_almayhob/"><?= abdoo_get_svg('instagram')?></a>
+                <a aria-label="Abdoo on Facebook" href="https://facebook.com/abdoo.almayhob"><?= abdoo_get_svg('facebook')?></a>
             </section>
         </div>
     </aside>
@@ -129,11 +129,23 @@
             <div id="testimonials-slider" class="keen-slider testimonials-wrap">
                 <?php $testimonials_items = abdoo_get_testimonials();?>
                 <?php while ( $testimonials_items->have_posts() ): $testimonials_items->the_post();  ?>
+                    <?php $author_link = get_post_meta( get_the_ID(), TESTIMONIALS_AUTHOR_LINK_META_KEY, true ); ?>
                     <div class="keen-slider__slide">
-                        <?php the_post_thumbnail('thumbnail') ?>
+                        <a href="<?= $author_link ?>">
+                            <?php 
+                            if ( has_post_thumbnail() ) { 
+                                the_post_thumbnail('thumbnail');
+                            } else { ?>
+                                <?= abdoo_get_svg('person-placeholder')?>
+                            <?php } ?>
+                        </a>
                         <em>
                             <p><?php the_content() ?></p>
-                            <h3><?php the_title() ?></h3>
+                            <h3>
+                                <a href="<?= $author_link ?>">
+                                    <?php the_title() ?>
+                                </a>
+                            </h3>
                             <h4><?= get_post_meta( get_the_ID(), TESTIMONIALS_AUTHOR_JOB_META_KEY, true ) ?></h4>
                         </em>
                     </div>

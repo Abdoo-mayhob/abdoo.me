@@ -145,7 +145,7 @@ add_action('rest_insert_testimonials', 'handle_testimonials_image_upload', 10, 2
 function handle_testimonials_image_upload($post, $request) {
     if ( ! (isset($request['image']) && $request['image'] != '') )return;
 
-    $post_id = $request['id'];
+    $post_id = $post->ID;
     $image_url = $request['image'];
     $name = $request['title'];
     upload_image_from_url_and_set_to_post($image_url, $post_id, $name);
@@ -171,7 +171,7 @@ function upload_image_from_url_and_set_to_post($image_url, $post_id, $name) {
 
     
     $file_array = [
-        'name' => $new_name,
+        'name' => $new_file_name,
         'tmp_name' => $tmp
     ];
 

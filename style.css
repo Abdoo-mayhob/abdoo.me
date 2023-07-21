@@ -286,15 +286,22 @@ main > *{
     padding: 30px;
     background-color: var(--clr-bg-lt);
 }
-.testimonials-wrap img {
+.testimonials-wrap img,
+.testimonials-wrap svg {
     border-radius: 50%;
-    width: 90px;
-    margin-bottom: 10px;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    vertical-align: bottom;
+    float: left;
 }
 .testimonials-wrap h3 {
     font-size: var(--fs-txt);
     font-weight: bold;
     margin-bottom: 0;
+}
+.testimonials-wrap h3 > a {
+    color: inherit;
 }
 .testimonials-wrap h4 {
     margin-top: 0;

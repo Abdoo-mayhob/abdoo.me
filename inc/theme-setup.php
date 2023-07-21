@@ -210,7 +210,7 @@ function add_testimonials_column_content($column_name, $post_id) {
     if ('featured_image' == $column_name) {
         if (has_post_thumbnail($post_id)) {
             $image = wp_get_attachment_image_src(get_post_thumbnail_id($post_id), 'thumbnail');
-            echo '<img src="' . esc_url($image[0]) . '" style="width:30px; height:30px; border-radius:50%;" />';
+            echo '<img src="' . esc_url($image[0]) . '" style="width:60px; height:60px; border-radius:50%;" />';
         } else {
             echo 'No featured image';
         }
