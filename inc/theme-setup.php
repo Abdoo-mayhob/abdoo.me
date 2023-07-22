@@ -326,16 +326,16 @@ AddType image/webp .webp
     insert_with_markers(get_home_path().".htaccess", "abdoo-webp", $lines);
 }
 // ------------------------------------------------------------------------------------------------
-// Edit .htaccess to serve webp when possible and activate php short tags
+// Edit .htaccess to performe needed redirects (Note: check the file, the lines should be inserted before WORDPRESS section not after)
 
 add_action('admin_init', 'abdoo_edit_htaccess_resume_302');
 function abdoo_edit_htaccess_resume_302(){
     $lines = [];
     $lines[] = '
     RewriteEngine On
+    RewriteRule ^resume$ /abdoo@abdoo.me_Resume.pdf [R=302,L]
     RewriteRule ^testimonials/.* /#testimonials [NE,R=302,L]
     RewriteRule ^portfolio/.* /#portfolio [NE,R=302,L]
-    RewriteRule ^resume$ /abdoo@abdoo.me_Resume.pdf [R=302]
     ';
     insert_with_markers(get_home_path().".htaccess", "abdoo-sections", $lines);
 }
