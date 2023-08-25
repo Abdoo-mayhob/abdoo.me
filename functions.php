@@ -105,7 +105,7 @@ function remove_wp_default_arhive_title_prefix( $title, $original_title, $prefix
 
 add_filter( 'pll_copy_post_metas', 'copy_testimonials_post_metas' );
 function copy_testimonials_post_metas( $metas ) {
-    return array_merge( $metas, [TESTIMONIALS_AUTHOR_LINK_META_KEY,TESTIMONIALS_AUTHOR_JOB_META_KEY] );
+    return array_merge( $metas, [TESTIMONIALS_AUTHOR_LINK_META_KEY] );
 }
 
 
