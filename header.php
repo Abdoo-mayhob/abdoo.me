@@ -18,8 +18,9 @@
         <link rel="preload" as="font" href="<?=SITE_URL?>/wp-content/themes/abdoo/fonts/Poppins-Regular.woff2" type="font/woff2" crossorigin />
     <?php endif ?>
     
-
     <!-- <link rel="preload" as="font" href="<?=SITE_URL?>/wp-includes/fonts/dashicons.woff2" type="font/woff2" crossorigin /> -->
+    
+    <link rel="preload" href="https://abdoo.me/wp-content/themes/abdoo/abdoo-assets/Abdoo-Pic.webp" as="image">
     
     <?php wp_head();?>
 </head>

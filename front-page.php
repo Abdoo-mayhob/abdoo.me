@@ -1,11 +1,6 @@
 <?php get_header() ?>
 <div class="main-container">
     <aside>
-        <!-- div class="aside-toggler-wrap">
-            <button role="button" type="button" class="aside-toggler">
-                <div>>></div>
-            </button>
-        </div -->
         <div class="head">
             <img width="120" height="120" class="profile-pic" src="<?=THEME_URI?>/abdoo-assets/Abdoo-Pic.webp" alt="Abdullatif Al-Mayhob">
             <h1 class="name h2"><?=__('Abdullatif Al-Mayhob','abdoo')?></h1>
@@ -131,7 +126,7 @@
                 <?php while ( $testimonials_items->have_posts() ): $testimonials_items->the_post();  ?>
                     <?php $author_link = get_post_meta( get_the_ID(), TESTIMONIALS_AUTHOR_LINK_META_KEY, true ); ?>
                     <div class="keen-slider__slide">
-                        <a href="<?= $author_link ?>">
+                        <a href="<?= $author_link ?>" aria-label="Linked-In">
                             <?php 
                             if ( has_post_thumbnail() ) { 
                                 the_post_thumbnail('thumbnail');

@@ -6,7 +6,7 @@ $GLOBALS['start_ms']  = microtime(true);
 define('SITE_URL' , site_url());
 define('THEME_URI' , get_stylesheet_directory_uri());
 
-// Functions Shortended
+// Functions Shortened
 function abdoo_lang_switcher(){
     if (function_exists('pll_the_languages')){
         return pll_the_languages(['hide_current' => 1]);
@@ -16,6 +16,9 @@ function abdoo_lang_switcher(){
 
 require_once get_template_directory() . "/inc/theme-setup.php";
 require_once get_template_directory() . "/inc/enqueue.php";
+
+if ( defined('WP_DEBUG') && true === WP_DEBUG)
+    require_once get_template_directory() . "/inc/middleware.php";
 
 
 // --------------------------------------------------------------------------------------
@@ -220,48 +223,106 @@ add_action( 'wp_head', 'abdoo_one_time_scripts' );
 function abdoo_one_time_scripts() {
     global $_GET;
     if(! isset($_GET['one_time_script']))return;
-
-    /*if($_GET['one_time_script'] === 'change_media_file_paths_in_db'){
-
-        global $wpdb;
-        $backup_old_urls = [];
-        $attachments = $wpdb->get_results("SELECT ID, guid FROM $wpdb->posts WHERE post_type = 'attachment'");
-        foreach ($attachments as $attachment) {
-            $new_url = preg_replace('/\/\d{4}\/\d{2}\//', '/', $attachment->guid);
-
-            $backup_old_urls[$attachment->ID] = [
-                'old' => $attachment->guid,
-                'new' => $new_url
-            ];
-
-            $wpdb->update($wpdb->posts, array('guid' => $new_url), array('ID' => $attachment->ID));
-        }
-        file_put_contents("backup_old_media_urls.json", json_encode($backup_old_urls));
-    } 
-    elseif($_GET['one_time_script'] === 'change_media_file_paths'){
-        global $wpdb;
-        $attachments = $wpdb->get_results("SELECT ID, guid FROM $wpdb->posts WHERE post_type = 'attachment'");
-        foreach ($attachments as $attachment) {
-            $file_path = get_attached_file($attachment->ID);
-            if (preg_match('/\/\d{4}\/\d{2}\//', $file_path)) {
-                $new_path = preg_replace('/\/\d{4}\/\d{2}\//', '/', $file_path);
-                rename($file_path, $new_path);
-                update_attached_file($attachment->ID, $new_path);
-            }
-        }
-        global $wpdb;
-        $backup_old_urls = [];
-        $attachments = $wpdb->get_results("SELECT ID, guid FROM $wpdb->posts WHERE post_type = 'attachment'");
-        foreach ($attachments as $attachment) {
-            $new_url = preg_replace('/\/\d{4}\/\d{2}\//', '/', $attachment->guid);
-
-            $backup_old_urls[$attachment->ID] = [
-                'old' => $attachment->guid,
-                'new' => $new_url
-            ];
-
-            $wpdb->update($wpdb->posts, array('guid' => $new_url), array('ID' => $attachment->ID));
-        }
-        file_put_contents("backup_old_media_urls.json", json_encode($backup_old_urls));
-    } */
 }
+
+
+// --------------------------------------------------------------------------------------
+// Debugging
+
+// Dump Data
+function dd($var, $display=false, $msg = ''){
+    $display_class = ($display)? 'style="display:block;"' : '';
+    echo "<pre $display_class class='dd'>$msg ";var_dump($var);echo'</pre>';
+    
+}
+// Dump Data & Die
+function ddd($var, $display=false, $msg = ''){
+    dd($var, $display, $msg);
+    die;   
+}
+// Dump Data to debug.log
+function ldd($var,$msg = ''){
+    error_log($msg . print_r($var,1));
+}
+// Get Backtrace function call
+function get_backtrace(): string{
+    $e = new \Exception;
+    return $e->getTraceAsString();
+}
+
+/* 
+ *  Reset the debug.log file.
+ *  Usage Example: ?debug_control=reset_log
+ *  
+ */
+add_action( 'wp_footer', function () {
+
+    if(! is_user_logged_in() && current_user_can('administrator'))return;
+    if(! isset($_GET['debug_control']))return;
+
+    if($_GET['debug_control'] == 'reset_log'){
+        $debug_log = WP_CONTENT_DIR . '/debug.log';
+        if (file_exists($debug_log)) {
+            file_put_contents($debug_log, '');
+        }
+    }
+
+});
+
+// View & Modify WP_DEUBG or other constants in wp-config.php.
+add_action( 'init', function () {
+
+    // Security
+    if(! is_user_logged_in() || ! current_user_can('administrator'))return;
+    if(! isset($_GET['debug_control']))return;
+
+    // Init
+    $START_SECTION_PHRASE = '/* Add any custom values between this line and the "stop editing" line. */';
+    $END_SECTION_PHRASE = '/* That\'s all, stop editing! Happy publishing. */';
+    $wp_config_path = ABSPATH . 'wp-config.php';
+    $contents = file_get_contents($wp_config_path);
+
+    // Get the section containing the constants
+    $start = strpos($contents, $START_SECTION_PHRASE);
+    $end = strpos($contents, $END_SECTION_PHRASE);
+    $custom_values = substr($contents, $start, $end - $start);
+
+    // Extract the constants to key=>value array
+    preg_match_all('/define\(\s*\'(.*?)\',\s*(.*?)\s*\);/', $custom_values, $matches);
+    $constants = array_combine($matches[1], $matches[2]);
+
+    dd($constants,1, "Current Values: ");
+
+    // ----------------------------------------------------------------------------------
+    // Modify The Constants
+    // Usage Example: ?debug_control&constant=WP_DEBUG&value=TRUE
+    
+    if(! isset($_GET['constant']))return;
+    if(! isset($_GET['value']))return;
+    $new_const = $_GET['constant'];
+    $new_value = $_GET['value'];
+
+    if(!array_key_exists($new_const, $constants)){
+        echo "unknown constant !";
+        return;
+    }
+    $constants[$new_const] = $new_value;
+
+    // Get all text around the section containing the constants
+    $before = substr($contents, 0, $start);
+    $after = substr($contents, $end + strlen($END_SECTION_PHRASE));
+
+    // Write the new values
+    $custom_values = '';
+    foreach ($constants as $name => $value) {
+        $custom_values .= "define('" . $name . "', " . $value . ");\n";
+    }
+    $new_contents = $before . 
+                    $START_SECTION_PHRASE . PHP_EOL .
+                    $custom_values . 
+                    $END_SECTION_PHRASE .
+                    $after;
+
+    file_put_contents($wp_config_path, $new_contents);
+
+});
