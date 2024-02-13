@@ -112,6 +112,55 @@ function copy_testimonials_post_metas( $metas ) {
     return array_diff($metas, [TESTIMONIALS_AUTHOR_JOB_META_KEY]); // Dont Copy TESTIMONIALS_AUTHOR_JOB_META_KEY Across Langs
 }
 
+/**
+ * Update Yoast Profile Page schema markup to include mainEntity
+ * Source : https://ivycat.com/missing-field-mainentity-in-yoast-profile-page-schema/
+ */
+add_filter( 'wpseo_schema_webpage', 'update_bio_schema_markup_of_yoast' );
+function update_bio_schema_markup_of_yoast( $data ) {
+
+    if(! is_front_page()) return;
+
+    $mainEntity = [
+        "@type" => "Person",
+        "name" => "Abdullatif Al-Mayhob",
+        "jobTitle" => "Web Developer, Wordpress Expert",
+        "description" => "Abdullatif Al-Mayhob, also known as Abdoo, is a Web Developer and a Wordpress Expert who develops custom themes and custom plugins specific to your needs. He is open to talking, meeting new people, making new friends, and working on new projects.",
+        "url" => "https://abdoo.me",
+        "image" => "https://abdoo.me/wp-content/themes/abdoo/abdoo-assets/Abdoo-Pic.webp",
+        "sameAs" => [
+            "https://facebook.com/abdoo.almayhob",
+            "https://www.instagram.com/abdoo_almayhob/",
+            "https://codeforces.com/profile/AbDoO_",
+            "https://github.com/abdoo-mayhob",
+            "https://www.linkedin.com/in/abdoo-almayhob/"
+        ],
+        "birthPlace" => "Syria",
+        "nationality" => "Syria"
+    ];
+
+    $mainEntity_ar = [
+        "@type" => "Person",
+        "name" => "عبد اللطيف الميهوب",
+        "jobTitle" => "مطور ويب و ووردبريس",
+        "description" => "مرحباً, انا عبد اللطيف الميهوب. مطور ويب مختص ووردبريس. انا اكود قوالب و اضافات خاصة باحتياجاتك. و اقوم ب تحسين سيو و اداء موقعك.",
+        "url" => "https://abdoo.me",
+        "image" => "https://abdoo.me/wp-content/themes/abdoo/abdoo-assets/Abdoo-Pic.webp",
+        "sameAs" => [
+            "https://facebook.com/abdoo.almayhob",
+            "https://www.instagram.com/abdoo_almayhob/",
+            "https://codeforces.com/profile/AbDoO_",
+            "https://github.com/abdoo-mayhob",
+            "https://www.linkedin.com/in/abdoo-almayhob/"
+        ],
+        "birthPlace" => "سوريا",
+        "nationality" => "سوريا"
+    ];
+    
+    $data['mainEntity'] = (pll_current_language() == 'ar') ? $mainEntity_ar : $mainEntity;
+    return $data;
+}
+
 
 // --------------------------------------------------------------------------------------
 // Rest API
