@@ -250,6 +250,7 @@ function abdoo_view_portfolio() {
         'post_type'      => 'portfolio',
         'posts_per_page' => '4',
         'paged'          => $page,
+        'post_status'    => 'publish'
     ]);
 	if($portfolio->have_posts() === false)
 		die('0');
