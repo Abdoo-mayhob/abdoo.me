@@ -38,19 +38,19 @@ function abdoo_theme_setup() {
     }
 
     // Remove the medium default size
-    update_option( 'medium_size_w', 0 );
-    update_option( 'medium_size_h', 0 );
+    // update_option( 'medium_size_w', 0 );
+    // update_option( 'medium_size_h', 0 );
 
     // Remove the medium_large default size
-    update_option( 'medium_large_size_w', 0 );
-    update_option( 'medium_large_size_h', 0 );
+    // update_option( 'medium_large_size_w', 0 );
+    // update_option( 'medium_large_size_h', 0 );
 
     // Remove the large default size
-    update_option( 'large_size_w', 0 );
-    update_option( 'large_size_h', 0 );
+    // update_option( 'large_size_w', 0 );
+    // update_option( 'large_size_h', 0 );
 
     // Upadte the Thumbnail default size (250w*130hmax250h)
-    update_option( 'thumbnail_size_w', 576 );
+    // update_option( 'thumbnail_size_w', 576 );
     // update_option( 'thumbnail_size_h', 250 );
 
 

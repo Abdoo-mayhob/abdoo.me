@@ -167,7 +167,7 @@ function toggle_aside(){
 var loadmore_buttons = document.querySelectorAll('button.load-more'); 
 loadmore_buttons.forEach(element => {
     element.addEventListener('click', load_more_posts);
-    element.dataset.page = 1 ;
+    element.dataset.page = 0;
 });
 
 function load_more_posts(event){

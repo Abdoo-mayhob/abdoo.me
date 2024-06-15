@@ -39,13 +39,6 @@ function abdoo_get_breadcrumb(){
     }
 }
 
-function abdoo_get_portfolio($page = 0){
-    return new WP_Query([
-        'post_type'      => 'portfolio',
-        'posts_per_page' => '6',
-        'paged'          => $page,
-    ]);
-}
 function abdoo_get_testimonials(){
     return new WP_Query([
         'post_type'      => 'testimonials',
@@ -253,14 +246,18 @@ add_action( 'wp_ajax_abdoo_view_portfolio', 'abdoo_view_portfolio' );
 add_action( 'wp_ajax_nopriv_abdoo_view_portfolio', 'abdoo_view_portfolio' );
 function abdoo_view_portfolio() {
     $page = ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ? $_POST['page'] : 0;
-    $portfolio = abdoo_get_portfolio($page);
+    $portfolio = new WP_Query([
+        'post_type'      => 'portfolio',
+        'posts_per_page' => '4',
+        'paged'          => $page,
+    ]);
 	if($portfolio->have_posts() === false)
 		die('0');
 
-	while ( $portfolio->have_posts() ): $portfolio->the_post();?>
-			<?php get_template_part('template-parts/loop') ?>
-	<?php
-	endwhile;
+	while ( $portfolio->have_posts() ){
+        $portfolio->the_post();
+	    get_template_part('template-parts/loop');
+    }
 	if ( defined( 'DOING_AJAX' ) && DOING_AJAX )die;
 }
 
