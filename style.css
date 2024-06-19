@@ -175,6 +175,12 @@ svg{
     background-position: center;
 }
 
+html[lang="en-US"] .hide-on-en{
+    display: none;
+}
+html[lang="ar"] .hide-on-ar{
+    display: none;
+}
 /* === 404 === */
 .error404 main {
     max-width: 100vw;
