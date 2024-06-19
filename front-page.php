@@ -168,7 +168,7 @@
         </section>
         <section id="portfolio" class="portfolio">
             <h2><?= __('Portfolio', 'abdoo') ?></h2>
-            <?php 
+            <?php
             $terms = get_terms([
                 'taxonomy' => 'form',
                 'hide_empty' => false,
@@ -185,23 +185,28 @@
                         'terms'    => null,
                     ]
                 ]
-            ];?>
-            <?php foreach($terms as $t) : ?>
+            ];
+            $termsCount = count($terms);
+            foreach ($terms as $index => $t) : ?>
                 <span class="section-subtitle"><?= stripslashes($t->description) ?></span>
                 <div class="portfolio-wrap">
                     <?php
                     $portfolio_args['tax_query'][0]['terms'] = $t->slug;
                     $portfolio = new WP_Query($portfolio_args);
-                    if ($portfolio->have_posts()){
+                    if ($portfolio->have_posts()) {
                         while ($portfolio->have_posts()) {
                             $portfolio->the_post();
                             get_template_part('template-parts/loop');
-                        } 
+                        }
                     }
-                    wp_reset_postdata() 
+                    wp_reset_postdata()
                     ?>
                 </div>
-            <?php endforeach; ?>
+                <?php if ($index != $termsCount - 1) : // Check if it's the last term 
+                ?>
+                    <div class="seperator"></div>
+            <?php endif;
+            endforeach; ?>
         </section>
         <section id="contact" class="contact">
             <h2><?= __('Contact Me', 'abdoo') ?></h2>

@@ -341,9 +341,11 @@ main > *{
 .dot:last-of-type {
     display: none;
 }
-
+.section-subtitle{
+    font-weight: bold;;
+}
 .portfolio-wrap{
-    margin-block: 12px;
+    margin-block: 30px;
 
     display: flex;
     justify-content: space-around;
