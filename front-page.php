@@ -54,6 +54,7 @@
                 <a aria-label="Abdoo on Code Forces" href="https://codeforces.com/profile/AbDoO_"><?= abdoo_get_svg('codeforces')?></a>
                 <a aria-label="Abdoo on Instagram" href="https://www.instagram.com/abdoo_almayhob/"><?= abdoo_get_svg('instagram')?></a>
                 <a aria-label="Abdoo on Facebook" href="https://facebook.com/abdoo.almayhob"><?= abdoo_get_svg('facebook')?></a>
+                <a aria-label="Abdoo on Wordpress.org" href="https://profiles.wordpress.org/abdoomayhob/"><?= abdoo_get_svg('wp')?></a>
             </section>
         </div>
     </aside>
