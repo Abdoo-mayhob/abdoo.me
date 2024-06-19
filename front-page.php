@@ -78,25 +78,25 @@
         </section>
         <section id="number-counters" class="number-counters-wrap">
             <div class="number-counters">
-                <span data-duration="3" data-max="4" class="number"><noscript>4</noscript></span>
+                <span data-duration="3" data-max="5" class="number"><noscript>5</noscript></span>
                 <span class="counters-title">
                     <?= __('Years of Experience', 'abdoo') ?>
                 </span>
             </div>
             <div class="number-counters">
-                <span data-duration="3" data-max="36" class="number"><noscript>36</noscript></span>
+                <span data-duration="3" data-max="56" class="number"><noscript>56</noscript></span>
                 <span class="counters-title">
                     <?= __('Completed Projects​', 'abdoo') ?>
                 </span>
             </div>
             <div class="number-counters">
-                <span data-duration="3" data-max="12" class="number"><noscript>12</noscript></span>
+                <span data-duration="3" data-max="42" class="number"><noscript>42</noscript></span>
                 <span class="counters-title">
                     <?= __('Happy Customer', 'abdoo') ?>
                 </span>
             </div>
             <div class="number-counters">
-                <span data-duration="3" data-max="13" class="number"><noscript>13</noscript></span>
+                <span data-duration="3" data-max="16" class="number"><noscript>16</noscript></span>
                 <span class="counters-title">
                     <?= __('Honors and Awards', 'abdoo') ?>
                 </span>
