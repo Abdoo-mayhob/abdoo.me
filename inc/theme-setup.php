@@ -7,7 +7,7 @@
  */
 
 
- 
+
 // --------------------------------------------------------------------------------------
 // Constants
 
@@ -15,11 +15,16 @@ define('TESTIMONIALS_AUTHOR_JOB_META_KEY', 'testimonials-author-job');
 define('TESTIMONIALS_AUTHOR_LINK_META_KEY', 'testimonials-author-link');
 define('PORTFOLIO_PROJECT_LINK', 'project_link');
 
+
+define('CV_NAME', 'abdoo.mayhob@gmail.com_Resume.pdf');
+define('CV_PATH', ABSPATH . CV_NAME);
+
 // --------------------------------------------------------------------------------------
 // Theme Support Setup
 
-add_action( 'after_setup_theme', 'abdoo_theme_setup' );
-function abdoo_theme_setup() {
+add_action('after_setup_theme', 'abdoo_theme_setup');
+function abdoo_theme_setup()
+{
 
 
     // Don't Need .mo translations anymore.
@@ -33,8 +38,8 @@ function abdoo_theme_setup() {
 
     // This will remove all non default image sizes. 
     // Defaults are : thumbnail, medium, medium_large, large
-    foreach ( get_intermediate_image_sizes() as $size ) {
-        remove_image_size( $size );
+    foreach (get_intermediate_image_sizes() as $size) {
+        remove_image_size($size);
     }
 
     // Remove the medium default size
@@ -55,132 +60,132 @@ function abdoo_theme_setup() {
 
 
     // Show excerpt field in pages
-	add_post_type_support( 'page', 'excerpt' );
+    add_post_type_support('page', 'excerpt');
 
     // Show featured image media selector
-	add_theme_support( 'post-thumbnails' ); 
+    add_theme_support('post-thumbnails');
 
-    add_theme_support( 'custom-logo' );
-	add_theme_support(
-		'html5',
-		[
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-			'style',
-			'script',
+    add_theme_support('custom-logo');
+    add_theme_support(
+        'html5',
+        [
+            'search-form',
+            'comment-form',
+            'comment-list',
+            'gallery',
+            'caption',
+            'style',
+            'script',
         ]
-	);
-    add_theme_support( 'title-tag' );
+    );
+    add_theme_support('title-tag');
 
     // ------------------------------------------------------
     // Create Featured Posts Tag Setup
-    if( !term_exists( 'مقالات مختارة', 'post_tag' ) ) {
-        wp_insert_term( 'مقالات مختارة', 'post_tag' );
+    if (!term_exists('مقالات مختارة', 'post_tag')) {
+        wp_insert_term('مقالات مختارة', 'post_tag');
     }
 
     // ------------------------------------------------------
     // Menus Setup
-    register_nav_menu('header-menu', 'Header Menu' );
-    register_nav_menu('footer-menu', 'Footer Menu' );
+    register_nav_menu('header-menu', 'Header Menu');
+    register_nav_menu('footer-menu', 'Footer Menu');
 
     // ------------------------------------------------------
     // Portfolio Post Type
-	register_post_type( "portfolio", [
-		"label" =>  "Portfolio",
-		"description" => "Portfolio",
-		"public" => true,
-		"publicly_queryable" => true,
-		"show_ui" => true,
-		"show_in_rest" => true,
-		"rest_base" => "",
-		"rest_controller_class" => "WP_REST_Posts_Controller",
-		"rest_namespace" => "wp/v2",
-		"has_archive" => true,
-		"show_in_menu" => true,
-		"show_in_nav_menus" => true,
-		"delete_with_user" => false,
-		"exclude_from_search" => false,
-		"capability_type" => "post",
-		"map_meta_cap" => true,
-		"hierarchical" => true,
-		"can_export" => true,
-		"rewrite" => [ "slug" => "portfolio", "with_front" => true ],
-		"query_var" => true,
-		"menu_position" => 4,
-		"menu_icon" => "dashicons-schedule",
-		"supports" => [ "title", "editor", "thumbnail", "excerpt", "custom-fields" ],
-		"show_in_graphql" => true,
-	]);
+    register_post_type("portfolio", [
+        "label" => "Portfolio",
+        "description" => "Portfolio",
+        "public" => true,
+        "publicly_queryable" => true,
+        "show_ui" => true,
+        "show_in_rest" => true,
+        "rest_base" => "",
+        "rest_controller_class" => "WP_REST_Posts_Controller",
+        "rest_namespace" => "wp/v2",
+        "has_archive" => true,
+        "show_in_menu" => true,
+        "show_in_nav_menus" => true,
+        "delete_with_user" => false,
+        "exclude_from_search" => false,
+        "capability_type" => "post",
+        "map_meta_cap" => true,
+        "hierarchical" => true,
+        "can_export" => true,
+        "rewrite" => ["slug" => "portfolio", "with_front" => true],
+        "query_var" => true,
+        "menu_position" => 4,
+        "menu_icon" => "dashicons-schedule",
+        "supports" => ["title", "editor", "thumbnail", "excerpt", "custom-fields"],
+        "show_in_graphql" => true,
+    ]);
 
 
     // ------------------------------------------------------
     // Testimonials Post Type
-	register_post_type( "testimonials", [
-		"label" =>  "Testimonials",
-		"description" => "testimonials",
-		"public" => true,
-		"publicly_queryable" => true,
-		"show_ui" => true,
-		"show_in_rest" => true,
-		"rest_base" => "",
-		"rest_controller_class" => "WP_REST_Posts_Controller",
-		"rest_namespace" => "wp/v2",
-		"has_archive" => true,
-		"show_in_menu" => true,
-		"show_in_nav_menus" => true,
-		"delete_with_user" => false,
-		"exclude_from_search" => false,
-		"capability_type" => "post",
-		"map_meta_cap" => true,
-		"hierarchical" => true,
-		"can_export" => true,
-		"rewrite" => [ "slug" => "testimonials", "with_front" => true ],
-		"query_var" => true,
-		"menu_position" => 4,
-		"menu_icon" => "dashicons-format-quote",
-		"supports" => [ "title", "editor", "thumbnail", "custom-fields" ],
-		"show_in_graphql" => true,
-	]);
+    register_post_type("testimonials", [
+        "label" => "Testimonials",
+        "description" => "testimonials",
+        "public" => true,
+        "publicly_queryable" => true,
+        "show_ui" => true,
+        "show_in_rest" => true,
+        "rest_base" => "",
+        "rest_controller_class" => "WP_REST_Posts_Controller",
+        "rest_namespace" => "wp/v2",
+        "has_archive" => true,
+        "show_in_menu" => true,
+        "show_in_nav_menus" => true,
+        "delete_with_user" => false,
+        "exclude_from_search" => false,
+        "capability_type" => "post",
+        "map_meta_cap" => true,
+        "hierarchical" => true,
+        "can_export" => true,
+        "rewrite" => ["slug" => "testimonials", "with_front" => true],
+        "query_var" => true,
+        "menu_position" => 4,
+        "menu_icon" => "dashicons-format-quote",
+        "supports" => ["title", "editor", "thumbnail", "custom-fields"],
+        "show_in_graphql" => true,
+    ]);
 
     // ------------------------------------------------------
     // Portfolio Post Type 'Tech' taxonomy
-    register_taxonomy( "tech", "portfolio", [
-		"label" =>  "Tech",
-		"public" => true,
-		"publicly_queryable" => true,
-		"hierarchical" => true,
-		"show_ui" => true,
-		"show_in_menu" => true,
-		"show_in_nav_menus" => true,
-		"query_var" => true,
-		"show_admin_column" => true,
-		"show_in_rest" => true,
-		"show_tagcloud" => false,
-		"show_in_quick_edit" => true,
-		"sort" => true,
-		"show_in_graphql" => true,
-	]);
+    register_taxonomy("tech", "portfolio", [
+        "label" => "Tech",
+        "public" => true,
+        "publicly_queryable" => true,
+        "hierarchical" => true,
+        "show_ui" => true,
+        "show_in_menu" => true,
+        "show_in_nav_menus" => true,
+        "query_var" => true,
+        "show_admin_column" => true,
+        "show_in_rest" => true,
+        "show_tagcloud" => false,
+        "show_in_quick_edit" => true,
+        "sort" => true,
+        "show_in_graphql" => true,
+    ]);
     // ------------------------------------------------------
     // Portfolio Post Type 'Form' taxonomy
-    register_taxonomy( "form", "portfolio", [
-		"label" =>  "Form",
-		"public" => true,
-		"publicly_queryable" => true,
-		"hierarchical" => true,
-		"show_ui" => true,
-		"show_in_menu" => true,
-		"show_in_nav_menus" => true,
-		"query_var" => true,
-		"show_admin_column" => true,
-		"show_in_rest" => true,
-		"show_tagcloud" => false,
-		"show_in_quick_edit" => true,
-		"sort" => true,
-		"show_in_graphql" => true,
-	]);
+    register_taxonomy("form", "portfolio", [
+        "label" => "Form",
+        "public" => true,
+        "publicly_queryable" => true,
+        "hierarchical" => true,
+        "show_ui" => true,
+        "show_in_menu" => true,
+        "show_in_nav_menus" => true,
+        "query_var" => true,
+        "show_admin_column" => true,
+        "show_in_rest" => true,
+        "show_tagcloud" => false,
+        "show_in_quick_edit" => true,
+        "sort" => true,
+        "show_in_graphql" => true,
+    ]);
 
     // ------------------------------------------------------
     // Register Post Meta for REST api to work with them
@@ -201,16 +206,14 @@ function abdoo_theme_setup() {
 // ------------------------------------------------------------------------------------------------
 // Admin Columns
 
-add_filter('manage_testimonials_posts_columns', 'add_testimonials_columns');
-function add_testimonials_columns($columns) {
+add_filter('manage_testimonials_posts_columns', function ($columns) {
     $columns['author_job'] = 'Author Job';
     $columns['author_link'] = 'Author Link';
     $columns['featured_image'] = 'Featured Image';
     return $columns;
-}
+});
 
-add_action('manage_testimonials_posts_custom_column', 'add_testimonials_column_content', 10, 2);
-function add_testimonials_column_content($column_name, $post_id) {
+add_action('manage_testimonials_posts_custom_column', function ($column_name, $post_id) {
     if ('author_job' == $column_name) {
         $author_job = get_post_meta($post_id, TESTIMONIALS_AUTHOR_JOB_META_KEY, true);
         echo $author_job;
@@ -229,150 +232,139 @@ function add_testimonials_column_content($column_name, $post_id) {
             echo 'No featured image';
         }
     }
-}
+}, 10, 2);
 
 // ------------------------------------------------------------------------------------------------
 // Recommendation Scrapper
 
-add_action('admin_menu', 'add_admin_menu');
-function add_admin_menu(){
-    add_submenu_page('edit.php?post_type=testimonials','Recommendation Scrapper', 'Recommendation Scrapper', 'publish_posts', 'recommendation-scrapper', 'abdoo_recommendation_scrapper');
-}
-function abdoo_recommendation_scrapper(){
-    require_once get_template_directory() . "/inc/recommendations-extractor.php"; 
-}
+add_action('admin_menu', function () {
+    add_submenu_page(
+        'edit.php?post_type=testimonials',
+        'Recommendation Scrapper',
+        'Recommendation Scrapper',
+        'publish_posts',
+        'recommendation-scrapper',
+        function () {
+            require_once get_template_directory() . "/inc/recommendations-extractor.php";
+        }
+    );
+});
+
 
 
 // ------------------------------------------------------------------------------------------------
 // Testimonials Job Meta Box
 
-add_action("add_meta_boxes", "abdoo_testimonials_add_post_meta_box");
-function abdoo_testimonials_add_post_meta_box(){
-    add_meta_box("testimonials-author-job-and-link", "Author Link & Job Title ", "abdoo_testimonials_render_post_meta_box", "testimonials", "normal", "high", null);
-}
-function abdoo_testimonials_render_post_meta_box( $post ){
-    $job = get_post_meta( $post->ID, TESTIMONIALS_AUTHOR_JOB_META_KEY, true );
-    $link = get_post_meta( $post->ID, TESTIMONIALS_AUTHOR_LINK_META_KEY, true );
+add_action(
+    "add_meta_boxes",
+    function () {
+        add_meta_box("testimonials-author-job-and-link", "Author Link & Job Title ", "abdoo_testimonials_render_post_meta_box", "testimonials", "normal", "high", null);
+    }
+);
+function abdoo_testimonials_render_post_meta_box($post)
+{
+    $job = get_post_meta($post->ID, TESTIMONIALS_AUTHOR_JOB_META_KEY, true);
+    $link = get_post_meta($post->ID, TESTIMONIALS_AUTHOR_LINK_META_KEY, true);
     ?>
-        <label>ex: Web Developer, SEO Expert... etc<br>
-            <input style="width: 50%;" name="testimonials-author-job" type="text" value="<?= $job; ?>"/>
-        </label>
-        <br>
-        <br>
-        <label>ex: https://www.linkedin.com/in/banaalkhaled<br>
-            <input style="width: 50%;" name="testimonials-author-link" type="text" value="<?= $link; ?>"/>
-        </label>
+    <label>ex: Web Developer, SEO Expert... etc<br>
+        <input style="width: 50%;" name="testimonials-author-job" type="text" value="<?= $job; ?>" />
+    </label>
+    <br>
+    <br>
+    <label>ex: https://www.linkedin.com/in/banaalkhaled<br>
+        <input style="width: 50%;" name="testimonials-author-link" type="text" value="<?= $link; ?>" />
+    </label>
     <?php
 }
-add_action("save_post", "abdoo_testimonials_save_post_meta", 10, 3);
-function abdoo_testimonials_save_post_meta( $postID, $post, $update ){
+add_action(
+    "save_post",
+    function ($postID, $post, $update) {
 
-    if( defined("DOING_AUTOSAVE") && DOING_AUTOSAVE ){
-        return $postID;
-    }
+        if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
+            return $postID;
+        }
 
-    $job = '';
-    if( isset( $_POST['testimonials-author-job'] ) ){
-        $job = $_POST['testimonials-author-job'];
-    }
-    update_post_meta( $postID, TESTIMONIALS_AUTHOR_JOB_META_KEY, $job );
+        $job = '';
+        if (isset($_POST['testimonials-author-job'])) {
+            $job = $_POST['testimonials-author-job'];
+        }
+        update_post_meta($postID, TESTIMONIALS_AUTHOR_JOB_META_KEY, $job);
 
-    $link = '';
-    if( isset( $_POST['testimonials-author-link'] ) ){
-        $link = $_POST['testimonials-author-link'];
+        $link = '';
+        if (isset($_POST['testimonials-author-link'])) {
+            $link = $_POST['testimonials-author-link'];
+        }
+        update_post_meta($postID, TESTIMONIALS_AUTHOR_LINK_META_KEY, $link);
     }
-    update_post_meta( $postID, TESTIMONIALS_AUTHOR_LINK_META_KEY, $link );
-}
+    ,
+    10,
+    3
+);
 
 
 // ------------------------------------------------------------------------------------------------
 // Portfolio Project Link Meta Box
 
-add_action("add_meta_boxes", "abdoo_portfolio_add_post_meta_box");
-function abdoo_portfolio_add_post_meta_box(){
+add_action("add_meta_boxes", function () {
     add_meta_box("portfolio-author-job", "Project Link", "abdoo_portfolio_render_post_meta_box", "portfolio", "normal", "high", null);
-}
-function abdoo_portfolio_render_post_meta_box( $post ){
-    $job = get_post_meta( $post->ID, PORTFOLIO_PROJECT_LINK, true );
+});
+
+function abdoo_portfolio_render_post_meta_box($post)
+{
+    $job = get_post_meta($post->ID, PORTFOLIO_PROJECT_LINK, true);
     ?>
-        <label>ex: https://abdoo.me<br>
-            <input style="width: 50%;" name="project-link" type="text" value="<?= $job; ?>"/>
-        </label>
+    <label>ex: https://abdoo.me<br>
+        <input style="width: 50%;" name="project-link" type="text" value="<?= $job; ?>" />
+    </label>
     <?php
 }
-add_action("save_post", "abdoo_portfolio_save_post_meta", 10, 3);
-function abdoo_portfolio_save_post_meta( $postID, $post, $update ){
+add_action("save_post", function ($postID, $post, $update) {
 
-    if( defined("DOING_AUTOSAVE") && DOING_AUTOSAVE ){
+    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE) {
         return $postID;
     }
 
     $job = '';
-    if( isset( $_POST['project-link'] ) ){
+    if (isset($_POST['project-link'])) {
         $job = $_POST['project-link'];
     }
-    update_post_meta( $postID, PORTFOLIO_PROJECT_LINK, $job );
-}
-
+    update_post_meta($postID, PORTFOLIO_PROJECT_LINK, $job);
+}, 10, 3);
 
 // ------------------------------------------------------------------------------------------------
-// Edit .htaccess to serve webp when possible and activate php short tags
+// Performe needed redirects
 
-add_action('admin_init', 'abdoo_edit_htaccess_short_tags');
-function abdoo_edit_htaccess_short_tags(){
-    $lines = [];
-    $lines[] = 'php_value short_open_tag 1';
-    $lines[] = '
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{HTTP_ACCEPT} image/webp
-    RewriteCond %{REQUEST_FILENAME} (.*)\.(jpe?g|png|gif)$
-    RewriteCond %{REQUEST_FILENAME}\.webp -f
-    RewriteRule (.+)\.(jpe?g|png|gif)$ %{REQUEST_URI}\.webp [T=image/webp,E=webp,L]
-</IfModule>
-<IfModule mod_headers.c>
-    <FilesMatch "\.(jpe?g|png|gif)$">
-        Header append Vary Accept
-    </FilesMatch>
-</IfModule>
-AddType image/webp .webp
-    ';
-    insert_with_markers(get_home_path().".htaccess", "abdoo-webp", $lines);
-}
-// ------------------------------------------------------------------------------------------------
-// Edit .htaccess to performe needed redirects (Note: check the file, the lines should be inserted before WORDPRESS section not after)
-
-add_action('admin_init', 'abdoo_edit_htaccess_resume_302');
-function abdoo_edit_htaccess_resume_302(){
-    $lines = [];
-    $lines[] = '
-    RewriteEngine On
-    RewriteRule ^resume$ /abdoo@abdoo.me_Resume.pdf [R=302,L]
-    RewriteRule ^testimonials/.* /#testimonials [NE,R=302,L]
-    RewriteRule ^portfolio/.* /#portfolio [NE,R=302,L]
-    ';
-    insert_with_markers(get_home_path().".htaccess", "abdoo-sections", $lines);
-}
+add_action('init', function () {
+    $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+    if ($uri == 'resume' || $uri == 'cv') {
+        if (file_exists(CV_PATH)) {
+            header('Content-Type: application/pdf');
+            header('Content-Disposition: inline; filename="' . CV_NAME . '"');
+            readfile(CV_PATH);
+        }
+        exit;
+    }
+});
 
 
 // ------------------------------------------------------------------------------------------------
 // Allow SVG Upload. code src: WPCode plugin lib
 
 add_filter(
-	'upload_mimes',
-	function ( $upload_mimes ) {
-		// By default, only administrator users are allowed to add SVGs.
-		// To enable more user types edit or comment the lines below but beware of
-		// the security risks if you allow any user to upload SVG files.
-		if ( ! current_user_can( 'administrator' ) ) {
-			return $upload_mimes;
-		}
+    'upload_mimes',
+    function ($upload_mimes) {
+        // By default, only administrator users are allowed to add SVGs.
+        // To enable more user types edit or comment the lines below but beware of
+        // the security risks if you allow any user to upload SVG files.
+        if (!current_user_can('administrator')) {
+            return $upload_mimes;
+        }
 
-		$upload_mimes['svg']  = 'image/svg+xml';
-		$upload_mimes['svgz'] = 'image/svg+xml';
+        $upload_mimes['svg'] = 'image/svg+xml';
+        $upload_mimes['svgz'] = 'image/svg+xml';
 
-		return $upload_mimes;
-	}
+        return $upload_mimes;
+    }
 );
 
 
@@ -380,29 +372,29 @@ add_filter(
 // Allow SVG uploads
 
 add_filter(
-	'wp_check_filetype_and_ext',
-	function ( $wp_check_filetype_and_ext, $file, $filename, $mimes, $real_mime ) {
+    'wp_check_filetype_and_ext',
+    function ($wp_check_filetype_and_ext, $file, $filename, $mimes, $real_mime) {
 
-		if ( ! $wp_check_filetype_and_ext['type'] ) {
+        if (!$wp_check_filetype_and_ext['type']) {
 
-			$check_filetype  = wp_check_filetype( $filename, $mimes );
-			$ext             = $check_filetype['ext'];
-			$type            = $check_filetype['type'];
-			$proper_filename = $filename;
+            $check_filetype = wp_check_filetype($filename, $mimes);
+            $ext = $check_filetype['ext'];
+            $type = $check_filetype['type'];
+            $proper_filename = $filename;
 
-			if ( $type && 0 === strpos( $type, 'image/' ) && 'svg' !== $ext ) {
-				$ext  = false;
-				$type = false;
-			}
+            if ($type && 0 === strpos($type, 'image/') && 'svg' !== $ext) {
+                $ext = false;
+                $type = false;
+            }
 
-			$wp_check_filetype_and_ext = compact( 'ext', 'type', 'proper_filename' );
-		}
+            $wp_check_filetype_and_ext = compact('ext', 'type', 'proper_filename');
+        }
 
-		return $wp_check_filetype_and_ext;
+        return $wp_check_filetype_and_ext;
 
-	},
-	10,
-	5
+    },
+    10,
+    5
 );
 
 
@@ -411,62 +403,55 @@ add_filter(
 // Optimization Related Codes.
 
 // Remove some unwanted wp default bloat styles
-remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
-remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+remove_action('wp_enqueue_scripts', 'wp_enqueue_global_styles');
+remove_action('wp_body_open', 'wp_global_styles_render_svg_filters');
+add_action('wp_enqueue_scripts', function () {
+    wp_dequeue_style('classic-theme-styles');
+    wp_dequeue_style('wp-block-library');
+    wp_dequeue_style('wp-block-library-theme');
+    wp_dequeue_style('wc-blocks-style'); // WooCommerce block CSS
+});
 
-
-add_action( 'wp_enqueue_scripts', 'abdoo_remove_wp_bloat' );
-function abdoo_remove_wp_bloat(){
-    wp_dequeue_style( 'classic-theme-styles' );
-    wp_dequeue_style( 'wp-block-library' );
-    wp_dequeue_style( 'wp-block-library-theme' );
-    wp_dequeue_style( 'wc-blocks-style' ); // WooCommerce block CSS
-}
 
 
 // ------------------------------------------------------
 // Remove wp-emoji
 
-add_action( 'init', 'abdoo_remove_wp_emoji' );
-function abdoo_remove_wp_emoji() {
- remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
- remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
- remove_action( 'wp_print_styles', 'print_emoji_styles' );
- remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
- remove_action( 'admin_print_styles', 'print_emoji_styles' );
- remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
- remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
- add_filter( 'tiny_mce_plugins', 'abdoo_disable_emojis_tinymce' );
-}
-function abdoo_disable_emojis_tinymce( $plugins ) {
-    if ( is_array( $plugins ) ) {
-        return array_diff( $plugins, array( 'wpemoji' ) );
-    } else {
-        return [];
-    }
-}
+add_action('init', function () {
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('admin_print_scripts', 'print_emoji_detection_script');
+    remove_action('wp_print_styles', 'print_emoji_styles');
+    remove_filter('the_content_feed', 'wp_staticize_emoji');
+    remove_action('admin_print_styles', 'print_emoji_styles');
+    remove_filter('comment_text_rss', 'wp_staticize_emoji');
+    remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
+    add_filter('tiny_mce_plugins', function ($plugins) {
+        return is_array($plugins) ? array_diff($plugins, ['wpemoji']) : [];
+    });
+});
+
+
 
 
 // ------------------------------------------------------
 // Defer all Scripts (including jquery)
 
-add_filter( 'script_loader_tag', function ( $tag, $handle ) {
+add_filter('script_loader_tag', function ($tag, $handle) {
 
     // Fix: Customizer not loading on defer.
     global $wp_customize;
-    if ( isset( $wp_customize ) || is_admin() ) {
+    if (isset($wp_customize) || is_admin()) {
         return $tag;
     }
-    return str_replace( ' src', ' defer="defer" src', $tag );
-}, 10, 2 );
+    return str_replace(' src', ' defer="defer" src', $tag);
+}, 10, 2);
 
 
 
 // ------------------------------------------------------
 // Remove comments completely
 
-add_action('admin_init', 'remove_comments_completely');
-function remove_comments_completely () {
+add_action('admin_init', function () {
     // Redirect any user trying to access comments page
     global $pagenow;
 
@@ -485,8 +470,7 @@ function remove_comments_completely () {
             remove_post_type_support($post_type, 'trackbacks');
         }
     }
-};
-
+});
 // Close comments on the front-end
 add_filter('comments_open', '__return_false', 20, 2);
 add_filter('pings_open', '__return_false', 20, 2);
