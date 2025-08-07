@@ -149,25 +149,6 @@ function abdoo_theme_setup()
         "supports" => ["title", "editor", "thumbnail", "custom-fields"],
         "show_in_graphql" => true,
     ]);
-
-    // ------------------------------------------------------
-    // Portfolio Post Type 'Tech' taxonomy
-    register_taxonomy("tech", "portfolio", [
-        "label" => "Tech",
-        "public" => true,
-        "publicly_queryable" => true,
-        "hierarchical" => true,
-        "show_ui" => true,
-        "show_in_menu" => true,
-        "show_in_nav_menus" => true,
-        "query_var" => true,
-        "show_admin_column" => true,
-        "show_in_rest" => true,
-        "show_tagcloud" => false,
-        "show_in_quick_edit" => true,
-        "sort" => true,
-        "show_in_graphql" => true,
-    ]);
     // ------------------------------------------------------
     // Portfolio Post Type 'Form' taxonomy
     register_taxonomy("form", "portfolio", [

@@ -166,7 +166,7 @@
                 </style>
             </noscript>
         </section>
-        <section id="portfolio" class="portfolio">
+        <section id="portfolio">
             <h2><?= __('Portfolio', 'abdoo') ?></h2>
             <?php
             $terms = get_terms([
@@ -188,7 +188,8 @@
             ];
             $termsCount = count($terms);
             foreach ($terms as $index => $t) : ?>
-                <span class="section-subtitle"><?= stripslashes($t->description) ?></span>
+                <h3><?= stripslashes($t->name) ?></h3>
+                <small><?= stripslashes($t->description) ?></small>
                 <div class="portfolio-wrap">
                     <?php
                     $portfolio_args['tax_query'][0]['terms'] = $t->slug;
