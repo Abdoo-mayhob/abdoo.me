@@ -20,20 +20,21 @@ define('CV_NAME', 'abdoo.mayhob@gmail.com_Resume.pdf');
 define('CV_PATH', ABSPATH . CV_NAME);
 
 // --------------------------------------------------------------------------------------
+// Translations
+
+
+// Who needs best practices any way ?
+$GLOBALS['M'] = include get_template_directory() . '/languages/ar.l10n.php';
+function M($t){
+    return (get_locale() == 'ar') ?  $GLOBALS['M']['messages'][$t] ?? $t : $t;
+}
+
+// --------------------------------------------------------------------------------------
 // Theme Support Setup
 
 add_action('after_setup_theme', 'abdoo_theme_setup');
 function abdoo_theme_setup()
 {
-
-
-    // Who needs best practices any way ?
-    $GLOBALS['M'] = include get_template_directory() . '/languages/ar.l10n.php';
-    $M =& $GLOBALS['M']['messages'];
-    // regex used to turn (only) all __( x1 , x2 ) to $M['x1']
-    // __\(\s*['"]([^'"]+)['"]\s*,\s*['"][^'"]+['"]\s*\)
-    // $M['$1']
-
     
     // ------------------------------------------------------
     // Make sure that new uploaded media are only 2 sizes: the org and thumbnail

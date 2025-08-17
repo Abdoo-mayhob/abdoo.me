@@ -26,7 +26,7 @@
 </head>
 <body <?php body_class()?>>
     <div class="lang-switch">
-        <span><?= __('Available in:', 'abdoo')?></span>
+        <span><?= M('Available in:')?></span>
         <ul><?php abdoo_lang_switcher()?></ul>
         <span class="toggle-lang-switcher"><<</span>
     </div>

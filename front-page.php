@@ -3,42 +3,42 @@
     <aside>
         <div class="head">
             <img width="120" height="120" class="profile-pic" src="<?= THEME_URI ?>/abdoo-assets/Abdoo-Pic.webp" alt="Abdullatif Al-Mayhob">
-            <h1 class="name h2"><?= __('Abdullatif Al-Mayhob', 'abdoo') ?></h1>
-            <h2 class="job"><?= __('WordPress Php Dev', 'abdoo') ?></h2>
+            <h1 class="name h2"><?= M('Abdullatif Al-Mayhob') ?></h1>
+            <h2 class="job"><?= M('WordPress Php Dev') ?></h2>
         </div>
         <div class="body">
             <div class="info residence">
-                <span><?= __('Residence', 'abdoo') ?></span><span><?= __('Syria, Damascuse', 'abdoo') ?></span>
+                <span><?= M('Residence') ?></span><span><?= M('Syria, Damascuse') ?></span>
             </div>
             <div class="info phone">
-                <span><?= __('Phone', 'abdoo') ?></span><span dir="ltr"><a href="https://wa.me/+963945536907">+963 945 536 907</a></span>
+                <span><?= M('Phone') ?></span><span dir="ltr"><a href="https://wa.me/+963945536907">+963 945 536 907</a></span>
             </div>
             <div class="seperator"></div>
-            <h3><?= __('Languages', 'abdoo') ?></h3>
+            <h3><?= M('Languages') ?></h3>
             <div class="languages">
                 <span>
                     <div class="circular-progress-bar" data-duration="2" data-percent="90"><span>90%</span></div>
-                    <?= __('English', 'abdoo') ?>
+                    <?= M('English') ?>
                 </span>
                 <span>
                     <div class="circular-progress-bar" data-duration="2" data-percent="85"><span>85%</span></div>
-                    <?= __('Arabic', 'abdoo') ?>
+                    <?= M('Arabic') ?>
                 </span>
                 <span>
                     <div class="circular-progress-bar" data-duration="2" data-percent="30"><span>30%</span></div>
-                    <?= __('French', 'abdoo') ?>
+                    <?= M('French') ?>
                 </span>
             </div>
             <div class="seperator"></div>
-            <h3><?= __('Top Skills', 'abdoo') ?></h3>
+            <h3><?= M('Top Skills') ?></h3>
             <div class="skills">
                 <?php
                 $skills = [
-                    __('Wordpress', 'abdoo') => 95,
-                    __('Html, Css & Php', 'abdoo') => 90,
-                    __('Leadership', 'abdoo') => 90,
-                    __('Flexibility, Creativity', 'abdoo') => 85,
-                    __('Problem Solving', 'abdoo') => 80,
+                    M('Wordpress') => 95,
+                    M('Html, Css & Php') => 90,
+                    M('Leadership') => 90,
+                    M('Flexibility, Creativity') => 85,
+                    M('Problem Solving') => 80,
                 ];
                 foreach ($skills as $name => $value) : ?>
                     <label><?= $name ?><meter data-duration="2" max="100" value="<?= $value ?>"></meter></label>
@@ -47,7 +47,7 @@
             <div class="seperator"></div>
             <section id="download-cv" class="download-cv-wrap">
                 <a href="/resume" class="download-cv">
-                    <h4><?= __('Download CV', 'abdoo') ?> <?= abdoo_get_svg('download') ?></h4>
+                    <h4><?= M('Download CV') ?> <?= abdoo_get_svg('download') ?></h4>
                 </a>
             </section>
             <section id="social-links" class="social-links">
@@ -66,9 +66,9 @@
                 <div class="hay-there">
                     <h2 class="h1"><?= __('Hey There, I\'m Abdoo', 'abdoo') ?> <br><?= __('Let\'s Make Wonders Together!', 'abdoo') ?></h2>
                     <div class="i-develop-wrap">
-                        <span class="pre-typing-effect"><?= __('I Develop', 'abdoo') ?> </span>
+                        <span class="pre-typing-effect"><?= M('I Develop') ?> </span>
                         <noscript>
-                            <?= __('Custom Themes and Custom Plugins ..', 'abdoo') ?>
+                            <?= M('Custom Themes and Custom Plugins ..') ?>
                         </noscript>
                         <span id="typing-effect"></span>
                     </div>
@@ -80,50 +80,50 @@
             <div class="number-counters">
                 <span data-duration="3" data-max="5" class="number"><noscript>5</noscript></span>
                 <span class="counters-title">
-                    <?= __('Years of Experience', 'abdoo') ?>
+                    <?= M('Years of Experience') ?>
                 </span>
             </div>
             <div class="number-counters">
                 <span data-duration="3" data-max="56" class="number"><noscript>56</noscript></span>
                 <span class="counters-title">
-                    <?= __('Completed Projects​', 'abdoo') ?>
+                    <?= M('Completed Projects​') ?>
                 </span>
             </div>
             <div class="number-counters">
                 <span data-duration="3" data-max="42" class="number"><noscript>42</noscript></span>
                 <span class="counters-title">
-                    <?= __('Happy Customer', 'abdoo') ?>
+                    <?= M('Happy Customer') ?>
                 </span>
             </div>
             <div class="number-counters">
                 <span data-duration="3" data-max="16" class="number"><noscript>16</noscript></span>
                 <span class="counters-title">
-                    <?= __('Honors and Awards', 'abdoo') ?>
+                    <?= M('Honors and Awards') ?>
                 </span>
             </div>
         </section>
         <section id="services" class="services">
-            <h2><?= __('Services', 'abdoo') ?></h2>
+            <h2><?= M('Services') ?></h2>
             <div class="services-wrap">
                 <div class="service">
                     <?= abdoo_get_svg('code-dev', 'abdoo') ?>
-                    <h3><?= __('WP Themes & Plugins', 'abdoo') ?></h3>
-                    <p><?= __('Request your own design and functionality to serve your business needs. Ensuring high reliability, best performance and latest code standards and best practices.', 'abdoo') ?></p>
+                    <h3><?= M('WP Themes & Plugins') ?></h3>
+                    <p><?= M('Request your own design and functionality to serve your business needs. Ensuring high reliability, best performance and latest code standards and best practices.') ?></p>
                 </div>
                 <div class="service">
                     <?= abdoo_get_svg('meter', 'abdoo') ?>
-                    <h3><?= __('Technical SEO And Performance Optimization', 'abdoo') ?></h3>
-                    <p><?= __('Optimizing your site to last byte and Setting up the latest Tech and Speed Hacks while maintaining Stability and Simplicity. Boosting page load time and Site Search engines Ranking.', 'abdoo') ?></p>
+                    <h3><?= M('Technical SEO And Performance Optimization') ?></h3>
+                    <p><?= M('Optimizing your site to last byte and Setting up the latest Tech and Speed Hacks while maintaining Stability and Simplicity. Boosting page load time and Site Search engines Ranking.') ?></p>
                 </div>
                 <div class="service">
                     <?= abdoo_get_svg('wp', 'abdoo') ?>
-                    <h3><?= __('WordPress Development', 'abdoo') ?></h3>
-                    <p><?= __('Professional Responsive sites built with the newest and highest standards ensuring the best SEO results and excellent performance.', 'abdoo') ?></p>
+                    <h3><?= M('WordPress Development') ?></h3>
+                    <p><?= M('Professional Responsive sites built with the newest and highest standards ensuring the best SEO results and excellent performance.') ?></p>
                 </div>
             </div>
         </section>
         <section id="testimonials" class="testimonials">
-            <h2><?= __('Words About Abdoo', 'abdoo') ?></h2>
+            <h2><?= M('Words About Abdoo') ?></h2>
             <div id="testimonials-slider" class="keen-slider testimonials-wrap">
                 <?php $testimonials_items = abdoo_get_testimonials(); ?>
                 <?php while ($testimonials_items->have_posts()) : $testimonials_items->the_post();  ?>
@@ -150,7 +150,7 @@
                 <?php endwhile ?>
                 <?php wp_reset_postdata() ?>
                 <div class="keen-slider__slide last-slide">
-                    <a href="https://www.linkedin.com/in/abdoo-almayhob/details/recommendations/"><?= __('View much more on my Linked-In >>', 'abdoo') ?></a>
+                    <a href="https://www.linkedin.com/in/abdoo-almayhob/details/recommendations/"><?= M('View much more on my Linked-In >>') ?></a>
                 </div>
             </div>
             <noscript>
@@ -167,7 +167,7 @@
             </noscript>
         </section>
         <section id="portfolio">
-            <h2><?= __('Portfolio', 'abdoo') ?></h2>
+            <h2><?= M('Portfolio') ?></h2>
             <?php
             $terms = get_terms([
                 'taxonomy' => 'form',
@@ -210,7 +210,7 @@
             endforeach; ?>
         </section>
         <section id="contact" class="contact">
-            <h2><?= __('Contact Me', 'abdoo') ?></h2>
+            <h2><?= M('Contact Me') ?></h2>
             <div class="contact-wrap">
                 <div class="contant-img">
                     <img width="340" height="330" src="<?= THEME_URI ?>/abdoo-assets/Abdoo-Thinking.webp" alt="Abdullatif Al-Mayhob">
@@ -224,19 +224,19 @@
                     </p>
 
                     <div class="contact-socials">
-                        <strong><?= __('Phone:', 'abdoo') ?></strong>
+                        <strong><?= M('Phone:') ?></strong>
                         <br>
                         <a dir="ltr" href="https://wa.me/+963945536907">
                             +963 945 536 907
                         </a>
                         <br><br>
-                        <strong><?= __('E-Mail:', 'abdoo') ?></strong>
+                        <strong><?= M('E-Mail:') ?></strong>
                         <br>
                         <a href="mailto:abdoo.mayhob@gmail.com">
                             abdoo.mayhob@gmail.com
                         </a>
                         <br><br>
-                        <strong><?= __('Telegram:', 'abdoo') ?></strong>
+                        <strong><?= M('Telegram:') ?></strong>
                         <br>
                         <a href="https://telegram.me/Abdoo_M">
                             @Abdoo_M
