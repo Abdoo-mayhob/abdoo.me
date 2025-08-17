@@ -27,9 +27,14 @@ function abdoo_theme_setup()
 {
 
 
-    // Don't Need .mo translations anymore.
-    load_theme_textdomain('abdoo', get_template_directory() . '/languages');
+    // Who needs best practices any way ?
+    $GLOBALS['M'] = include get_template_directory() . '/languages/ar.l10n.php';
+    $M =& $GLOBALS['M']['messages'];
+    // regex used to turn (only) all __( x1 , x2 ) to $M['x1']
+    // __\(\s*['"]([^'"]+)['"]\s*,\s*['"][^'"]+['"]\s*\)
+    // $M['$1']
 
+    
     // ------------------------------------------------------
     // Make sure that new uploaded media are only 2 sizes: the org and thumbnail
 

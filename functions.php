@@ -330,3 +330,21 @@ add_action( 'init', function () {
     file_put_contents($wp_config_path, $new_contents);
 
 });
+
+
+// --------------------------------------------------------------------------------------
+// Easter Eggs
+
+// 420
+add_action('init', function(){
+    
+    $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+    if ($uri !== '420')return;
+
+    ?>
+    <a href="https://reddit.com/r/leaves/">/r/leaves</a>
+
+    <img src="<?= THEME_URI?>/img/musk.webp" alt="Elon Musk Hitting the J" style="max-width: 100%;position: absolute;bottom: 0;left: 50%;transform:translateX(-50%)">
+    <?php
+    die;
+});

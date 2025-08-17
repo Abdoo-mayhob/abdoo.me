@@ -1,20 +1,20 @@
 html[lang="ar"] body{
-    font-family: 'Tajawal', sans-serif !important;
+    font-family: 't', sans-serif !important;
     direction: rtl;
     unicode-bidi: embed;
 }
 /* === Fonts ===*/
 @font-face {
-    font-family: 'Tajawal';
-    src: url('/wp-content/themes/abdoo/fonts/Tajawal-Medium.woff2') format('woff2');
+    font-family: 't';
+    src: url('/wp-content/themes/abdoo/fonts/tm.woff2') format('woff2');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Tajawal';
-    src: url('/wp-content/themes/abdoo/fonts/Tajawal-Regular.woff2') format('woff2');
+    font-family: 't';
+    src: url('/wp-content/themes/abdoo/fonts/tr.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

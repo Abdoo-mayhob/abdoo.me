@@ -11,11 +11,11 @@
     <title><?=wp_title()?></title>
 
     <?php if(get_locale() == 'ar'): ?>
-        <link rel="preload" as="font" href="<?=SITE_URL?>/wp-content/themes/abdoo/fonts/Tajawal-Medium.woff2" type="font/woff2" crossorigin />
-        <link rel="preload" as="font" href="<?=SITE_URL?>/wp-content/themes/abdoo/fonts/Tajawal-Regular.woff2" type="font/woff2" crossorigin />
+        <link rel="preload" as="font" href="<?=SITE_URL?>/wp-content/themes/abdoo/fonts/tm.woff2" type="font/woff2" crossorigin />
+        <link rel="preload" as="font" href="<?=SITE_URL?>/wp-content/themes/abdoo/fonts/tr.woff2" type="font/woff2" crossorigin />
     <?php else: ?>
-        <link rel="preload" as="font" href="<?=SITE_URL?>/wp-content/themes/abdoo/fonts/Poppins-SemiBold.woff2" type="font/woff2" crossorigin />
-        <link rel="preload" as="font" href="<?=SITE_URL?>/wp-content/themes/abdoo/fonts/Poppins-Regular.woff2" type="font/woff2" crossorigin />
+        <link rel="preload" as="font" href="<?=SITE_URL?>/wp-content/themes/abdoo/fonts/psb.woff2" type="font/woff2" crossorigin />
+        <link rel="preload" as="font" href="<?=SITE_URL?>/wp-content/themes/abdoo/fonts/pr.woff2" type="font/woff2" crossorigin />
     <?php endif ?>
     
     <!-- <link rel="preload" as="font" href="<?=SITE_URL?>/wp-includes/fonts/dashicons.woff2" type="font/woff2" crossorigin /> -->

@@ -8,10 +8,10 @@
         </div>
         <div class="body">
             <div class="info residence">
-                <span><?= __('Residence:', 'abdoo') ?></span><span><?= __('Syria, Damascuse', 'abdoo') ?></span>
+                <span><?= __('Residence', 'abdoo') ?></span><span><?= __('Syria, Damascuse', 'abdoo') ?></span>
             </div>
             <div class="info phone">
-                <span><?= __('Phone:', 'abdoo') ?></span><span dir="ltr">+963 945 536 907</span>
+                <span><?= __('Phone', 'abdoo') ?></span><span dir="ltr"><a href="https://wa.me/+963945536907">+963 945 536 907</a></span>
             </div>
             <div class="seperator"></div>
             <h3><?= __('Languages', 'abdoo') ?></h3>
@@ -38,7 +38,7 @@
                     __('Html, Css & Php', 'abdoo') => 90,
                     __('Leadership', 'abdoo') => 90,
                     __('Flexibility, Creativity', 'abdoo') => 85,
-                    __('Porblem Solving', 'abdoo') => 80,
+                    __('Problem Solving', 'abdoo') => 80,
                 ];
                 foreach ($skills as $name => $value) : ?>
                     <label><?= $name ?><meter data-duration="2" max="100" value="<?= $value ?>"></meter></label>
@@ -64,7 +64,7 @@
         <section class="code-bg-wrap">
             <div class="code-bg" <?php abdoo_bg_img(THEME_URI . '/img/code_bg.webp', '365px', 'abdoo') ?>>
                 <div class="hay-there">
-                    <h2 class="h1"><?= __('Hay There, I\'m Abdoo', 'abdoo') ?> <br><?= __('Let\'s Make Wonders Together!', 'abdoo') ?></h2>
+                    <h2 class="h1"><?= __('Hey There, I\'m Abdoo', 'abdoo') ?> <br><?= __('Let\'s Make Wonders Together!', 'abdoo') ?></h2>
                     <div class="i-develop-wrap">
                         <span class="pre-typing-effect"><?= __('I Develop', 'abdoo') ?> </span>
                         <noscript>
@@ -108,7 +108,7 @@
                 <div class="service">
                     <?= abdoo_get_svg('code-dev', 'abdoo') ?>
                     <h3><?= __('WP Themes & Plugins', 'abdoo') ?></h3>
-                    <p><?= __('Request your own design and functionality to server your business needs. Ensuring high reliability, best performance and latest code standards and best practices.', 'abdoo') ?></p>
+                    <p><?= __('Request your own design and functionality to serve your business needs. Ensuring high reliability, best performance and latest code standards and best practices.', 'abdoo') ?></p>
                 </div>
                 <div class="service">
                     <?= abdoo_get_svg('meter', 'abdoo') ?>
@@ -218,14 +218,15 @@
                 <div class="lets-talk">
                     <h3><?= __('Let\'s Talk About Everything !', 'abdoo') ?></h3>
                     <p>
-                        <?= __("I like talking, meeting new people, making new friends. Let's work on a new project. Let's build a startup together. Let's leave the the earth and conquer the space. Let's eliminate all the boundaries to our dreams.
-                        It would be a pleasure to know you. Contact Me !", 'abdoo') ?>
+                        <?=  (pll_current_language() == 'en') ?  // Easier this way than usual localization
+                        "I like talking, meeting new people, making new friends. Let's work on a new project. Let's build a startup together. Let's leave the the earth and conquer the space. Let's eliminate all the boundaries to our dreams. It would be a pleasure to know you. Contact Me !"
+                        : 'أحب التحدث والتعرف على أشخاص جدد وتكوين صداقات جديدة. لنعمل على مشروع جديد. دعنا نبني شركة ناشئة معًا. فلنترك الأرض ونحتل الفضاء. و لنتخلص من كل الحدود لأحلامنا.سيكون من دواعي سروري أن أتعرف عليك. تواصل معي!'?>
                     </p>
 
                     <div class="contact-socials">
                         <strong><?= __('Phone:', 'abdoo') ?></strong>
                         <br>
-                        <a dir="ltr" href="tel:+963 945 536 907">
+                        <a dir="ltr" href="https://wa.me/+963945536907">
                             +963 945 536 907
                         </a>
                         <br><br>

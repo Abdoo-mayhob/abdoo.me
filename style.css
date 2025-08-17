@@ -50,15 +50,15 @@ xxl: 1400px
 
 /* === Fonts ===*/
 @font-face {
-    font-family: 'Poppins';
-    src: url('/wp-content/themes/abdoo/fonts/Poppins-SemiBold.woff2') format('woff2');
+    font-family: 'p';
+    src: url('/wp-content/themes/abdoo/fonts/psb.woff2') format('woff2');
     font-style: bold;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url('/wp-content/themes/abdoo/fonts/Poppins-Regular.woff2') format('woff2');
+    font-family: 'p';
+    src: url('/wp-content/themes/abdoo/fonts/pr.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -101,7 +101,7 @@ body {
     
 }
 html[lang="en-US"] body{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'p', sans-serif;
 }
 h1, .h1, h2, h3, h4, h5, h6{
     font-weight: normal;
