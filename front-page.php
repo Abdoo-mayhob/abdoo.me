@@ -4,11 +4,11 @@
         <div class="head">
             <img width="120" height="120" class="profile-pic" src="<?= THEME_URI ?>/abdoo-assets/Abdoo-Pic.webp" alt="Abdullatif Al-Mayhob">
             <h1 class="name h2"><?= M('Abdullatif Al-Mayhob') ?></h1>
-            <h2 class="job"><?= M('WordPress Php Dev') ?></h2>
+            <h2 class="job"><?= M(' Senior WordPress PHP Developer') ?></h2>
         </div>
         <div class="body">
             <div class="info residence">
-                <span><?= M('Residence') ?></span><span><?= M('Syria, Damascuse') ?></span>
+                <span><?= M('Residence') ?></span><span><?= M('Syria, Damascus') ?></span>
             </div>
             <div class="info phone">
                 <span><?= M('Phone') ?></span><span dir="ltr"><a href="https://wa.me/+963945536907">+963 945 536 907</a></span>
@@ -63,7 +63,7 @@
     <main id="hero">
         <section class="code-bg-wrap">
             <div class="code-bg" <?php abdoo_bg_img(THEME_URI . '/img/code_bg.webp', '365px', 'abdoo') ?>>
-                <div class="hay-there">
+                <div class="hey-there">
                     <h2 class="h1"><?= __('Hey There, I\'m Abdoo', 'abdoo') ?> <br><?= __('Let\'s Make Wonders Together!', 'abdoo') ?></h2>
                     <div class="i-develop-wrap">
                         <span class="pre-typing-effect"><?= M('I Develop') ?> </span>

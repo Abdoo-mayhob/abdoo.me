@@ -248,7 +248,7 @@ main > *{
     -o-transition: 0.3s;
     transition: 0.3s;
 }
-.hay-there{
+.hey-there{
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -665,7 +665,7 @@ footer{
         flex-direction: column-reverse;
         align-items: center;
     }
-    .hay-there {
+    .hey-there {
         width: 100%;
         text-align: center;
     }    

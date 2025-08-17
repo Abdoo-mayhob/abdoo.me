@@ -87,17 +87,6 @@ function abdoo_theme_setup()
     add_theme_support('title-tag');
 
     // ------------------------------------------------------
-    // Create Featured Posts Tag Setup
-    if (!term_exists('مقالات مختارة', 'post_tag')) {
-        wp_insert_term('مقالات مختارة', 'post_tag');
-    }
-
-    // ------------------------------------------------------
-    // Menus Setup
-    register_nav_menu('header-menu', 'Header Menu');
-    register_nav_menu('footer-menu', 'Footer Menu');
-
-    // ------------------------------------------------------
     // Portfolio Post Type
     register_post_type("portfolio", [
         "label" => "Portfolio",
@@ -317,6 +306,19 @@ add_action("save_post", function ($postID, $post, $update) {
     }
     update_post_meta($postID, PORTFOLIO_PROJECT_LINK, $job);
 }, 10, 3);
+
+// Admin columns
+add_filter('manage_edit-portfolio_columns', function(array $columns){
+    return array_merge($columns, [
+        'link' => 'Link'
+    ]);
+
+});
+add_action('manage_portfolio_posts_custom_column', function (string $column, int $pid){
+    if('link' == $column){
+        echo get_post_meta($pid, PORTFOLIO_PROJECT_LINK, true);
+    }
+}, 10, 2);
 
 // ------------------------------------------------------------------------------------------------
 // Performe needed redirects
