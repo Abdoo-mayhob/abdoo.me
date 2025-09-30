@@ -10,7 +10,7 @@ return [
         'Contact Me' => 'تواصل معي',
         'Custom Themes and Custom Plugins ..' => 'قوالب و اضافات خاصة حسب الطلب ...',
         'Download CV' => 'تحميل الـCV',
-        'Do you like what website ?' => 'حبيت الموقع ؟ بدك متله ؟',
+        'Do you like this website ?' => 'حبيت الموقع ؟ بدك متله ؟',
         'E-Mail:' => 'البريد الإلكتروني',
         'English' => 'الإنكليزية',
         'Flexibility, Creativity' => 'المرونة و الإبداع',
