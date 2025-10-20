@@ -30,13 +30,13 @@ function __(text){
     return text;
 }
 
-var typed = new Typed('#typing-effect', {
-    strings: [__('Custom Themes ..','abdoo'), __('Custom Plugins ..','abdoo')],
-    typeSpeed: 70,
-    backSpeed: 50,
-    //smartBackspace: true, // Default value
-    loop: true,
-});
+// var typed = new Typed('#typing-effect', {
+//     strings: [__('Custom Themes ..','abdoo'), __('Custom Plugins ..','abdoo')],
+//     typeSpeed: 70,
+//     backSpeed: 50,
+//     //smartBackspace: true, // Default value
+//     loop: true,
+// });
 
 // Progress Bars
 var progress_bars = document.querySelectorAll('meter'); 

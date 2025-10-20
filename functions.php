@@ -21,6 +21,15 @@ if ( defined('WP_DEBUG') && true === WP_DEBUG)
 // --------------------------------------------------------------------------------------
 // Getters
 
+/**
+ * is current langague arabic ?
+ * True: Arabic
+ * False: en_us
+ * @return bool
+ */
+function is_ar(){
+    return get_locale() == 'ar';
+}
 function abdoo_get_svg($svg_name){
     ob_start();
     require(get_template_directory().'/img/'.$svg_name.'.svg'); // Note that file_get_contents will load https (maybe cached) files
