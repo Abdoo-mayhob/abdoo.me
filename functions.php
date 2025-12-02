@@ -32,7 +32,7 @@ function is_ar(){
 }
 function abdoo_get_svg($svg_name){
     ob_start();
-    require(get_template_directory().'/img/'.$svg_name.'.svg'); // Note that file_get_contents will load https (maybe cached) files
+    include(get_template_directory().'/img/'.$svg_name.'.svg'); // Note that file_get_contents will load https (maybe cached) files
     return ob_get_clean(); 
 }
 

@@ -33,7 +33,7 @@ html[lang="ar"] body{
     right: 0;
     padding: 3px 3px 0px 3px;
 }
-aside .social-links svg {
+a.sl svg {
     left: unset;
     right: 50%;
     transform: translate(50%,-50%);
@@ -47,4 +47,7 @@ meter::after {
     color: var(--clr-txt);
     font-size: var(--fs-dt);
 }
-
+.abdoo-full {
+    left: -10px;
+    right: unset;
+}

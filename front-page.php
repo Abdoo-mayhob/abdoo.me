@@ -8,28 +8,40 @@
             <h2 class="fwn fst"><?= M('E-Commerce Dev Who’s Scaled His Own Store') ?></h2>
         </div>
         <div class="body">
-            <div class="info residence">
-                <span><?= M('Residence') ?></span><span><?= M('Syria, Damascus') ?></span>
-            </div>
-            <div class="info phone">
-                <span><?= M('Phone') ?></span><span dir="ltr"><a href="https://wa.me/+963945536907">+963 945
-                        536907</a></span>
-            </div>
-            <section id="social-links" class="social-links">
-                <a aria-label="Abdoo on Linked In"
+            <section>
+                <div class="sb">
+                    <strong><?= M('Residence') ?></strong><span><?= M('Mazza, Damascus') ?></span>
+                </div>
+                <div class="sb" style="margin-top: 4px;">
+                    <strong><?= M('Vibes lately?') ?></strong>
+                    <a href="https://youtu.be/FxB6g0nbmUo?si=Kho0WtlVmIlf7xWJ" target="_blank">Ziad Rahbani - Khalas</a>
+                </div>
+            </section>
+            <section class="sb">
+
+                <a class="sl" aria-label="Contact Abdoo Via Email"
+                    href="mailto:abdoo.mayhob@gmail.com"><?= abdoo_get_svg('mail') ?></a>
+
+                <a class="sl" aria-label="Contact Abdoo on Whatsapp"
+                    href="https://wa.me/+963945536907"><?= abdoo_get_svg('whatsapp') ?></a>
+
+                <a class="sl" aria-label="Abdoo on Linked In"
                     href="https://www.linkedin.com/in/abdoo-almayhob/"><?= abdoo_get_svg('linkedin') ?></a>
-                <a aria-label="Abdoo on Gihub" href="https://github.com/abdoo-mayhob"><?= abdoo_get_svg('github') ?></a>
-                <a aria-label="Abdoo on Code Forces"
+
+                <a class="sl" aria-label="Abdoo on Gihub"
+                    href="https://github.com/abdoo-mayhob"><?= abdoo_get_svg('github') ?></a>
+
+                <a class="sl" aria-label="Abdoo on Code Forces"
                     href="https://codeforces.com/profile/AbDoO_"><?= abdoo_get_svg('codeforces') ?></a>
-                <a aria-label="Abdoo on Instagram"
+
+                <a class="sl" aria-label="Abdoo on Instagram"
                     href="https://www.instagram.com/abdoo_almayhob/"><?= abdoo_get_svg('instagram') ?></a>
-                <a aria-label="Abdoo on Facebook"
-                    href="https://facebook.com/abdoo.almayhob"><?= abdoo_get_svg('facebook') ?></a>
-                <a aria-label="Abdoo on Wordpress.org"
+
+                <a class="sl" aria-label="Abdoo on Wordpress.org"
                     href="https://profiles.wordpress.org/abdoomayhob/"><?= abdoo_get_svg('wp') ?></a>
             </section>
-            <section id="download-cv" class="download-cv-wrap">
-                <a href="/resume" class="download-cv">
+            <section class="tc" style="margin-top:4px">
+                <a class="download-cv" href="/resume">
                     <h4><?= M('Download CV') ?> <?= abdoo_get_svg('download') ?></h4>
                 </a>
             </section>
@@ -43,6 +55,7 @@
 
                     & h4 {
                         margin: 0;
+                        color: var(--clr-acc);
                     }
 
                     & p {
@@ -50,18 +63,20 @@
                     }
                 }
             </style>
-            <h3 class="b"><?= M('Questions about Abdoo') ?></h3>
+            <h3 class="b m0"><?= M('Questions about Abdoo') ?></h3>
             <ul id="faqs">
-                <li>
-                    <h4><?= M('Is Abdoo Availabe for Work ?') ?></h4>
-                    <p><?= M('Yes, both as part-time job, and as a frelancer (details below)') ?></p>
                 <li>
                     <h4><?= M("What is Abdoo's main expertise ?") ?></h4>
                     <p><?= M('- Managing and Developing niche E-Comm Stores. <br>- Buliding Advanced Customized WooCommerce Sites.') ?>
                     </p>
+                </li>
                 <li>
                     <h4><?= M('What Languages he speaks ?') ?></h4>
                     <p><?= M('English and Arabic fluently. French Learner.') ?></p>
+                </li>
+                <li>
+                    <h4><?= M('Is Abdoo Availabe for Work ?') ?></h4>
+                    <p><?= M('Yes, both as part-time job, and as a frelancer (details below)') ?></p>
                 </li>
             </ul>
         </div>
@@ -74,7 +89,7 @@
                 <h2 class="h1">
                     <?= M('Looking for <br><span class="clr-acc">E-Com</span> Expert <br>for Your Niche Business ?') ?>
                 </h2>
-                <div>
+                <div class="hi-am-abdoo">
                     <h2 class="m0">
                         <?= __('Hey There, I\'m Abdoo', 'abdoo') ?>
                     </h2>
@@ -122,14 +137,51 @@
                     </ul>
 
                     <p>
-                        I'm available for part-time hiring (4 hours/day) starting at $385 monthly.
+                        I'm available for part-time hiring (120 hours/month) starting at $385 monthly.
                     </p>
-                    <br>
-                    <a class="button" href="https://wa.me/+963945536907" target="_blank">Contact via WhatsApp</a>
-
 
                 <?php else: ?>
+
+                    <h3>
+                        أنت ركز على البزنس
+                        <span class="clr-acc">عالأرض</span>,
+                        وأنا بهندل البزنس
+                        <span class="clr-acc">أونلاين</span>
+                    </h3>
+
+                    <h4>
+                        شو ممكن اخدمك بالظبط ؟
+                    </h4>
+                    <ul>
+                        <li>
+                            <strong class="clr-acc">
+                                1. بحافظ على قوّة المنصّة:
+                            </strong><br>
+                            بنفّذ فحوصات أسبوعية دقيقة للسرعة، الأمان، وتحسين الظهور على محركات البحث (SEO).
+                            هيك بتضل منصّتك أصل قوي وفعّال، مو عبء أو مصدر مشاكل.
+                        </li>
+                        <li>
+                            <strong class="clr-acc">
+                                2. بنفّذ بسرعة وفعالية:
+                            </strong><br>
+                            بطبّق الميزات الجديدة واختبارات الـA/B وتحسين تجربة المستخدم وحملات الترويج بسرعة عالية.
+                            بحوّل الأفكار لنتائج واضحة ومبنية على بيانات خلال أيام، مو شهور.
+                        </li>
+                        <li>
+                            <strong class="clr-acc">
+                                3. بنمّي الأرباح بالاعتماد على البيانات:
+                            </strong><br>
+                            ما بكتفي بصيانة المتجر، أنا بنمّيه.
+                            بعطيك تقارير وتحليلات واضحة مع خطط تسويقية ذكية بتستغل أفضل فرص النمو والربح.
+                        </li>
+                        <p>
+                            متاح للتوظيف الجزئي (120 ساعة بالشهر) مع راتب متوقع ابتداءً من 385 دولار شهرياً
+                        </p>
+                    </ul>
                 <?php endif; ?>
+
+                <br>
+                <a class="button" href="https://wa.me/+963945536907" target="_blank">Contact via WhatsApp</a>
             </div>
         </section>
 
@@ -221,43 +273,6 @@
                     <div class="seperator"></div>
                 <?php endif;
             endforeach; ?>
-        </section>
-        <section id="contact" class="contact">
-            <h2><?= M('Contact Me') ?></h2>
-            <div class="contact-wrap">
-                <div class="contant-img">
-                    <img width="340" height="330" src="<?= THEME_URI ?>/abdoo-assets/Abdoo-Thinking.webp"
-                        alt="Abdullatif Al-Mayhob">
-                </div>
-                <div class="lets-talk">
-                    <h3><?= __('Let\'s Talk About Everything !', 'abdoo') ?></h3>
-                    <p>
-                        <?= (pll_current_language() == 'en') ?  // Easier this way than usual localization
-                            "I like talking, meeting new people, making new friends. Let's work on a new project. Let's build a startup together. Let's leave the the earth and conquer the space. Let's eliminate all the boundaries to our dreams. It would be a pleasure to know you. Contact Me !"
-                            : 'أحب التحدث والتعرف على أشخاص جدد وتكوين صداقات جديدة. لنعمل على مشروع جديد. دعنا نبني شركة ناشئة معًا. فلنترك الأرض ونحتل الفضاء. و لنتخلص من كل الحدود لأحلامنا.سيكون من دواعي سروري أن أتعرف عليك. تواصل معي!' ?>
-                    </p>
-
-                    <div class="contact-socials">
-                        <strong><?= M('Phone:') ?></strong>
-                        <br>
-                        <a dir="ltr" href="https://wa.me/+963945536907">
-                            +963 945 536 907
-                        </a>
-                        <br><br>
-                        <strong><?= M('E-Mail:') ?></strong>
-                        <br>
-                        <a href="mailto:abdoo.mayhob@gmail.com">
-                            abdoo.mayhob@gmail.com
-                        </a>
-                        <br><br>
-                        <strong><?= M('Telegram:') ?></strong>
-                        <br>
-                        <a href="https://telegram.me/Abdoo_M">
-                            @Abdoo_M
-                        </a>
-                    </div>
-                </div>
-            </div>
         </section>
         <?php get_template_part('template-parts/footer') ?>
     </main>

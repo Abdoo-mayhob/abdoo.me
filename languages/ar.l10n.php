@@ -12,7 +12,13 @@ return [
         'Custom Themes and Custom Plugins ..' => 'قوالب و اضافات خاصة حسب الطلب ...',
         'Download CV' => 'تحميل الـCV',
         'Do you like this website ?' => 'حبيت الموقع ؟ بدك متله ؟',
-        'E-Commerce Dev Who’s Scaled His Own Store' => 'مطور مواقع ووكوميرس تخصصية , فاوندر لمتجر كوكي للقطط في دمشق.',
+        'E-Commerce Dev Who’s Scaled His Own Store' => 'مطور مواقع ووكوميرس تخصصية
+<br>
+فاوندر لـ
+<a href="https://koki.sy/" target="blank">
+متجر كوكي
+</a> للقطط في دمشق.
+',
         'E-Mail:' => 'البريد الإلكتروني',
         'English' => 'الإنكليزية',
         'Flexibility, Creativity' => 'المرونة و الإبداع',
@@ -25,6 +31,12 @@ return [
         'I Develop' => 'انا اطور', 'I like talking, meeting new people, making new friends. Let\'s work on a new project. Let\'s build a startup together. Let\'s leave the the earth and conquer the space. Let\'s eliminate all the boundaries to our dreams. It would be a pleasure to know you. Contact Me !' => 'أحب التحدث والتعرف على أشخاص جدد وتكوين صداقات جديدة. لنعمل على مشروع جديد. دعنا نبني شركة ناشئة معًا. فلنترك الأرض ونحتل الفضاء. و لنتخلص من كل الحدود لأحلامنا.
 سيكون من دواعي سروري أن أتعرف عليك. تواصل معي!                    ',
         'Languages' => 'اللغات',
+        'Looking for <br><span class="clr-acc">E-Com</span> Expert <br>for Your Niche Business ?' => '
+        عم تدور على حدا
+<span class="clr-acc">كفؤ</span> و
+<span class="clr-acc">خبير</span>
+        بالتجارة الإلكترونية لشغلك الخاص ؟
+        ',
         'Leadership' => 'القيادة',
         'Let\'s Make Wonders Together!' => 'فلنقم بالمستحيل معاً !',
         'Let\'s Talk About Everything !' => 'فلنتحدث عن كل شيء!',
@@ -41,8 +53,9 @@ return [
         'Request your own design and functionality to server your business needs. Ensuring high reliability, best performance and latest code standards and best practices.' => 'اطلب تصميمك و الميزات الخاصة بك لخدمة احتياجات عملك. ضمان الاعتمادية العالية وأفضل أداء وأحدث معايير جودة الكود.',
         'Questions about Abdoo' => 'شو بتحب تعرف عني',
         'Residence' => 'اين انا ناو',
+        'Vibes lately?' => 'شو عم تسمع هالأيام؟',
         'Services' => 'الخدمات',
-        'Syria, Damascus' => 'سوريا, دمشق',
+        'Mazza, Damascus' => 'دمشق, المزة',
         'Technical SEO And Performance Optimization' => 'تحسين محركات البحث و الاداء',
         'Telegram:' => 'تيليغرام:',
         'Top Skills' => 'المهارات المميزة',
@@ -50,6 +63,7 @@ return [
         'Wordpress' => 'ووردبريس',
         'English and Arabic fluently. French Learner.' => 'الإنكليزية و العربية طبعاً. <br> هاوي في اللغة الفرنسية',
         'What Languages he speaks ?' => 'شو اللغات يلي بتحكيها ؟',
+        'What does Abdoo bring to your team ?' => 'شو القيمة يلي بضيفها عبدو على فريقك ؟',
         'WordPress Development' => 'تطوير مواقع ووردبريس',
         'Words About Abdoo' => 'قالوا عن عبداللطيف',
         "What is Abdoo's main expertise ?" => 'وين خبرتك, مهاراتك واهتماماتك ؟',
