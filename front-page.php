@@ -5,7 +5,7 @@
             <img width="120" height="120" class="profile-pic" src="<?= THEME_URI ?>/abdoo-assets/Abdoo-Pic.webp"
                 alt="Abdullatif Al-Mayhob, Abdoo">
             <h1 class="name h2"><?= M('Abdullatif Al-Mayhob') ?></h1>
-            <h2 class="fwn fst"><?= M('E-Commerce Dev Who’s Scaled His Own Store') ?></h2>
+            <h2 class="fwn fst"><?= M('Senior Wordpress PHP Developer') ?></h2>
         </div>
         <div class="body">
             <section>
@@ -41,33 +41,15 @@
                     href="https://profiles.wordpress.org/abdoomayhob/"><?= abdoo_get_svg('wp') ?></a>
             </section>
             <section class="tc" style="margin-top:4px">
-                <a class="download-cv" href="/resume">
+                <a class="btn" href="/resume">
                     <h4><?= M('Download CV') ?> <?= abdoo_get_svg('download') ?></h4>
                 </a>
             </section>
             <div class="seperator"></div>
-            <style>
-                #faqs {
-
-                    & li {
-                        padding-block: 6px;
-                    }
-
-                    & h4 {
-                        margin: 0;
-                        color: var(--clr-acc);
-                    }
-
-                    & p {
-                        font-size: 12px;
-                    }
-                }
-            </style>
-            <h3 class="b m0"><?= M('Questions about Abdoo') ?></h3>
             <ul id="faqs">
                 <li>
                     <h4><?= M("What is Abdoo's main expertise ?") ?></h4>
-                    <p><?= M('- Managing and Developing niche E-Comm Stores. <br>- Buliding Advanced Customized WooCommerce Sites.') ?>
+                    <p><?= M('- Managing and Developing complex enterprise wordpress sites. <br>- Buliding Advanced Customized Themes and Plugins.') ?>
                     </p>
                 </li>
                 <li>
@@ -84,10 +66,11 @@
     <main id="hero">
 
         <section class="code-bg-wrap">
-            <div class="code-bg" <?php abdoo_bg_img(THEME_URI . '/img/code_bg.webp', '365px', 'abdoo') ?>>
-                <div class="abdoo-full" <?php abdoo_bg_img(THEME_URI . '/abdoo-assets/Abdoo-full.webp', '460px', 'abdoo') ?>></div>
+            <div class="code-bg" <?php abdoo_bg_img(THEME_URI . '/img/code_bg.webp', '365px') ?>>
+                <div class="abdoo-full" <?php abdoo_bg_img(THEME_URI . '/abdoo-assets/Abdoo-full.webp', '460px') ?>>
+                </div>
                 <h2 class="h1">
-                    <?= M('Looking for <br><span class="clr-acc">E-Com</span> Expert <br>for Your Niche Business ?') ?>
+                    <?= M('Looking for a Senior <br><span class="clr-acc">Wordpress</span> Expert ?') ?>
                 </h2>
                 <div class="hi-am-abdoo">
                     <h2 class="m0">
@@ -103,6 +86,53 @@
                 </div>
             </div>
         </section>
+        <section id="latest-projects" class="latest-projects">
+            <h2><?= M('What are the last 2 projects you worked on ?') ?>
+            </h2>
+            <div class="sb" style="gap: 20px;">
+                <div class="box w50">
+                    <h3><a href="https://Koki.sy/"><?= M('Koki.sy e-com for cats in Damascus') ?> 🐾</a></h3>
+                    <?= M('Highly customized store with exceptional UX.') ?>
+                    <br>
+                    <?= M('Fully custom theme and plugins.') ?>
+                    <div style="margin-top: 1rem; display:flex; gap: 8px;">
+                        <figure>
+                            <img src="<?= THEME_URI ?>/abdoo-assets/koki-performance-2025.webp"
+                                alt="koki.sy Perfomance">
+                            <figcaption>
+                                <?= M('Fast even on 3G networks') ?>
+                                <br>
+                                <a
+                                    href="https://pagespeed.web.dev/analysis/https-koki-sy/cruant4391?form_factor=mobile">
+                                    <?= M('Check for youself') ?> </a>
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img src="<?= THEME_URI ?>/abdoo-assets/koki-seo-2025.webp" alt="koki.sy SEO Results">
+                            <figcaption><?= M('#1 on Google for "أكل قطط في دمشق"') ?> </figcaption>
+                        </figure>
+                    </div>
+                    <br>
+                </div>
+                <div class="box w50">
+                    <h3><a href="https://hbrarabic.com/"><?= M('hbrarabic.com') ?></a></h3>
+                    <?= M('High Traffic E-Magazine with tens of CPTs and +100,000 posts.') ?>
+                    <br>
+                    <?= M('Fully custom theme and plugins.') ?>
+                    <br>
+                    <?= M('Top SEO + blazing fast performance.') ?>
+                    <div style="margin-top: 1rem; display:flex; gap: 8px;">
+                        <figure>
+                            <img src="<?= THEME_URI ?>/abdoo-assets/hbr-performance-2025.webp" alt="HBR Perfomance">
+                        </figure>
+                        <figure>
+                            <img src="<?= THEME_URI ?>/abdoo-assets/hbr-seo-2025.webp" alt="HBR SEO Results">
+                        </figure>
+                    </div>
+                </div>
+
+            </div>
+        </section>
         <section id="services" class="services">
             <h2><?= M("What does Abdoo bring to your team ?") ?></h2>
 
@@ -111,12 +141,44 @@
 
                     <h3>
                         Hire me as your dedicated
-                        <span class='clr-acc'>e-commerce growth</span> engine.
+                        <span class='clr-acc'>Wordpress</span> Expert.
                     </h3>
-                    I will focus on the e-com part, so you can focus on the business.
+                    <p>
+                        I will focus on the website, so you can focus on the business.
+                    </p>
+                    <br>
+                    <p>
+                        I help enterprise publishers and high-growth e-commerce brands deploy, optimize, and scale custom
+                        WordPress ecosystems. Built for speed, SEO, and security.
+                        <br>
+                        No bloat. No drag. Just performance-driven results and rapid implementation.
+                    </p>
 
                     <div class="seperator"></div>
+                    <h3>Expertise Areas/ Highly skilled at:</h3>
+                    <ul>
+                        <li>
+                            - Custom WordPress Theme & Plugin Development
+                        </li>
+                        <li>
+                            - Scalable Architecture for High-Traffic Websites
+                        </li>
+                        <li>
+                            - Full-Stack Optimization: Backend + UX + SEO
+                        </li>
+                        <li>
+                            - Plugin Engineering & API Integrations
+                        </li>
+                        <li>
+                            - Performance & Security Hardening
+                        </li>
+                        <li>
+                            - Rapid Feature Implementation for Growth Campaigns
+                        </li>
+                    </ul>
+                    <div class="seperator"></div>
                     <h3>What do I Do ?</h3>
+
                     <ul>
                         <li>
                             <span class='clr-acc'>1 - Eliminate Platform Decay:</span><br>
@@ -130,14 +192,22 @@
                         </li>
                         <li>
                             <span class='clr-acc'>3 - Drive Profit with Data-Backed Decisions:</span><br>
-                            I don't just maintain your store; I grow it. I provide actionable insights and marketing
+                            I don't just maintain your website; I grow it. I provide actionable insights and marketing
                             strategies
                             to identify and exploit your highest-leverage growth opportunities.
                         </li>
                     </ul>
 
+                    <br><br>
                     <p>
-                        I'm available for part-time hiring (120 hours/month) starting at $385 monthly.
+                        <strong>Let's get your business online.</strong>
+                        <br><br>
+                        <a class="btn" href="https://wa.me/+963945536907" target="_blank">
+                            <span>
+                                Chat with Abdoo
+                            </span>
+                            <?= abdoo_get_svg('whatsapp') ?>
+                        </a>
                     </p>
 
                 <?php else: ?>
@@ -177,11 +247,25 @@
                         <p>
                             متاح للتوظيف الجزئي (120 ساعة بالشهر) مع راتب متوقع ابتداءً من 385 دولار شهرياً
                         </p>
+                        <p>
+                            <br>
+                            <strong>شايل هم</strong>
+                            انك مانك عم تواكب التطور التقني بالسوق و التجارة أونلاين ؟
+                            <br>
+                            جاهز تسلم الخبز للخباز ؟
+                            <br>
+                            يلا
+                            <strong>خلينا نبلش شغل</strong>, سوياً...
+                            <a class="btn" href="https://wa.me/+963945536907" target="_blank">
+                                <span>
+                                    حكيني واتس
+                                </span>
+                                <?= abdoo_get_svg('whatsapp') ?>
+                            </a>
+                        </p>
+
                     </ul>
                 <?php endif; ?>
-
-                <br>
-                <a class="button" href="https://wa.me/+963945536907" target="_blank">Contact via WhatsApp</a>
             </div>
         </section>
 
@@ -232,7 +316,7 @@
             </noscript>
         </section>
         <section id="portfolio">
-            <h2><?= M('Portfolio') ?></h2>
+            <h2><?= M('Portfolio Highlights') ?></h2>
             <?php
             $terms = get_terms([
                 'taxonomy' => 'form',
