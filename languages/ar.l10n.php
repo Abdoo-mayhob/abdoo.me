@@ -14,7 +14,7 @@ return [
         'Check for youself' => 'اضغط هنا وجرب بنفسك',
         'Download CV' => 'تحميل الـCV',
         'Do you like this website ?' => 'حبيت الموقع ؟ بدك متله ؟',
-        'Senior Wordpress PHP Developer' => 'مطور ووردبريس محترف',
+        'Senior Wordpress PHP Developer <br> Plugins & Themes Specialist' => 'مطور ووردبريس محترف <br>مختص ببناء البلغنز و الثيمز ',
         'E-Mail:' => 'البريد الإلكتروني',
         'English' => 'الإنكليزية',
         'Flexibility, Creativity' => 'المرونة و الإبداع',

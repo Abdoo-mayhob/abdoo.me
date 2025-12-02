@@ -5,7 +5,7 @@
             <img width="120" height="120" class="profile-pic" src="<?= THEME_URI ?>/abdoo-assets/Abdoo-Pic.webp"
                 alt="Abdullatif Al-Mayhob, Abdoo">
             <h1 class="name h2"><?= M('Abdullatif Al-Mayhob') ?></h1>
-            <h2 class="fwn fst"><?= M('Senior Wordpress PHP Developer') ?></h2>
+            <h2 class="fwn fst"><?= M('Senior Wordpress PHP Developer <br> Plugins & Themes Specialist') ?></h2>
         </div>
         <div class="body">
             <section>
