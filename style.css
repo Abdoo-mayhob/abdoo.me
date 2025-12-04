@@ -204,7 +204,8 @@ small {
     font-size: var(--fs-dt);
     color: var(--clr-txt);
 }
-a.small{
+
+a.small {
     font-size: var(--fs-dt);
 }
 
@@ -256,6 +257,7 @@ li {
     display: flex;
     justify-content: space-between;
 }
+
 .w50 {
     width: 50%;
 }
@@ -700,6 +702,7 @@ a.sl svg {
     left: 50%;
     transform: translate(-52%, -50%);
 }
+
 #faqs {
 
     & li {
@@ -726,10 +729,13 @@ a.sl svg {
     & figure {
         width: 45%;
     }
-    & figcaption, & figcaption a {
+
+    & figcaption,
+    & figcaption a {
         font-size: var(--fs-dt);
     }
 }
+
 /* === Loop === */
 
 /* === Single Post === */
@@ -804,6 +810,14 @@ footer {
 
     .main-container>* {
         width: 100%;
+    }
+
+    #latest-projects .w50 {
+        width: 100%;
+    }
+
+    #latest-projects .sb {
+        flex-wrap: wrap;
     }
 
     /* aside {
